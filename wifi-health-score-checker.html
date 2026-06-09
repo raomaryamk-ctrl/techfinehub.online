@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>WiFi Router Health Score | Test Your Router Speed & Stability | TechFineHub</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%234F46E5%27/%3E%3Cpath d=%27M13 2 4 14h6l-1 8 9-12h-6l1-8Z%27 fill=%27white%27/%3E%3C/svg%3E">
+<meta name="description" content="Router ko reboot karna parta hai? Speed drop ya disconnection? Run a free 6-question WiFi Router Health Score test and get an instant 0-100 score with fixes for slow speed, dropouts, and weak signal.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.techfinehub.online/wifi-health-score-checker">
+<meta property="og:title" content="WiFi Router Health Score — Test Your Router Free">
+<meta property="og:description" content="6-question test that scores your WiFi router across speed, stability, signal, age, congestion, and security. Get your Router Health Score in 90 seconds.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#00897B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "WiFi Router Health Score",
+      "url": "https://www.techfinehub.online/wifi-health-score-checker",
+      "description": "A 6-parameter diagnostic that scores home WiFi router health across speed, stability, signal coverage, hardware age, channel congestion, and security.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "provider": { "@type": "Organization", "name": "TechFineHub", "url": "https://www.techfinehub.online" }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Test WiFi Router Health",
+      "description": "Use the 6-step WiFi Router Health Score test to find why your WiFi is slow, dropping, or weak.",
+      "step": [
+        { "@type": "HowToStep", "name": "Answer 6 questions", "text": "Respond to six questions covering speed, stability, signal, router age, congestion, and security." },
+        { "@type": "HowToStep", "name": "Get your Router Health Score", "text": "The engine computes a 0-100 score and shows the weakest area." },
+        { "@type": "HowToStep", "name": "Apply the recommended fixes", "text": "Receive targeted fixes from router placement and channel changes to firmware updates and upgrade guidance." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why do I have to reboot my router so often?", "acceptedAnswer": { "@type": "Answer", "text": "Frequent reboots usually mean the router is overheating, running low on memory due to old firmware, or is overloaded by too many connected devices. Improve ventilation, update the firmware, and if reboots persist after a factory reset, the router hardware is likely aging and due for replacement." } },
+        { "@type": "Question", "name": "Why does my WiFi speed drop randomly?", "acceptedAnswer": { "@type": "Answer", "text": "Random speed drops are commonly caused by channel congestion from neighbouring networks, distance and obstacles weakening the signal, an overloaded router, or ISP-side issues. Switch to a less crowded channel, use the 5GHz band when close, and reduce interference from microwaves and cordless phones." } },
+        { "@type": "Question", "name": "How can I get better WiFi signal at home?", "acceptedAnswer": { "@type": "Answer", "text": "Place the router central, high, and out in the open - not in a cabinet or on the floor. Keep it away from walls, metal, mirrors, and appliances. For large homes or multiple floors, a mesh WiFi system or an access point gives far better coverage than a single router." } },
+        { "@type": "Question", "name": "How long does a WiFi router last?", "acceptedAnswer": { "@type": "Answer", "text": "Most home routers last about 3 to 5 years before the hardware ages and newer WiFi standards make them slow. If your router is older than 4 to 5 years, only supports the 2.4GHz band, or cannot keep up with your internet plan, upgrading to a Wi-Fi 5 (AC) or Wi-Fi 6 (AX) router is usually the biggest single improvement." } },
+        { "@type": "Question", "name": "Is changing my WiFi channel really helpful?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, especially in apartments and dense areas. If many nearby networks share your channel, they interfere and slow everyone down. Switching the 2.4GHz band to channel 1, 6, or 11 (whichever is least used) or enabling auto-channel selection can noticeably reduce lag and dropouts." } },
+        { "@type": "Question", "name": "How do I keep my WiFi router secure?", "acceptedAnswer": { "@type": "Answer", "text": "Use WPA2 or WPA3 encryption, set a strong unique WiFi password, change the default admin login, and keep firmware updated. Disable WPS and remote management if you do not need them. A poorly secured router can be slowed down or misused by unknown devices on your network." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* ============ MATERIAL DESIGN 3 — TOKENS (WiFi teal identity) ============ */
+:root{
+  --primary:#00897B;          /* teal */
+  --primary-hover:#00736A;
+  --primary-light:#26A69A;
+  --primary-container:#CCEAE7;
+  --on-primary-container:#00201C;
+  --primary-08:rgba(0,137,123,.08);
+  --primary-12:rgba(0,137,123,.12);
+  --accent:#1565C0;           /* deep blue secondary */
+  --accent-2:#00B8D4;         /* cyan */
+  --bg:#EEF4F3;--bg-2:#E4EEEC;--surface:#FFFFFF;--surface-2:#F6FAF9;--surface-3:#E9F2F0;
+  --on-surface:#1A1C1B;--on-surface-2:#3F4945;--on-surface-3:#5A6360;
+  --outline:#D5DDDA;--outline-2:#E4EBE9;
+  --green:#1E8E3E;--green-c:#E6F4EA;--blue:#1565C0;--blue-c:#E3EEFB;
+  --amber:#E37400;--amber-c:#FEEFC3;--red:#D93025;--red-c:#FCE8E6;
+  --violet:#6A1B9A;--violet-c:#F1E4F8;
+  --e1:0 1px 2px rgba(40,60,57,.10),0 1px 3px 1px rgba(40,60,57,.06);
+  --e2:0 1px 3px rgba(40,60,57,.12),0 4px 8px 3px rgba(40,60,57,.07);
+  --e3:0 4px 8px rgba(40,60,57,.12),0 8px 24px 6px rgba(40,60,57,.09);
+  --e4:0 8px 16px rgba(40,60,57,.14),0 16px 40px 10px rgba(40,60,57,.10);
+  --radius-s:12px;--radius:18px;--radius-l:28px;--radius-xl:36px;
+  --font:"Roboto",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--on-surface);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:var(--primary-container);color:var(--on-primary-container)}
+a{color:inherit;text-decoration:none}
+img,svg,canvas{display:block;max-width:100%}
+button{touch-action:manipulation}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 max(18px,4vw)}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--primary);background:var(--primary-08);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+h1,h2,h3{letter-spacing:-.5px;line-height:1.15;color:var(--on-surface)}
+.section-head{max-width:680px;margin-bottom:44px}
+.section-head h2{font-size:clamp(26px,4.2vw,42px);font-weight:700;margin-bottom:14px}
+.section-head p{font-size:clamp(15px,2vw,18px);color:var(--on-surface-3);line-height:1.7}
+.pad{padding:clamp(48px,9vw,110px) 0}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;padding:clamp(34px,7vw,90px) 0 clamp(48px,8vw,100px)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-mesh{position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 50% at 18% 20%,rgba(0,137,123,.20),transparent 60%),radial-gradient(45% 55% at 85% 30%,rgba(0,184,212,.14),transparent 60%),radial-gradient(50% 60% at 70% 90%,rgba(21,101,192,.10),transparent 60%);animation:meshFloat 16s ease-in-out infinite alternate}
+@keyframes meshFloat{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-3%,2%,0) scale(1.08)}}
+.hero-grid-overlay{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;background-image:linear-gradient(var(--outline-2) 1px,transparent 1px),linear-gradient(90deg,var(--outline-2) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-copy{opacity:0;transform:translateY(20px);animation:rise .8s .1s cubic-bezier(.2,.7,.2,1) forwards}
+.badge-live{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--outline);padding:7px 14px 7px 10px;border-radius:999px;font-size:13px;font-weight:500;color:var(--on-surface-2);box-shadow:var(--e1);margin-bottom:22px;max-width:100%}
+.badge-live .live{width:8px;height:8px;border-radius:50%;background:var(--green);animation:ring 1.8s infinite;flex:none}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(30,142,62,.4)}70%{box-shadow:0 0 0 9px rgba(30,142,62,0)}100%{box-shadow:0 0 0 0 rgba(30,142,62,0)}}
+.viral{background:linear-gradient(135deg,#00897B,#00B8D4)!important;color:#fff!important;border:none!important}
+.viral .live{background:#fff!important}
+.hero h1{font-size:clamp(32px,6.2vw,64px);font-weight:900;letter-spacing:-1.4px}
+.hero h1 .grad{background:linear-gradient(120deg,var(--primary-light),var(--accent) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:clamp(15.5px,2.1vw,19px);color:var(--on-surface-3);margin:20px 0 28px;max-width:560px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-size:15px;font-weight:600;border:none;cursor:pointer;border-radius:999px;padding:15px 26px;transition:all .22s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden}
+.btn-filled{background:var(--primary);color:#fff;box-shadow:var(--e2)}
+.btn-filled:hover{background:var(--primary-hover);box-shadow:var(--e3);transform:translateY(-2px)}
+.btn-filled svg{transition:transform .22s ease}
+.btn-filled:hover svg{transform:translateX(4px)}
+.btn-tonal{background:var(--primary-container);color:var(--on-primary-container)}
+.btn-tonal:hover{box-shadow:var(--e1);transform:translateY(-2px)}
+.btn-text{background:transparent;color:var(--primary);padding:15px 16px}
+.btn-text:hover{background:var(--primary-08)}
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.45);animation:rip .6s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+.hero-stats{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.hstat{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-s);padding:13px 16px;box-shadow:var(--e1);flex:1;min-width:104px}
+.hstat b{display:block;font-size:24px;font-weight:800;color:var(--primary);letter-spacing:-.5px}
+.hstat span{font-size:12px;color:var(--on-surface-3);font-weight:500}
+
+/* ===== Hero 3D router with signal waves ===== */
+.scene-wrap{opacity:0;transform:translateY(24px);animation:rise .9s .25s cubic-bezier(.2,.7,.2,1) forwards;perspective:1400px;display:grid;place-items:center}
+.router-scene{position:relative;width:min(360px,82%);aspect-ratio:1/1;transform-style:preserve-3d;transform:rotateX(20deg) rotateY(-18deg);animation:routerSpin 13s ease-in-out infinite alternate}
+@keyframes routerSpin{0%{transform:rotateX(20deg) rotateY(-18deg) translateY(0)}50%{transform:rotateX(16deg) rotateY(-8deg) translateY(-12px)}100%{transform:rotateX(22deg) rotateY(-26deg) translateY(0)}}
+.router-scene::before{content:"";position:absolute;inset:-16%;border-radius:50%;background:radial-gradient(circle,rgba(0,137,123,.32),rgba(0,184,212,.2) 45%,transparent 70%);filter:blur(32px);transform:translateZ(-80px);animation:auraPulse 5s ease-in-out infinite}
+@keyframes auraPulse{0%,100%{opacity:.7;transform:translateZ(-80px) scale(1)}50%{opacity:1;transform:translateZ(-80px) scale(1.1)}}
+/* expanding signal rings */
+.sig{position:absolute;left:50%;top:42%;width:60px;height:60px;border-radius:50%;border:2.5px solid var(--primary-light);transform:translate(-50%,-50%) translateZ(40px);opacity:0;animation:sigwave 3.4s ease-out infinite}
+.sig.s2{animation-delay:1.13s;border-color:var(--accent-2)}
+.sig.s3{animation-delay:2.26s;border-color:var(--accent)}
+@keyframes sigwave{0%{opacity:.9;width:50px;height:50px}80%{opacity:0;width:320px;height:320px}100%{opacity:0}}
+/* router body */
+.router{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%) translateZ(48px);width:170px;height:96px;border-radius:18px;background:linear-gradient(160deg,#2a3a44,#0f181d 70%);box-shadow:var(--e4),inset 0 1px 0 rgba(255,255,255,.12);transform-style:preserve-3d;border:1px solid #36474f}
+.router::after{content:"";position:absolute;inset:0;border-radius:18px;background:linear-gradient(120deg,rgba(255,255,255,.18) 0%,transparent 35%,transparent 70%,rgba(255,255,255,.07) 100%)}
+/* LED row */
+.router .leds{position:absolute;bottom:12px;left:16px;display:flex;gap:9px}
+.router .leds i{width:8px;height:8px;border-radius:50%;background:#0c5;box-shadow:0 0 8px #0c5;animation:blink 1.6s ease-in-out infinite}
+.router .leds i:nth-child(2){background:#00B8D4;box-shadow:0 0 8px #00B8D4;animation-delay:.3s}
+.router .leds i:nth-child(3){background:#7CFFCB;box-shadow:0 0 8px #7CFFCB;animation-delay:.6s}
+.router .leds i:nth-child(4){background:#ffd24d;box-shadow:0 0 8px #ffd24d;animation-delay:.9s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+/* WiFi glyph on top */
+.router .wlogo{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:34px;height:34px;color:var(--primary-light);filter:drop-shadow(0 0 8px rgba(38,166,154,.6));animation:logoPulse 2.6s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.12)}}
+/* antennas */
+.ant{position:absolute;width:7px;height:62px;border-radius:6px;background:linear-gradient(180deg,#3a4a52,#1a242a);box-shadow:var(--e1);transform-style:preserve-3d}
+.ant.a1{left:30%;top:6%;transform:translateZ(40px) rotate(-18deg)}
+.ant.a2{right:30%;top:6%;transform:translateZ(40px) rotate(18deg)}
+.ant::after{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:13px;height:13px;border-radius:50%;background:radial-gradient(circle,#26A69A,#00736A);box-shadow:0 0 10px rgba(38,166,154,.8)}
+/* floating device chips */
+.chip-float{position:absolute;background:rgba(255,255,255,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.6);box-shadow:var(--e3);border-radius:13px;padding:8px 12px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px;transform-style:preserve-3d;white-space:nowrap}
+.chip-float i{width:8px;height:8px;border-radius:50%;display:inline-block;box-shadow:0 0 8px currentColor}
+.cf1{top:2%;left:-18%;transform:translateZ(110px);animation:floaty 5s ease-in-out infinite}
+.cf2{top:40%;right:-24%;transform:translateZ(95px);animation:floaty 6s ease-in-out infinite .8s}
+.cf3{bottom:4%;left:-12%;transform:translateZ(78px);animation:floaty 5.5s ease-in-out infinite .4s}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -13px}}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.trust-row{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:8px;position:relative;z-index:2}
+.trust-chip{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--outline-2);border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:500;color:var(--on-surface-2);box-shadow:var(--e1)}
+.trust-chip svg{width:15px;height:15px;color:var(--green);flex:none}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:34px}.scene-wrap{order:-1}.router-scene{width:min(260px,70%)}}
+
+/* ============ TOOL ============ */
+.tool-section{padding:clamp(36px,7vw,80px) 0}
+.tool-card{background:var(--surface);border-radius:var(--radius-xl);box-shadow:var(--e3);border:1px solid var(--outline-2);overflow:hidden;position:relative}
+.tool-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:18px clamp(16px,4vw,38px);border-bottom:1px solid var(--outline-2);background:linear-gradient(180deg,var(--surface-2),var(--surface))}
+.tool-top .t-left{display:flex;align-items:center;gap:12px;min-width:0}
+.engine-ico{width:40px;height:40px;border-radius:11px;background:var(--primary-container);display:grid;place-items:center;color:var(--primary);flex:none}
+.tool-top h3{font-size:16px;font-weight:700;line-height:1.2}
+.tool-top .ver{font-size:11.5px;color:var(--on-surface-3);font-family:var(--mono)}
+.step-pill{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--primary);background:var(--primary-08);padding:7px 13px;border-radius:999px;flex:none}
+.tool-body{padding:clamp(18px,4vw,40px)}
+.prog-wrap{margin-bottom:26px}
+.prog-rail{height:6px;border-radius:999px;background:var(--surface-3);overflow:hidden}
+.prog-fill{height:100%;width:16.6%;border-radius:999px;background:linear-gradient(90deg,var(--primary-light),var(--primary));transition:width .55s cubic-bezier(.2,.7,.2,1)}
+.dots{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.dot-step{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--on-surface-3);font-weight:500;transition:color .3s}
+.dot-step .d{width:22px;height:22px;border-radius:50%;border:2px solid var(--outline);display:grid;place-items:center;font-size:10.5px;font-weight:700;color:var(--on-surface-3);background:var(--surface);transition:all .3s;flex:none}
+.dot-step.active .d{border-color:var(--primary);color:var(--primary);background:var(--primary-08)}
+.dot-step.done .d{border-color:var(--green);background:var(--green);color:#fff}
+.dot-step.active{color:var(--primary)}
+.dot-conn{width:14px;height:2px;background:var(--outline)}
+@media(max-width:720px){.dot-step .lbl{display:none}.dot-conn{width:100%;flex:1;min-width:6px}.dots{gap:6px}}
+.q-step{display:none;animation:qfade .4s cubic-bezier(.2,.7,.2,1)}
+.q-step.active{display:block}
+@keyframes qfade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.q-param{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--primary);letter-spacing:.4px;text-transform:uppercase;margin-bottom:9px}
+.q-text{font-size:clamp(18px,3vw,27px);font-weight:700;letter-spacing:-.4px;margin-bottom:11px}
+.q-desc{font-size:14.5px;color:var(--on-surface-3);line-height:1.7;margin-bottom:22px;max-width:760px}
+.choices{display:grid;gap:11px}
+.choice{display:flex;align-items:flex-start;gap:13px;text-align:left;width:100%;cursor:pointer;background:var(--surface);border:1.5px solid var(--outline);border-radius:var(--radius);padding:15px 16px;transition:all .2s cubic-bezier(.2,.7,.2,1);font-family:inherit;position:relative}
+.choice:hover{border-color:var(--primary-light);background:var(--surface-2)}
+.choice.sel{border-color:var(--primary);background:var(--primary-08);box-shadow:0 0 0 3px var(--primary-12)}
+.choice .radio{width:22px;height:22px;border-radius:50%;border:2px solid var(--outline);flex:none;margin-top:1px;display:grid;place-items:center;transition:all .2s}
+.choice.sel .radio{border-color:var(--primary)}
+.choice .radio::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--primary);transform:scale(0);transition:transform .2s}
+.choice.sel .radio::after{transform:scale(1)}
+.choice .c-body{flex:1;min-width:0}
+.choice .c-label{font-size:15px;font-weight:600;color:var(--on-surface);display:block;line-height:1.4}
+.choice .c-hint{font-size:12.5px;color:var(--on-surface-3);font-family:var(--mono);margin-top:5px;display:block;line-height:1.5}
+.q-nav{display:flex;justify-content:space-between;gap:10px;margin-top:26px}
+.btn-back{background:transparent;color:var(--on-surface-2);border:1.5px solid var(--outline);border-radius:999px;padding:13px 22px;font-weight:600;font-size:15px;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-back:hover:not(:disabled){background:var(--surface-2);border-color:var(--on-surface-3)}
+.btn-back:disabled{opacity:.4;cursor:not-allowed}
+.btn-next{background:var(--outline);color:var(--surface);border:none;border-radius:999px;padding:13px 26px;font-weight:600;font-size:15px;cursor:not-allowed;font-family:inherit;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-next.ready{background:var(--primary);color:#fff;cursor:pointer;box-shadow:var(--e2)}
+.btn-next.ready:hover{background:var(--primary-hover);box-shadow:var(--e3);transform:translateY(-1px)}
+.calib{display:none;flex-direction:column;align-items:center;justify-content:center;padding:50px 16px;text-align:center}
+.calib.active{display:flex;animation:qfade .4s}
+.calib canvas{width:150px;height:150px}
+.calib h4{font-size:19px;font-weight:700;margin-top:10px}
+.calib p{font-size:13.5px;color:var(--on-surface-3);font-family:var(--mono);margin-top:6px}
+.calib .scan-log{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--primary);min-height:20px}
+.results{display:none}
+.results.active{display:block;animation:qfade .5s}
+.res-hero{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;margin-bottom:32px}
+.gauge-wrap{position:relative;width:210px;height:210px;flex:none;max-width:100%}
+.gauge-wrap canvas{position:absolute;inset:0;width:100%;height:100%}
+.gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.gauge-center .score{font-size:52px;font-weight:900;letter-spacing:-2px;line-height:1}
+.gauge-center .of{font-size:12.5px;color:var(--on-surface-3);font-family:var(--mono);margin-top:2px}
+.res-meta .status-badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:7px 15px;border-radius:999px;margin-bottom:13px}
+.res-meta h3{font-size:clamp(20px,3vw,30px);font-weight:800;letter-spacing:-.6px;margin-bottom:9px}
+.res-meta p{font-size:15px;color:var(--on-surface-3);line-height:1.7}
+.res-cols{display:grid;grid-template-columns:320px 1fr;gap:22px;margin-bottom:28px}
+.radar-card,.breakdown-card{background:var(--surface-2);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:22px}
+.card-title{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--on-surface-2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.radar-card canvas{width:100%;height:auto;aspect-ratio:1/1;max-width:280px;margin:0 auto}
+.bd-item{margin-bottom:16px}
+.bd-item:last-child{margin-bottom:0}
+.bd-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;gap:10px}
+.bd-top .bl{font-weight:600;color:var(--on-surface)}
+.bd-top .bv{font-weight:700;font-family:var(--mono);flex:none}
+.bd-track{height:8px;border-radius:999px;background:var(--surface-3);overflow:hidden}
+.bd-fill{height:100%;width:0;border-radius:999px;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.analysis-box{background:var(--blue-c);border-left:4px solid var(--accent);border-radius:var(--radius-s);padding:20px 22px;margin-bottom:16px}
+.analysis-box .ab-t{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);margin-bottom:9px}
+.analysis-box p{font-size:14.5px;line-height:1.75;color:var(--on-surface)}
+.rem-box{background:var(--surface-2);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:22px}
+.rem-box .ab-t{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--on-surface-2);margin-bottom:11px}
+.rem-box p{font-size:14.5px;line-height:1.75;color:var(--on-surface-2)}
+.rem-box strong{color:var(--on-surface)}
+.pro-tip{margin-top:16px;display:flex;gap:12px;align-items:flex-start;background:var(--green-c);border-radius:var(--radius-s);padding:14px 16px}
+.pro-tip svg{color:var(--green);flex:none;margin-top:2px}
+.pro-tip span{font-size:13px;color:var(--on-surface);line-height:1.6}
+.res-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+@media(max-width:760px){.res-hero{grid-template-columns:1fr;justify-items:center;text-align:center;gap:20px}.res-cols{grid-template-columns:1fr}.gauge-wrap{width:180px;height:180px}.gauge-center .score{font-size:44px}}
+
+/* share */
+.share-card{margin-top:26px;background:linear-gradient(135deg,var(--primary),#00736A 55%,var(--accent));border-radius:var(--radius-l);padding:22px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:var(--e2)}
+.share-card .sc-left b{font-size:17px;font-weight:800}
+.share-card .sc-left p{font-size:13px;color:rgba(255,255,255,.85);margin-top:4px;max-width:380px}
+.share-btns{display:flex;gap:9px;flex-wrap:wrap}
+.share-btns button,.share-btns a{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);color:#fff;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:13px;padding:11px 15px;border-radius:999px;transition:background .2s}
+.share-btns button:hover,.share-btns a:hover{background:rgba(255,255,255,.28)}
+.share-btns .primary{background:#fff;color:var(--primary)}
+.share-btns .primary:hover{background:#eafffb}
+
+/* ============ GENERIC SECTIONS ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+.flow-line{position:absolute;top:54px;left:14%;right:14%;height:3px;border-radius:999px;background:var(--outline-2);overflow:hidden;z-index:0}
+.flow-line::after{content:"";position:absolute;top:0;left:0;height:100%;width:40%;border-radius:999px;background:linear-gradient(90deg,transparent,var(--primary-light),var(--accent-2),transparent);animation:flowMove 2.6s linear infinite}
+@keyframes flowMove{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+@media(max-width:980px){.flow-line{display:none}}
+.proc-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:28px;box-shadow:var(--e1);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;z-index:1}
+.proc-card h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.proc-card p{font-size:14px;color:var(--on-surface-3);line-height:1.7}
+.proc-num{font-size:15px;font-weight:800;color:#fff;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--primary-light),var(--primary));display:grid;place-items:center;margin-bottom:16px;box-shadow:var(--e1);position:relative}
+.proc-num::after{content:"";position:absolute;inset:-6px;border-radius:18px;border:1.5px dashed rgba(0,137,123,.4);animation:spinSlow 9s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.tilt{transform-style:preserve-3d;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.tilt > *{transform:translateZ(24px)}
+.proc-card.tilt::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),var(--primary-08),transparent 60%);opacity:0;transition:opacity .3s;z-index:-1}
+.proc-card.tilt:hover::before{opacity:1}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:24px;box-shadow:var(--e1);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;perspective:600px}
+.feat-card:hover{box-shadow:var(--e2)}
+.feat-ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:15px;transform-style:preserve-3d;animation:icoFloat 4s ease-in-out infinite;transition:transform .3s}
+.feat-card:nth-child(2) .feat-ico{animation-delay:.4s}.feat-card:nth-child(3) .feat-ico{animation-delay:.8s}.feat-card:nth-child(4) .feat-ico{animation-delay:1.2s}.feat-card:nth-child(5) .feat-ico{animation-delay:1.6s}.feat-card:nth-child(6) .feat-ico{animation-delay:2s}
+@keyframes icoFloat{0%,100%{transform:translateZ(0) translateY(0) rotate(0)}50%{transform:translateZ(28px) translateY(-6px) rotate(-4deg)}}
+.feat-card:hover .feat-ico{transform:translateZ(38px) scale(1.12) rotate(6deg)}
+.feat-param{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--on-surface-3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.feat-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.feat-card p{font-size:13.5px;color:var(--on-surface-3);line-height:1.7}
+.feat-card.accent{background:linear-gradient(150deg,var(--primary),var(--primary-light));border:none;color:#fff}
+.feat-card.accent .feat-param,.feat-card.accent p{color:rgba(255,255,255,.85)}
+.feat-card.accent .feat-ico{background:rgba(255,255,255,.18);color:#fff}
+.feat-card.accent h3{color:#fff}
+
+/* guide */
+.guide-layout{display:grid;grid-template-columns:230px 1fr;gap:44px;align-items:start}
+.toc{position:sticky;top:24px}
+.toc-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--on-surface-3);margin-bottom:14px}
+.toc a{display:block;font-size:14px;color:var(--on-surface-2);padding:8px 14px;border-radius:10px;border-left:2px solid transparent;transition:all .2s;font-weight:500}
+.toc a:hover{background:var(--primary-08);color:var(--primary)}
+.toc a.active{color:var(--primary);background:var(--primary-08);border-left-color:var(--primary)}
+.guide-body{perspective:1200px}
+.guide-body h3{font-size:clamp(21px,3vw,28px);font-weight:700;margin:40px 0 14px;scroll-margin-top:24px;position:relative;padding-left:20px}
+.guide-body h3:first-child{margin-top:0}
+.guide-body h3::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:6px;border-radius:6px;background:linear-gradient(180deg,var(--primary-light),var(--accent));animation:barPulse 2.6s ease-in-out infinite;box-shadow:0 0 12px rgba(0,137,123,.4)}
+@keyframes barPulse{0%,100%{transform:scaleY(.55);opacity:.6}50%{transform:scaleY(1);opacity:1}}
+.guide-body h4{font-size:17.5px;font-weight:700;margin:24px 0 10px;color:var(--on-surface);position:relative;padding-left:18px}
+.guide-body h4::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%;background:var(--primary);box-shadow:0 0 8px var(--primary);animation:dotFloat 3s ease-in-out infinite}
+@keyframes dotFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.25)}}
+.guide-body p{font-size:15.5px;color:var(--on-surface-2);line-height:1.8;margin-bottom:16px}
+.guide-body strong{color:var(--on-surface);font-weight:700}
+.guide-body ul,.guide-body ol{margin:0 0 18px 4px;padding-left:22px}
+.guide-body li{font-size:15px;color:var(--on-surface-2);line-height:1.8;margin-bottom:9px}
+.guide-body li::marker{color:var(--primary);font-weight:700}
+.callout{display:flex;gap:14px;background:var(--blue-c);border-radius:var(--radius);padding:18px 20px;margin:22px 0;border:1px solid rgba(21,101,192,.18);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.callout:hover{transform:perspective(900px) rotateX(2.5deg) rotateY(-2deg) translateY(-4px);box-shadow:var(--e2)}
+.callout.warn{background:var(--amber-c);border-color:rgba(227,116,0,.22)}
+.callout.danger{background:var(--red-c);border-color:rgba(217,48,37,.2)}
+.callout.good{background:var(--green-c);border-color:rgba(30,142,62,.2)}
+.callout .ci{flex:none;width:24px;height:24px;animation:icoFloat3d 3.4s ease-in-out infinite}
+@keyframes icoFloat3d{0%,100%{transform:translateZ(0) rotate(0)}50%{transform:translateZ(16px) rotate(-6deg)}}
+.callout.warn .ci{color:var(--amber)}.callout.danger .ci{color:var(--red)}.callout.good .ci{color:var(--green)}.callout .ci{color:var(--accent)}
+.callout p{margin:0;font-size:14px;line-height:1.7}
+.callout .ct{font-weight:700;color:var(--on-surface);display:block;margin-bottom:3px}
+.steps-list{counter-reset:step;list-style:none;padding:0;margin:22px 0}
+.steps-list li{counter-increment:step;position:relative;padding:0 0 22px 56px;margin:0;transition:transform .3s}
+.steps-list li:hover{transform:translateX(4px)}
+.steps-list li::before{content:counter(step);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:12px;background:var(--primary-container);color:var(--on-primary-container);font-weight:800;display:grid;place-items:center;font-size:15px;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.2,.7,.2,1);box-shadow:var(--e1)}
+.steps-list li:hover::before{transform:perspective(500px) rotateY(-22deg) translateZ(12px) scale(1.08);background:var(--primary);color:#fff}
+.steps-list li::after{content:"";position:absolute;left:18px;top:42px;bottom:-4px;width:2px;background:var(--outline)}
+.steps-list li:last-child::after{display:none}
+.steps-list li .st{font-weight:700;font-size:16px;color:var(--on-surface);display:block;margin-bottom:4px}
+.steps-list li p{margin:0;font-size:14.5px}
+.tbl-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--outline-2);border-radius:var(--radius);box-shadow:var(--e1);-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px;background:var(--surface)}
+thead th{background:var(--surface-3);text-align:left;padding:13px 15px;font-weight:700;color:var(--on-surface);font-size:12.5px;text-transform:uppercase;letter-spacing:.4px}
+tbody td{padding:12px 15px;border-top:1px solid var(--outline-2);color:var(--on-surface-2);vertical-align:top}
+tbody tr{transition:transform .25s ease,background .2s}
+tbody tr:hover{background:var(--surface-2)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.tag.g{background:var(--green-c);color:var(--green)}.tag.b{background:var(--blue-c);color:var(--blue)}.tag.a{background:var(--amber-c);color:var(--amber)}.tag.r{background:var(--red-c);color:var(--red)}
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+.dd-col{border-radius:var(--radius);padding:20px;border:1px solid var(--outline-2);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.dd-col.do{background:var(--green-c)}.dd-col.dont{background:var(--red-c)}
+.dd-col.do:hover{transform:perspective(900px) rotateY(4deg) translateY(-5px);box-shadow:var(--e3)}
+.dd-col.dont:hover{transform:perspective(900px) rotateY(-4deg) translateY(-5px);box-shadow:var(--e3)}
+.dd-col h4{display:flex;align-items:center;gap:9px;margin:0 0 12px;font-size:15.5px;padding-left:0}
+.dd-col h4::before{display:none}
+.dd-col.do h4{color:var(--green)}.dd-col.dont h4{color:var(--red)}
+.dd-col h4 svg{animation:icoFloat3d 3s ease-in-out infinite}
+.dd-col ul{list-style:none;padding:0;margin:0}
+.dd-col li{font-size:13.5px;color:var(--on-surface-2);padding:7px 0 7px 26px;position:relative;line-height:1.6;margin:0}
+.dd-col.do li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.dd-col.dont li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:800}
+@media(max-width:860px){.guide-layout{grid-template-columns:1fr}.toc{display:none}.process,.feat-grid{grid-template-columns:1fr}.dd-grid{grid-template-columns:1fr}}
+@media(max-width:980px){.feat-grid,.process{grid-template-columns:1fr 1fr}}
+
+/* speed demo widget */
+.speed-demo{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;background:var(--surface-2);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:24px;margin:24px 0}
+.speed-demo .sd-stage{perspective:900px;display:grid;place-items:center}
+.speed-demo canvas{width:100%;max-width:300px;height:auto}
+.speed-demo .sd-copy h4{margin:0 0 8px;padding-left:0}.speed-demo .sd-copy h4::before{display:none}
+.speed-demo .sd-copy p{font-size:14px;margin-bottom:14px}
+.sd-toggle{display:inline-flex;gap:8px;background:var(--surface);border:1px solid var(--outline);border-radius:999px;padding:5px;flex-wrap:wrap}
+.sd-toggle button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:13px;color:var(--on-surface-2);padding:8px 15px;border-radius:999px;transition:all .2s}
+.sd-toggle button.on{background:var(--primary);color:#fff}
+@media(max-width:680px){.speed-demo{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-list{display:grid;gap:11px;max-width:840px;margin:0 auto}
+.faq-item{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius);overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .2s,border-color .2s;transform-style:preserve-3d}
+.faq-item:hover{transform:perspective(900px) rotateX(2deg) translateY(-3px)}
+.faq-item.open{box-shadow:var(--e2);border-color:var(--primary-container)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;font-size:15.5px;font-weight:600;color:var(--on-surface);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-icon{width:26px;height:26px;flex:none;border-radius:50%;background:var(--primary-08);display:grid;place-items:center;position:relative;transition:background .2s}
+.faq-item.open .faq-icon{background:var(--primary)}
+.faq-icon::before,.faq-icon::after{content:"";position:absolute;background:var(--primary);border-radius:2px;transition:all .25s}
+.faq-icon::before{width:12px;height:2px}.faq-icon::after{width:2px;height:12px}
+.faq-item.open .faq-icon::before,.faq-item.open .faq-icon::after{background:#fff}
+.faq-item.open .faq-icon::after{transform:rotate(90deg);opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)}
+.faq-a p{padding:0 20px 20px;font-size:14.5px;color:var(--on-surface-3);line-height:1.8}
+
+/* CTA */
+.cta-banner{background:linear-gradient(135deg,var(--primary),#00736A 50%,var(--accent));border-radius:var(--radius-xl);padding:clamp(30px,6vw,64px);text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--e3)}
+#ctaCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.cta-banner > *{position:relative;z-index:1}
+.cta-banner h2{font-size:clamp(24px,4vw,40px);font-weight:800;color:#fff;letter-spacing:-.6px}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:16px;margin:14px auto 26px;max-width:560px}
+.cta-banner .btn-filled{background:#fff;color:var(--primary)}
+.cta-banner .btn-filled:hover{background:#eafffb}
+
+.disclaimer{max-width:1140px;margin:30px auto;padding:0 max(18px,4vw);font-size:12.5px;color:var(--on-surface-3);line-height:1.7}
+.disclaimer .inner{border-top:1px solid var(--outline-2);padding-top:22px}
+
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:#1A1C1B;color:#fff;padding:13px 22px;border-radius:999px;font-size:14px;font-weight:500;box-shadow:var(--e3);opacity:0;pointer-events:none;transition:all .3s;z-index:300}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media print{.hero,.trust-row,.process,.feat-grid,.guide-layout,.faq-list,.cta-banner,.res-actions,.share-card,.q-nav,.tool-top .step-pill{display:none!important}body{background:#fff}.tool-card{box-shadow:none;border:1px solid #ccc}}
+#toTop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;box-shadow:var(--e3);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(12px);transition:all .3s;z-index:90}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#scrollProg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary-light),var(--accent-2));z-index:200;transition:width .1s}
+
+/* extra small phones */
+@media(max-width:400px){
+  .hero h1{font-size:30px;letter-spacing:-1px}
+  .hstat{min-width:0;flex:1 1 30%}
+  .hstat b{font-size:21px}
+  .btn{width:100%;}
+  .hero-actions{width:100%}
+  .res-actions .btn{width:100%}
+}
+
+html{scroll-padding-top:118px}
+section[id],div[id="tool"],#tool,#how,#guide,#faq,#apps,#networks,#result{scroll-margin-top:118px}
+/* keep subnav directly under fixed site header */
+</style>
+<style>
+
+/* ===== TechFineHub unified brand override ===== */
+:root{
+  --primary:#4F46E5;--primary-hover:#4338CA;--primary-light:#818CF8;--primary-container:#E0E7FF;--on-primary-container:#1E1B4B;
+  --primary-08:rgba(79,70,229,.08);--primary-12:rgba(79,70,229,.14);--accent:#0EA5E9;
+}
+
+/* ===== Unified header ===== */
+.site-head{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.site-head .sh-inner{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw);height:64px;display:flex;align-items:center;gap:18px}
+.sh-brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.sh-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));flex:none}
+.sh-mark svg{width:21px;height:21px}
+.sh-name{display:flex;flex-direction:column;line-height:1.05;font-size:18px}
+.sh-name small{font-size:11px;font-weight:500;color:var(--on-surface-3,#5e6368);letter-spacing:.1px}
+.sh-nav{display:flex;align-items:center;gap:6px;margin-left:auto}
+.sh-nav>a,.sh-drop-btn{font-size:14.5px;font-weight:600;color:var(--on-surface-2,#3c4744);padding:9px 13px;border-radius:10px;transition:all .18s;background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:5px}
+.sh-nav>a:hover,.sh-drop-btn:hover{color:var(--primary);background:var(--primary-08)}
+.sh-nav>a[aria-current="page"],.sh-drop-btn[aria-current="page"]{color:var(--primary);background:var(--primary-08)}
+.sh-cta{background:linear-gradient(135deg,var(--primary),var(--accent))!important;color:#fff!important;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));padding:9px 18px!important}
+.sh-cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.sh-drop{position:relative}
+.sh-caret{transition:transform .22s}
+.sh-drop.open .sh-caret{transform:rotate(180deg)}
+.sh-mega{position:absolute;top:calc(100% + 12px);right:0;width:min(560px,92vw);background:#fff;border:1px solid var(--outline-2,#e6e9ee);border-radius:20px;box-shadow:var(--e4,0 16px 40px rgba(0,0,0,.16));padding:16px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .22s cubic-bezier(.2,.7,.2,1)}
+.sh-drop.open .sh-mega{opacity:1;visibility:visible;transform:translateY(0)}
+.thd-head{display:flex;align-items:center;justify-content:space-between;padding:4px 8px 12px;margin-bottom:8px;border-bottom:1px solid var(--outline-2,#eee)}
+.thd-head b{font-size:13px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-head a{font-size:12.5px;font-weight:600;color:var(--primary)}
+.thd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.thd-tool{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:13px;transition:background .16s}
+.thd-tool:hover{background:var(--primary-08)}
+.thd-ti{width:38px;height:38px;border-radius:10px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center;flex:none}
+.thd-ti svg{width:20px;height:20px}
+.thd-tx{display:flex;flex-direction:column;line-height:1.2}
+.thd-tx b{font-size:14px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-tx i{font-size:11.5px;font-style:normal;color:var(--on-surface-3,#5e6368);font-weight:500}
+.sh-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.sh-burger span{width:24px;height:2.4px;border-radius:3px;background:var(--on-surface,#222);transition:.25s}
+.sh-burger.open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+.sh-burger.open span:nth-child(2){opacity:0}
+.sh-burger.open span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+@media(max-width:900px){
+  .sh-burger{display:flex}
+  .sh-nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;background:#fff;padding:14px max(16px,4vw) 22px;border-bottom:1px solid var(--outline-2,#e6e9ee);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));transform:translateY(-130%);transition:transform .3s cubic-bezier(.2,.7,.2,1);max-height:calc(100vh - 64px);overflow:auto}
+  .sh-nav.open{transform:translateY(0)}
+  .sh-nav>a,.sh-drop-btn{padding:13px 12px;font-size:16px;border-radius:12px;width:100%;justify-content:space-between}
+  .sh-drop{width:100%}
+  .sh-mega{position:static;width:100%;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:6px 0 4px;max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .sh-drop.open .sh-mega{max-height:760px}
+  .thd-grid{grid-template-columns:1fr}
+  .sh-cta{margin-top:8px;text-align:center;justify-content:center}
+}
+/* ===== Unified footer ===== */
+.site-foot{background:#0f1226;color:#c7cbe0;margin-top:0}
+.site-foot .sf-inner{max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,76px) max(16px,4vw) 30px}
+.sf-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.sf-about .sh-brand{color:#fff;margin-bottom:14px}
+.sf-about .sh-name{color:#fff}
+.sf-about p{font-size:14px;line-height:1.7;color:#9aa0c4;max-width:330px}
+.sf-social{margin-top:16px;display:flex;gap:10px}
+.sf-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);display:grid;place-items:center;color:#c7cbe0;transition:.18s}
+.sf-social a:hover{background:var(--primary);color:#fff}
+.sf-social svg{width:18px;height:18px}
+.sf-col h5{font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.7px;margin-bottom:15px}
+.sf-col a{display:block;font-size:14px;color:#9aa0c4;padding:6px 0;transition:.16s}
+.sf-col a:hover{color:#fff;padding-left:4px}
+.sf-bottom{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09);font-size:13px;color:#7e84ab}
+@media(max-width:820px){.sf-grid{grid-template-columns:1fr 1fr}.sf-about{grid-column:1/-1}}
+@media(max-width:460px){.sf-grid{grid-template-columns:1fr}}
+
+/* ===== unified per-tool sticky sub-nav ===== */
+.tool-subnav{position:sticky;top:64px;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.tool-subnav .tsn-inner{max-width:1180px;margin:0 auto;padding:0 max(14px,4vw);display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tool-subnav .tsn-inner::-webkit-scrollbar{display:none}
+.tool-subnav a{flex:none;padding:13px 13px;font-size:14px;font-weight:600;color:var(--on-surface-3,#5e6368);position:relative;white-space:nowrap;transition:color .2s}
+.tool-subnav a:hover,.tool-subnav a.active{color:var(--primary)}
+.tool-subnav a.active::after{content:"";position:absolute;left:13px;right:13px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--primary)}
+.tool-subnav a.tsn-cta,.tool-subnav a.tsn-cta:hover{margin-left:auto;background:var(--primary);color:#fff;border-radius:999px;padding:9px 16px;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12))}
+.tool-subnav a.tsn-cta::after{display:none}
+.tool-subnav a.tsn-cta:hover{filter:brightness(1.05)}
+/* related-tools strip shared by every tool */
+.related-tools{padding:clamp(40px,7vw,72px) 0;background:var(--surface,#fff);border-top:1px solid var(--outline-2,#e6e9ee)}
+.related-tools .wrap,.related-tools .rt-wrap{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw)}
+.rt-head{text-align:center;max-width:620px;margin:0 auto 34px}
+.rt-head .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--accent,#0EA5E9);background:var(--primary-08);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.rt-head h2{font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.6px;color:var(--on-surface,#16201e);margin-bottom:10px}
+.rt-head p{color:var(--on-surface-3,#5e6368);font-size:15.5px;line-height:1.7}
+.rt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rt-card{display:flex;flex-direction:column;gap:12px;background:var(--surface,#fff);border:1px solid var(--outline-2,#e6e9ee);border-radius:18px;padding:22px;transition:all .22s cubic-bezier(.2,.7,.2,1);box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.08))}
+.rt-card:hover{transform:translateY(-4px);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));border-color:var(--primary-light)}
+.rt-ic{width:46px;height:46px;border-radius:13px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center}
+.rt-ic svg{width:24px;height:24px}
+.rt-card h3{font-size:16.5px;font-weight:700;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.rt-card p{font-size:13.5px;color:var(--on-surface-3,#5e6368);line-height:1.6;flex:1}
+.rt-card .rt-go{font-size:13.5px;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:6px}
+.rt-card:hover .rt-go svg{transform:translateX(3px)}
+.rt-card .rt-go svg{transition:transform .2s}
+.rt-all{text-align:center;margin-top:30px}
+.rt-all a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--primary),var(--accent));padding:13px 26px;border-radius:999px;box-shadow:var(--e2,0 4px 8px rgba(0,0,0,.12));transition:.2s}
+.rt-all a:hover{transform:translateY(-2px);filter:brightness(1.05)}
+@media(max-width:820px){.rt-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.rt-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-head" id="siteHead">
+  <div class="sh-inner">
+    <a class="sh-brand" href="index.html" aria-label="TechFineHub home">
+      <span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span>
+      <span class="sh-name">TechFineHub<small>Smart device tools</small></span>
+    </a>
+    <button class="sh-burger" id="shBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="sh-nav" id="shNav">
+      <a href="index.html">Home</a>
+      <div class="sh-drop" id="shDrop">
+        <button class="sh-drop-btn" aria-current="page" aria-expanded="false">
+          Toolkit
+          <svg class="sh-caret" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="sh-mega" role="menu">
+          <div class="thd-head"><b>All 6 free tools</b><a href="toolkit.html">View toolkit →</a></div>
+          <div class="thd-grid"><a class="thd-tool" href="charger-health-analyzer.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Charger Health</b><i>Diagnostic</i></span></a><a class="thd-tool" href="wifi-health-score-checker.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>WiFi Health</b><i>Score</i></span></a><a class="thd-tool" href="phone-camera-health-test.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Camera Health</b><i>Test</i></span></a><a class="thd-tool" href="screen-time-health-score.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Screen Time</b><i>Score</i></span></a><a class="thd-tool" href="mobile-data-usage-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Data Calculator</b><i>Calculator</i></span></a><a class="thd-tool" href="phone-resale-value-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Resale Value</b><i>Calculator</i></span></a></div>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="sh-cta" href="toolkit.html">Explore tools</a>
+    </nav>
+  </div>
+</header>
+<nav class="tool-subnav" id="toolSubnav"><div class="tsn-inner">
+  <a href="#tool" data-sec="tool">Checker</a><a href="#how" data-sec="how">How it works</a><a href="#guide" data-sec="guide">Guide</a><a href="#faq" data-sec="faq">FAQ</a>
+  <a href="toolkit.html" style="color:var(--on-surface-3)">All tools</a><a href="#tool" class="tsn-cta">Check score</a>
+</div></nav>
+
+
+<div id="scrollProg"></div>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-mesh"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="badge-live viral"><span class="live"></span> 📶 Free WiFi health test · No app · No sign-up</span>
+        <h1>What's your <span class="grad">WiFi Router Health Score?</span></h1>
+        <p class="hero-sub">Router baar-baar reboot karna parta hai? Speed drop hoti hai? Disconnection? Answer 6 quick questions and get an instant Router Health Score (0–100) — plus the exact fixes for slow, weak, or dropping WiFi.</p>
+        <div class="hero-actions">
+          <button class="btn btn-filled" onclick="goTool()">
+            Check my router
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <a href="#guide" class="btn btn-tonal">Read WiFi fix guide</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><b>6</b><span>Quick questions</span></div>
+          <div class="hstat"><b>90s</b><span>To your score</span></div>
+          <div class="hstat"><b>#1</b><span>Fix is often free placement</span></div>
+        </div>
+      </div>
+
+      <div class="scene-wrap">
+        <div class="router-scene">
+          <div class="sig s1"></div>
+          <div class="sig s2"></div>
+          <div class="sig s3"></div>
+          <div class="ant a1"></div>
+          <div class="ant a2"></div>
+          <div class="router">
+            <svg class="wlogo" viewBox="0 0 24 24" fill="none"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8 15.5a5 5 0 0 1 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="19" r="1.4" fill="currentColor"/></svg>
+            <div class="leds"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="chip-float cf1"><i style="color:var(--green);background:var(--green)"></i> Speed 92%</div>
+          <div class="chip-float cf2"><i style="color:var(--amber);background:var(--amber)"></i> Signal 64%</div>
+          <div class="chip-float cf3"><i style="color:var(--primary);background:var(--primary)"></i> 18 devices</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="margin-top:-8px;padding-bottom:12px">
+  <div class="trust-row">
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Works for any router</div>
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Shareable result</div>
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% private</div>
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Mobile-friendly</div>
+  </div>
+</div>
+
+<!-- ============ TOOL ============ -->
+<section id="tool" class="tool-section">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin:0 auto 34px">
+      <span class="eyebrow"><span class="dot"></span> Router Diagnostic Engine</span>
+      <h2>Get your Router Health Score</h2>
+      <p style="margin:0 auto">Answer six quick questions. Get your score, a network radar, the exact fixes — then share your result.</p>
+    </div>
+
+    <div class="tool-card reveal">
+      <div class="tool-top">
+        <div class="t-left">
+          <span class="engine-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 9.5a13 13 0 0 1 18 0M6.5 13a8 8 0 0 1 11 0M10 16.5a3 3 0 0 1 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="20" r="1.3" fill="currentColor"/></svg></span>
+          <div>
+            <h3>WiFi Router Health Score</h3>
+            <span class="ver">engine v1.0 · weighted network model</span>
+          </div>
+        </div>
+        <span class="step-pill" id="stepPill">01 / 06</span>
+      </div>
+
+      <div class="tool-body">
+        <div class="prog-wrap" id="progWrap">
+          <div class="prog-rail"><div class="prog-fill" id="progFill"></div></div>
+          <div class="dots" id="dots">
+            <div class="dot-step active" data-s="1"><span class="d">1</span><span class="lbl">Reboots</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="2"><span class="d">2</span><span class="lbl">Speed</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="3"><span class="d">3</span><span class="lbl">Stability</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="4"><span class="d">4</span><span class="lbl">Signal</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="5"><span class="d">5</span><span class="lbl">Age</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="6"><span class="d">6</span><span class="lbl">Load</span></div>
+          </div>
+        </div>
+
+        <div id="questions">
+          <!-- Q1 reboots -->
+          <div class="q-step active" data-step="1">
+            <div class="q-param">Question 01 — Reboot frequency</div>
+            <div class="q-text">How often do you have to restart your router?</div>
+            <div class="q-desc">Frequent reboots are the clearest sign of an overheating, memory-leaking, or aging router. A healthy router can run for months without needing a restart.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">Almost never — it just works for months</span><span class="c-hint">Healthy hardware &amp; firmware</span></span></button>
+              <button class="choice" data-score="65" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">Once a month or so</span><span class="c-hint">Minor memory/heat buildup · normal-ish</span></span></button>
+              <button class="choice" data-score="30" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">Every week</span><span class="c-hint">Overheating or firmware issue likely</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">Daily / multiple times a day</span><span class="c-hint">Hardware failing · replacement likely</span></span></button>
+            </div>
+          </div>
+          <!-- Q2 speed -->
+          <div class="q-step" data-step="2">
+            <div class="q-param">Question 02 — Speed</div>
+            <div class="q-text">How is your WiFi speed compared to your internet plan?</div>
+            <div class="q-desc">If you pay for a fast plan but WiFi feels slow, the router (or its placement/band) is usually the bottleneck — not always the ISP.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Full speed — videos &amp; downloads fly</span><span class="c-hint">Router keeping up with the plan</span></span></button>
+              <button class="choice" data-score="60" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Okay — fine most of the time</span><span class="c-hint">Some headroom lost · tune-up helps</span></span></button>
+              <button class="choice" data-score="25" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Slow — buffering &amp; long loads often</span><span class="c-hint">Congestion, band, or aging router</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Very slow — way below what I pay for</span><span class="c-hint">Major bottleneck · needs action</span></span></button>
+            </div>
+          </div>
+          <!-- Q3 stability -->
+          <div class="q-step" data-step="3">
+            <div class="q-param">Question 03 — Stability</div>
+            <div class="q-text">How often does your WiFi disconnect or drop?</div>
+            <div class="q-desc">Random dropouts point to interference, overheating, weak signal, or a failing router. They are especially common during calls, games, and streaming.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Rock solid — basically never drops</span><span class="c-hint">Stable connection &amp; clean channel</span></span></button>
+              <button class="choice" data-score="60" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Rarely — a hiccup now and then</span><span class="c-hint">Minor interference · usually fine</span></span></button>
+              <button class="choice" data-score="25" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Often — drops during calls/streaming</span><span class="c-hint">Interference or overload likely</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Constantly — frustratingly unreliable</span><span class="c-hint">Serious fault · fix or replace</span></span></button>
+            </div>
+          </div>
+          <!-- Q4 signal -->
+          <div class="q-step" data-step="4">
+            <div class="q-param">Question 04 — Signal coverage</div>
+            <div class="q-text">How is the signal in the far rooms of your home?</div>
+            <div class="q-desc">Weak coverage in bedrooms or upper floors is usually a placement or range problem — fixable for free or with a mesh/extender.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Strong everywhere — full bars all over</span><span class="c-hint">Good placement &amp; range</span></span></button>
+              <button class="choice" data-score="60" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Mostly good — one weak corner</span><span class="c-hint">Minor dead spot · placement tweak</span></span></button>
+              <button class="choice" data-score="25" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Weak in several rooms</span><span class="c-hint">Range/obstacle problem · consider mesh</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Barely reaches beyond one room</span><span class="c-hint">Poor coverage · mesh/AP needed</span></span></button>
+            </div>
+          </div>
+          <!-- Q5 age -->
+          <div class="q-step" data-step="5">
+            <div class="q-param">Question 05 — Router age &amp; standard</div>
+            <div class="q-text">How old is your router (and what WiFi does it support)?</div>
+            <div class="q-desc">Routers age. After 4–5 years the hardware weakens and older WiFi standards (2.4GHz-only, Wi-Fi 4) struggle with modern usage.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">Under 2 years — Wi-Fi 6 / Wi-Fi 5 (AX/AC)</span><span class="c-hint">Modern, fast hardware</span></span></button>
+              <button class="choice" data-score="65" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">2–4 years — dual-band AC</span><span class="c-hint">Still capable · keep firmware updated</span></span></button>
+              <button class="choice" data-score="30" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">4–6 years — older / single-band</span><span class="c-hint">Aging · upgrade worth considering</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">6+ years or ISP free box, 2.4GHz only</span><span class="c-hint">Outdated · upgrade = biggest gain</span></span></button>
+            </div>
+          </div>
+          <!-- Q6 load -->
+          <div class="q-step" data-step="6">
+            <div class="q-param">Question 06 — Device load &amp; setup</div>
+            <div class="q-text">How many devices use it, and is it set up well?</div>
+            <div class="q-desc">Too many devices on a cheap or poorly-placed router cause slowdowns. Good placement, a strong password, and updated firmware keep it healthy.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,6)"><span class="radio"></span><span class="c-body"><span class="c-label">Few devices, placed well, secured &amp; updated</span><span class="c-hint">Light load · ideal setup</span></span></button>
+              <button class="choice" data-score="60" onclick="pick(this,6)"><span class="radio"></span><span class="c-body"><span class="c-label">Moderate — works, but never optimized</span><span class="c-hint">Room to tune placement/settings</span></span></button>
+              <button class="choice" data-score="25" onclick="pick(this,6)"><span class="radio"></span><span class="c-body"><span class="c-label">Many devices, hidden in a cabinet/corner</span><span class="c-hint">Overload + bad placement</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,6)"><span class="radio"></span><span class="c-body"><span class="c-label">Crowded, default password, never updated</span><span class="c-hint">Overloaded &amp; insecure · fix now</span></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-nav" id="qNav">
+          <button class="btn-back" id="btnBack" onclick="prevStep()" disabled>Back</button>
+          <button class="btn-next" id="btnNext" onclick="nextStep()">Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="calib" id="calib">
+          <canvas id="calibCanvas" width="300" height="300"></canvas>
+          <h4>Analyzing your network</h4>
+          <p>6-parameter router model</p>
+          <div class="scan-log" id="scanLog">› initializing…</div>
+        </div>
+
+        <div class="results" id="results">
+          <div class="res-hero">
+            <div class="gauge-wrap">
+              <canvas id="gaugeCanvas" width="420" height="420"></canvas>
+              <div class="gauge-center">
+                <span class="score" id="scoreNum">0</span>
+                <span class="of">/ 100 score</span>
+              </div>
+            </div>
+            <div class="res-meta">
+              <span class="status-badge" id="statusBadge">—</span>
+              <h3 id="scoreHeadline">—</h3>
+              <p id="scoreSummary">—</p>
+            </div>
+          </div>
+
+          <div class="res-cols">
+            <div class="radar-card">
+              <div class="card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 8v8l9 6 9-6V8l-9-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> Network radar</div>
+              <canvas id="radarCanvas" width="580" height="580"></canvas>
+            </div>
+            <div class="breakdown-card">
+              <div class="card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Score breakdown</div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Reboot frequency</span><span class="bv" id="v1">0%</span></div><div class="bd-track"><div class="bd-fill" id="b1"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Speed</span><span class="bv" id="v2">0%</span></div><div class="bd-track"><div class="bd-fill" id="b2"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Stability</span><span class="bv" id="v3">0%</span></div><div class="bd-track"><div class="bd-fill" id="b3"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Signal coverage</span><span class="bv" id="v4">0%</span></div><div class="bd-track"><div class="bd-fill" id="b4"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Age &amp; standard</span><span class="bv" id="v5">0%</span></div><div class="bd-track"><div class="bd-fill" id="b5"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Load &amp; setup</span><span class="bv" id="v6">0%</span></div><div class="bd-track"><div class="bd-fill" id="b6"></div></div></div>
+            </div>
+          </div>
+
+          <div class="analysis-box">
+            <div class="ab-t">What this means</div>
+            <p id="analysisText">—</p>
+          </div>
+
+          <div class="rem-box">
+            <div class="ab-t">Recommended fixes</div>
+            <p id="remContent">—</p>
+            <div class="pro-tip">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2h6c0-.7.4-1.5 1-2A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Quick win:</strong> Move the router central, high, and out in the open, restart it, and update its firmware. These free steps fix a huge share of slow/dropping WiFi before you spend a rupee.</span>
+            </div>
+          </div>
+
+          <div class="share-card">
+            <div class="sc-left">
+              <b id="shareScoreTxt">My Router Health Score: —</b>
+              <p>Share your score and challenge friends and family to beat it.</p>
+            </div>
+            <div class="share-btns">
+              <button class="primary" onclick="shareNative()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Share
+              </button>
+              <a id="waShare" href="#" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.5Z"/></svg>
+                WhatsApp
+              </a>
+              <button onclick="copyResult()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="res-actions">
+            <button class="btn btn-filled" onclick="window.print()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Save / print
+            </button>
+            <button class="btn btn-tonal" onclick="resetTool()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Test again
+            </button>
+            <a href="#guide" class="btn btn-text">Read fix guide →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> How it works</span>
+      <h2>Three steps to faster WiFi</h2>
+      <p>Each question targets a real cause of slow or dropping WiFi — so the score tells you exactly what to fix.</p>
+    </div>
+    <div class="process">
+      <div class="flow-line"></div>
+      <div class="proc-card tilt reveal"><div class="proc-num">1</div><h3>Answer 6 questions</h3><p>Reboots, speed, stability, signal, router age, and device load — from what you experience every day.</p></div>
+      <div class="proc-card tilt reveal"><div class="proc-num">2</div><h3>Get your score + radar</h3><p>A weighted 0–100 Router Health Score and a network radar showing exactly which area is weakest.</p></div>
+      <div class="proc-card tilt reveal"><div class="proc-num">3</div><h3>Fix &amp; share</h3><p>Apply free fixes first — placement, channel, firmware — then share your score with friends and family.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT MEASURES ============ -->
+<section class="pad" style="background:var(--surface);border-top:1px solid var(--outline-2);border-bottom:1px solid var(--outline-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> What we measure</span>
+      <h2>The 6 pillars of WiFi health</h2>
+      <p>Six signals that together describe how good — and how healthy — your home WiFi really is.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card tilt reveal"><div class="feat-ico" style="background:var(--violet-c);color:var(--violet)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-param">Pillar 01</div><h3>Reboot frequency</h3><p>How often you must restart it — the clearest sign of overheating or aging hardware.</p></div>
+      <div class="feat-card tilt reveal"><div class="feat-ico" style="background:var(--green-c);color:var(--green)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 14 18 8M21 12a9 9 0 1 0-18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="14" r="1.6" fill="currentColor"/></svg></div><div class="feat-param">Pillar 02</div><h3>Speed</h3><p>Whether your WiFi keeps up with the internet plan you actually pay for.</p></div>
+      <div class="feat-card tilt reveal"><div class="feat-ico" style="background:var(--blue-c);color:var(--blue)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12h3l2 6 4-12 2 6h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-param">Pillar 03</div><h3>Stability</h3><p>How often the connection drops during calls, games, and streaming.</p></div>
+      <div class="feat-card tilt reveal"><div class="feat-ico" style="background:var(--primary-08);color:var(--primary)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 9.5a13 13 0 0 1 18 0M6.5 13a8 8 0 0 1 11 0M10 16.5a3 3 0 0 1 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="20" r="1.2" fill="currentColor"/></svg></div><div class="feat-param">Pillar 04</div><h3>Signal coverage</h3><p>How far strong WiFi reaches across rooms and floors of your home.</p></div>
+      <div class="feat-card tilt reveal"><div class="feat-ico" style="background:var(--amber-c);color:var(--amber)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div><div class="feat-param">Pillar 05</div><h3>Age &amp; standard</h3><p>How old the router is and whether it supports modern Wi-Fi 5/6.</p></div>
+      <div class="feat-card accent tilt reveal"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 8v8l9 6 9-6V8l-9-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-param">Composite</div><h3>Router Health Score</h3><p>One 0–100 number summarizing all six pillars into a shareable verdict.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUIDE ============ -->
+<section id="guide" class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Complete Guide</span>
+      <h2>The complete WiFi router fix &amp; speed guide</h2>
+      <p>Stop rebooting, kill the dropouts, and get strong WiFi in every room — with simple steps anyone can follow.</p>
+    </div>
+
+    <div class="guide-layout">
+      <aside class="toc reveal">
+        <div class="toc-title">On this page</div>
+        <nav id="tocNav">
+          <a href="#g-why" class="active">Why WiFi gets bad</a>
+          <a href="#g-reboot">Stop frequent reboots</a>
+          <a href="#g-slow">Fix slow speed</a>
+          <a href="#g-drop">Fix disconnections</a>
+          <a href="#g-signal">Boost weak signal</a>
+          <a href="#g-place">Best router placement</a>
+          <a href="#g-secure">Secure your router</a>
+          <a href="#g-upgrade">When to upgrade</a>
+        </nav>
+      </aside>
+
+      <div class="guide-body reveal">
+        <h3 id="g-why">Why your WiFi gets slow, weak, or unreliable</h3>
+        <p>WiFi problems almost always come from a handful of causes — and most are <strong>free to fix</strong>. The router might be <strong>hidden in a cabinet</strong> (blocking the signal), sitting on a <strong>crowded channel</strong> shared with neighbours, running <strong>old firmware</strong>, <strong>overheating</strong>, simply <strong>too far</strong> from where you use it, or just <strong>too old</strong> for today's device count. The score above tells you which one is hurting you most.</p>
+        <p>The good news: you rarely need to call your ISP or buy expensive gear first. A better spot, a channel change, and a firmware update fix the majority of complaints in minutes.</p>
+        <div class="callout good">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">The 2-minute win</span>Move the router to a central, high, open spot, restart it, and check for a firmware update. This alone solves a huge share of "slow WiFi" before spending anything.</p>
+        </div>
+
+        <h3 id="g-reboot">How to stop having to reboot your router</h3>
+        <ol class="steps-list">
+          <li><span class="st">Improve airflow</span><p>Heat is the #1 cause. Keep it in the open, off carpet, away from other electronics, with vents clear.</p></li>
+          <li><span class="st">Update the firmware</span><p>Old firmware leaks memory and crashes. Log into the router admin page (or its app) and install updates.</p></li>
+          <li><span class="st">Reduce overload</span><p>Too many heavy devices can choke a cheap router. Disconnect idle devices and test.</p></li>
+          <li><span class="st">Factory reset once</span><p>If it still reboots after a clean reset and update, the hardware is failing — plan a replacement.</p></li>
+        </ol>
+        <div class="callout warn">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">Daily reboots = warning</span>A router that needs daily restarts is usually overheating or near end-of-life. After cleaning airflow and updating, if it persists, replacement is the real fix.</p>
+        </div>
+
+        <h3 id="g-slow">How to fix slow WiFi speed</h3>
+        <ul>
+          <li><strong>Use the 5GHz band</strong> when you're near the router — it's much faster than 2.4GHz.</li>
+          <li><strong>Change the channel</strong> to a less crowded one (2.4GHz: try 1, 6, or 11) or enable auto-channel.</li>
+          <li><strong>Move closer / remove obstacles</strong> — walls, metal, and appliances kill speed.</li>
+          <li><strong>Restart the router</strong> and disconnect devices you aren't using.</li>
+          <li><strong>Run a speed test</strong> next to the router. If it matches your plan there but not elsewhere, it's coverage — not the ISP.</li>
+        </ul>
+
+        <h3 id="g-drop">How to fix WiFi disconnections &amp; dropouts</h3>
+        <ol class="steps-list">
+          <li><span class="st">Reduce interference</span><p>Move away from microwaves, cordless phones, Bluetooth speakers, and baby monitors.</p></li>
+          <li><span class="st">Change the channel/band</span><p>Switch channels or move heavy devices to 5GHz to dodge neighbour congestion.</p></li>
+          <li><span class="st">Cool the router</span><p>Overheating causes random drops. Improve ventilation and keep it out of direct sun.</p></li>
+          <li><span class="st">Update firmware &amp; rejoin</span><p>Forget the network on your device and reconnect after updating the router.</p></li>
+        </ol>
+
+        <h3 id="g-signal">How to boost weak WiFi signal</h3>
+        <p>If far rooms are weak, it's coverage. Try these in order:</p>
+        <ul>
+          <li>Reposition the router to the centre of your home, raised and unobstructed.</li>
+          <li>Point antennas correctly — one vertical, one horizontal for mixed coverage.</li>
+          <li>Add a <strong>mesh WiFi system</strong> for whole-home coverage (best for multi-floor homes).</li>
+          <li>Use a <strong>WiFi extender / access point</strong> for one stubborn dead zone.</li>
+          <li>Switch to 2.4GHz for distance (it travels further than 5GHz through walls).</li>
+        </ul>
+
+        <h3 id="g-place">Best router placement (do &amp; don't)</h3>
+        <div class="dd-grid">
+          <div class="dd-col do">
+            <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Do this</h4>
+            <ul>
+              <li>Central location in the home</li>
+              <li>Raised — on a shelf or wall-mounted</li>
+              <li>Out in the open, vents clear</li>
+              <li>Antennas up and angled</li>
+              <li>Away from thick walls &amp; metal</li>
+            </ul>
+          </div>
+          <div class="dd-col dont">
+            <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg> Avoid this</h4>
+            <ul>
+              <li>Inside a closed cabinet or drawer</li>
+              <li>On the floor or in a corner</li>
+              <li>Next to a TV, microwave, or fridge</li>
+              <li>Behind metal objects or mirrors</li>
+              <li>In a damp or very hot spot</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 id="g-secure">How to secure your router</h3>
+        <ul>
+          <li>Use <strong>WPA2 or WPA3</strong> encryption (never open or WEP).</li>
+          <li>Set a <strong>strong, unique WiFi password</strong> and change the default admin login.</li>
+          <li>Keep <strong>firmware updated</strong> for security patches.</li>
+          <li>Disable <strong>WPS</strong> and remote management if you don't use them.</li>
+          <li>Check the connected-devices list and remove anything you don't recognise.</li>
+        </ul>
+
+        <h3 id="g-upgrade">When it's time to upgrade your router</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Symptom</th><th>Likely cause</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>Router is 5+ years old</td><td>Aging hardware / old standard</td><td><span class="tag a">Upgrade</span></td></tr>
+              <tr><td>Daily reboots after reset</td><td>Failing hardware</td><td><span class="tag r">Replace</span></td></tr>
+              <tr><td>2.4GHz only / Wi-Fi 4</td><td>Outdated standard</td><td><span class="tag a">Upgrade to AX/AC</span></td></tr>
+              <tr><td>Weak coverage in big home</td><td>Single-router limits</td><td><span class="tag b">Mesh system</span></td></tr>
+              <tr><td>Slow only in far rooms</td><td>Placement / range</td><td><span class="tag g">Free fix first</span></td></tr>
+              <tr><td>Fast next to router, slow away</td><td>Coverage, not ISP</td><td><span class="tag g">Reposition / mesh</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h1v4h1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">Before you buy</span>Try the free fixes first (placement, channel, firmware, restart). If WiFi is still slow or dropping after that — especially on an old, single-band router — a Wi-Fi 6 router or mesh system is usually the single biggest upgrade you can make.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="pad" style="background:var(--surface);border-top:1px solid var(--outline-2)">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin:0 auto 34px">
+      <span class="eyebrow" style="margin-left:auto;margin-right:auto"><span class="dot"></span> FAQ</span>
+      <h2>WiFi questions, answered</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Why do I have to reboot my router so often?<span class="faq-icon"></span></button><div class="faq-a"><p>Usually overheating, old firmware leaking memory, or too many connected devices. Improve ventilation, update firmware, and reduce load. If reboots persist after a factory reset, the hardware is aging and due for replacement.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Why does my WiFi speed drop randomly?<span class="faq-icon"></span></button><div class="faq-a"><p>Common causes are channel congestion from neighbours, distance and obstacles, an overloaded router, or ISP issues. Switch to a less crowded channel, use 5GHz when close, and reduce interference from microwaves and cordless phones.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How can I get better WiFi signal at home?<span class="faq-icon"></span></button><div class="faq-a"><p>Place the router central, high, and in the open — not in a cabinet or on the floor. Keep it away from walls, metal, and appliances. For big or multi-floor homes, a mesh system gives far better coverage than one router.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How long does a WiFi router last?<span class="faq-icon"></span></button><div class="faq-a"><p>About 3–5 years before hardware ages and newer standards make it slow. If yours is 4–5+ years old, 2.4GHz-only, or can't keep up with your plan, upgrading to Wi-Fi 5 (AC) or Wi-Fi 6 (AX) is usually the biggest improvement.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Is changing my WiFi channel really helpful?<span class="faq-icon"></span></button><div class="faq-a"><p>Yes, especially in apartments. If nearby networks share your channel they interfere and slow everyone. Switching 2.4GHz to channel 1, 6, or 11 (the least used) or enabling auto-channel can noticeably reduce lag and dropouts.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How do I keep my WiFi router secure?<span class="faq-icon"></span></button><div class="faq-a"><p>Use WPA2/WPA3, set a strong unique password, change the default admin login, and keep firmware updated. Disable WPS and remote management if unused. A poorly secured router can be slowed or misused by unknown devices.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <canvas id="ctaCanvas"></canvas>
+      <h2>Find out your Router Health Score</h2>
+      <p>Takes 90 seconds, fixes most WiFi problems for free, and you can share your score with everyone.</p>
+      <button class="btn btn-filled" onclick="goTool()">Check my router now
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="related-tools">
+  <div class="rt-wrap">
+    <div class="rt-head">
+      <span class="eyebrow"><span class="dot"></span> More free tools</span>
+      <h2>Keep your devices in top shape</h2>
+      <p>Solved this one? These companion tools from the TechFineHub toolkit fix the next problem on your list — all free, all private.</p>
+    </div>
+    <div class="rt-grid"><a class="rt-card" href="charger-health-analyzer.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Charger Health Analyzer</h3>
+        <p>Run a 5-parameter diagnostic on your phone charger — thermal, voltage, cable, PMIC & efficiency — and get an instant health score with fixes.</p>
+        <span class="rt-go">Run diagnostic <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="rt-card" href="phone-camera-health-test.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Phone Camera Health Test</h3>
+        <p>A 5-parameter camera health test that scores sharpness, focus, low-light and stabilisation (0–100) and tells you what to fix.</p>
+        <span class="rt-go">Test camera <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="rt-card" href="screen-time-health-score.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Screen Time Health Checker</h3>
+        <p>Check how screen time, eye strain and sleep habits affect you — a 0–100 wellness score with simple fixes for students, adults & parents.</p>
+        <span class="rt-go">Check score <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></div>
+    <div class="rt-all"><a href="toolkit.html">Browse all 6 tools <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+<footer class="site-foot">
+  <div class="sf-inner">
+    <div class="sf-grid">
+      <div class="sf-about">
+        <a class="sh-brand" href="index.html"><span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span><span class="sh-name">TechFineHub</span></a>
+        <p>Free, private, easy-to-use tools that help everyday people understand and fix their phones, chargers, WiFi and digital habits — no sign-up, no jargon.</p>
+        <div class="sf-social" aria-label="Social links">
+          <a href="contact.html" aria-label="Contact"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4zM4 6l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="sf-col"><h5>Toolkit</h5><a href="charger-health-analyzer.html">Charger Health</a><a href="wifi-health-score-checker.html">WiFi Health</a><a href="phone-camera-health-test.html">Camera Health</a><a href="screen-time-health-score.html">Screen Time</a><a href="mobile-data-usage-calculator.html">Data Calculator</a><a href="phone-resale-value-calculator.html">Resale Value</a></div>
+      <div class="sf-col"><h5>Company</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="sf-col"><h5>Resources</h5>
+        <a href="toolkit.html">All tools</a>
+        <a href="blog.html">Guides &amp; tips</a>
+        <a href="contact.html">Help &amp; support</a>
+      </div>
+    </div>
+    <div class="sf-bottom">
+      <span>© 2026 TechFineHub. All rights reserved.</span>
+      <span>Made with care for everyday device owners.</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var burger=document.getElementById('shBurger'),nav=document.getElementById('shNav'),drop=document.getElementById('shDrop');
+  if(burger){burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});}
+  if(drop){var db=drop.querySelector('.sh-drop-btn');
+    db.addEventListener('click',function(e){e.stopPropagation();var o=drop.classList.toggle('open');db.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!drop.contains(e.target))drop.classList.remove('open');});
+    drop.addEventListener('mouseenter',function(){if(window.innerWidth>900)drop.classList.add('open');});
+    drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)drop.classList.remove('open');});
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(drop)drop.classList.remove('open');if(nav){nav.classList.remove('open');if(burger){burger.classList.remove('open');burger.setAttribute('aria-expanded',false);}}}});
+})();
+</script>
+
+
+<!-- ============ DISCLAIMER (no header/footer — your site already has them) ============ -->
+<div class="disclaimer"><div class="inner"><strong>Disclaimer:</strong> The WiFi Router Health Score is an educational self-assessment based on your observations and general networking principles. It does not access your network or run live speed tests, and it is not a substitute for professional support. For wiring, ISP-line, or persistent hardware faults, contact your internet provider or a qualified technician.</div></div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m6 14 6-6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div id="toast">Copied!</div>
+
+<script>
+const scores={}, totalSteps=6;
+let currentStep=1, lastScore=0, lastTier='';
+const $=id=>document.getElementById(id);
+function goTool(){ $('tool').scrollIntoView({behavior:'smooth'}); }
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.btn');if(!b)return;
+  const r=document.createElement('span');r.className='ripple';
+  const rect=b.getBoundingClientRect(),s=Math.max(rect.width,rect.height);
+  r.style.width=r.style.height=s+'px';r.style.left=(e.clientX-rect.left-s/2)+'px';r.style.top=(e.clientY-rect.top-s/2)+'px';
+  b.appendChild(r);setTimeout(()=>r.remove(),600);
+});
+
+function updateUI(){
+  document.querySelectorAll('.q-step').forEach(s=>s.classList.toggle('active',+s.dataset.step===currentStep));
+  $('stepPill').textContent=String(currentStep).padStart(2,'0')+' / 06';
+  $('progFill').style.width=(currentStep/totalSteps*100)+'%';
+  document.querySelectorAll('.dot-step').forEach(d=>{
+    const s=+d.dataset.s;d.classList.toggle('active',s===currentStep);d.classList.toggle('done',s<currentStep);
+    d.querySelector('.d').innerHTML=s<currentStep?'✓':s;
+  });
+  $('btnBack').disabled=currentStep===1;
+  $('btnNext').classList.toggle('ready',scores[currentStep]!==undefined);
+  $('btnNext').firstChild.textContent=currentStep===totalSteps?'See my score ':'Continue ';
+}
+function pick(btn,step){
+  btn.closest('.choices').querySelectorAll('.choice').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');scores[step]=+btn.dataset.score;$('btnNext').classList.add('ready');
+}
+function nextStep(){if(!$('btnNext').classList.contains('ready'))return;if(currentStep<totalSteps){currentStep++;updateUI();scrollToolTop();}else runAnalysis();}
+function prevStep(){if(currentStep>1){currentStep--;updateUI();scrollToolTop();}}
+function scrollToolTop(){ if(window.innerWidth<760){const t=document.querySelector('.tool-card');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});} }
+
+let calibRAF;
+function runAnalysis(){
+  $('questions').style.display='none';$('qNav').style.display='none';$('progWrap').style.display='none';
+  $('calib').classList.add('active');$('stepPill').textContent='ANALYZING…';animateCalib();
+  const logs=['› checking reboot pattern…','› estimating speed headroom…','› scanning stability…','› mapping signal coverage…','› checking age &amp; load…','› done.'];
+  let i=0;const lg=$('scanLog');const t=setInterval(()=>{lg.innerHTML=logs[i++];if(i>=logs.length)clearInterval(t);},340);
+  setTimeout(()=>{cancelAnimationFrame(calibRAF);$('calib').classList.remove('active');showResults();},2300);
+}
+function animateCalib(){
+  const c=$('calibCanvas'),x=c.getContext('2d');const cx=150,cy=150;let t=0;
+  (function frame(){
+    x.clearRect(0,0,300,300);
+    // expanding wifi rings
+    for(let k=0;k<4;k++){
+      const prog=((t*0.8+k*22)%90)/90;
+      x.beginPath();x.strokeStyle='rgba(0,137,123,'+(0.8*(1-prog))+')';x.lineWidth=3;
+      x.arc(cx,cy+30,10+prog*120,Math.PI*1.15,Math.PI*1.85);x.stroke();
+    }
+    x.beginPath();x.fillStyle='#00897B';x.arc(cx,cy+30,8,0,Math.PI*2);x.fill();
+    t++;calibRAF=requestAnimationFrame(frame);
+  })();
+}
+
+function showResults(){
+  let total=0;for(let i=1;i<=totalSteps;i++)total+=scores[i]||0;
+  const finalScore=Math.round(total/totalSteps);lastScore=finalScore;
+  $('stepPill').textContent='RESULT';
+  document.querySelectorAll('.dot-step').forEach(d=>{d.classList.remove('active');d.classList.add('done');});
+  $('results').classList.add('active');
+
+  let color,sc,statusText,headline,summary;
+  if(finalScore>=85){color='#1E8E3E';sc='var(--green-c)';statusText='Excellent';headline='Healthy, fast WiFi';summary='All six pillars are strong. Your router is in great shape — keep firmware updated and placement clear.';}
+  else if(finalScore>=65){color='#1565C0';sc='var(--blue-c)';statusText='Good';headline='Good, with room to improve';summary='Solid overall, but one or two areas hold you back. The free fixes below will likely push you higher.';}
+  else if(finalScore>=40){color='#E37400';sc='var(--amber-c)';statusText='Needs work';headline='Your WiFi needs attention';summary='Multiple weak areas. Most are fixable for free — start with placement, channel, and a firmware update.';}
+  else{color='#D93025';sc='var(--red-c)';statusText='Poor';headline='Serious WiFi problems';summary='Several pillars are failing. Try the free fixes first; if it stays slow or keeps dropping, an upgrade is likely needed.';}
+  lastTier=statusText;
+
+  const badge=$('statusBadge');badge.textContent=statusText;badge.style.background=sc;badge.style.color=color;
+  $('scoreHeadline').textContent=headline;$('scoreSummary').textContent=summary;
+  $('shareScoreTxt').textContent='My Router Health Score: '+finalScore+'/100 — '+statusText;
+  buildShareLinks(finalScore,statusText);
+
+  drawGauge(finalScore,color);animateNum($('scoreNum'),0,finalScore,1400);
+
+  const map=[scores[1]||0,scores[2]||0,scores[3]||0,scores[4]||0,scores[5]||0,scores[6]||0];
+  const cols=['#6A1B9A','#1E8E3E','#1565C0','#00897B','#E37400','#00B8D4'];
+  setTimeout(()=>{
+    map.forEach((s,i)=>{const bar=$('b'+(i+1)),val=$('v'+(i+1));bar.style.background=cols[i];bar.style.width=s+'%';val.textContent=s+'%';val.style.color=cols[i];});
+    drawRadar(map);
+  },300);
+
+  $('analysisText').textContent=getAnalysis(map);
+  $('remContent').innerHTML=getRemediation(finalScore,map);
+  setTimeout(()=>$('results').scrollIntoView({behavior:'smooth',block:'start'}),200);
+}
+
+function drawGauge(score,color){
+  const c=$('gaugeCanvas'),x=c.getContext('2d');const cx=210,cy=210,r=162;
+  const start=Math.PI*0.75,end=Math.PI*2.25,range=end-start;let cur=0;
+  (function frame(){
+    x.clearRect(0,0,420,420);
+    x.beginPath();x.lineWidth=24;x.lineCap='round';x.strokeStyle='#E9F2F0';x.arc(cx,cy,r,start,end);x.stroke();
+    for(let i=0;i<=10;i++){const a=start+range*(i/10);const x1=cx+Math.cos(a)*(r+16),y1=cy+Math.sin(a)*(r+16),x2=cx+Math.cos(a)*(r+22),y2=cy+Math.sin(a)*(r+22);x.beginPath();x.strokeStyle='#C4CECB';x.lineWidth=2;x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke();}
+    cur+=(score-cur)*0.08;const a=start+range*(Math.min(cur,score)/100);
+    const grad=x.createLinearGradient(0,0,420,420);grad.addColorStop(0,color);grad.addColorStop(1,shade(color,30));
+    x.beginPath();x.lineWidth=24;x.lineCap='round';x.strokeStyle=grad;x.arc(cx,cy,r,start,a);x.stroke();
+    x.beginPath();x.fillStyle=color;x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,10,0,Math.PI*2);x.fill();
+    x.beginPath();x.fillStyle='#fff';x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,4,0,Math.PI*2);x.fill();
+    if(Math.abs(cur-score)>0.3)requestAnimationFrame(frame);
+  })();
+}
+function shade(hex,p){const n=parseInt(hex.slice(1),16);let r=Math.min(255,(n>>16)+p),g=Math.min(255,(n>>8&255)+p),b=Math.min(255,(n&255)+p);return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');}
+
+function drawRadar(vals){
+  const c=$('radarCanvas'),x=c.getContext('2d');const cx=290,cy=290,R=195,N=6;
+  const labels=['Reboot','Speed','Stable','Signal','Age','Load'];const ang=i=>-Math.PI/2+i*2*Math.PI/N;let t=0;
+  (function frame(){
+    x.clearRect(0,0,580,580);
+    for(let g=1;g<=4;g++){x.beginPath();x.strokeStyle='#D5DDDA';x.lineWidth=1;for(let i=0;i<=N;i++){const a=ang(i%N),rr=R*g/4;const px=cx+Math.cos(a)*rr,py=cy+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py);}x.stroke();}
+    x.fillStyle='#5A6360';x.font='600 17px Roboto';x.textAlign='center';x.textBaseline='middle';
+    for(let i=0;i<N;i++){const a=ang(i);x.beginPath();x.strokeStyle='#E4EBE9';x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);x.stroke();x.fillText(labels[i],cx+Math.cos(a)*(R+32),cy+Math.sin(a)*(R+28));}
+    t=Math.min(1,t+0.04);
+    x.beginPath();for(let i=0;i<=N;i++){const a=ang(i%N),rr=R*(vals[i%N]/100)*t;const px=cx+Math.cos(a)*rr,py=cy+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py);}x.closePath();
+    x.fillStyle='rgba(0,137,123,.18)';x.fill();x.strokeStyle='#00897B';x.lineWidth=3;x.stroke();
+    for(let i=0;i<N;i++){const a=ang(i),rr=R*(vals[i]/100)*t;x.beginPath();x.fillStyle='#00897B';x.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr,5,0,Math.PI*2);x.fill();}
+    if(t<1)requestAnimationFrame(frame);
+  })();
+}
+function animateNum(el,a,b,dur){const t0=performance.now();(function u(now){const p=Math.min((now-t0)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.round(a+(b-a)*e);if(p<1)requestAnimationFrame(u);})(t0);}
+
+function weakest(map){let mi=0;for(let i=1;i<map.length;i++)if(map[i]<map[mi])mi=i;return mi;}
+function getAnalysis(map){
+  const names=['Reboot frequency','Speed','Stability','Signal coverage','Router age','Device load & setup'];
+  const w=weakest(map);const strong=map.indexOf(Math.max(...map));
+  return names[strong]+' is your strongest area, while '+names[w].toLowerCase()+' is dragging your score down the most. Fix that one weak pillar first — it usually makes the biggest difference to everyday WiFi.';
+}
+function getRemediation(score,map){
+  const w=weakest(map);
+  const fixes=[
+    '<strong>Reboot fix:</strong> Improve airflow, update firmware, and reduce device load. If it still reboots daily after a factory reset, the router is failing — plan a replacement.',
+    '<strong>Speed fix:</strong> Use the 5GHz band when close, change to a less crowded channel (1/6/11), remove obstacles, and run a speed test next to the router to confirm it is coverage and not the ISP.',
+    '<strong>Stability fix:</strong> Reduce interference (microwaves, cordless phones), switch channel/band, cool the router, and update firmware. Forget &amp; rejoin the network on your device.',
+    '<strong>Signal fix:</strong> Reposition the router central, high, and open; angle the antennas; and for big or multi-floor homes add a mesh system or access point.',
+    '<strong>Age fix:</strong> If it is 4–5+ years old or 2.4GHz-only, upgrading to a Wi-Fi 5 (AC) or Wi-Fi 6 (AX) router is usually the single biggest improvement you can make.',
+    '<strong>Setup fix:</strong> Move it out of the cabinet, secure it with WPA2/WPA3 and a strong password, update firmware, and remove unknown devices to cut the load.'
+  ];
+  let head;
+  if(score>=85)head='<strong style="color:#1E8E3E">Excellent</strong> — Your WiFi is healthy. Keep firmware updated and placement clear. ';
+  else if(score>=65)head='<strong style="color:#1565C0">Good</strong> — Mostly healthy, with one main weak spot to address. ';
+  else if(score>=40)head='<strong style="color:#E37400">Needs work</strong> — Several areas need attention, but most are free to fix. ';
+  else head='<strong style="color:#D93025">Poor</strong> — Try the free fixes first; if it stays bad, an upgrade is likely needed. ';
+  return head+'<br><br>Your priority fix: '+fixes[w];
+}
+
+function shareText(){return 'My WiFi Router Health Score is '+lastScore+'/100 ('+lastTier+')! Test yours free:';}
+function shareURL(){return location.href.split('#')[0];}
+function buildShareLinks(score,tier){
+  const txt=encodeURIComponent('My WiFi Router Health Score is '+score+'/100 ('+tier+')! Test yours:');
+  const url=encodeURIComponent(shareURL());
+  $('waShare').href='https://wa.me/?text='+txt+'%20'+url;
+}
+async function shareNative(){
+  const data={title:'My Router Health Score',text:shareText(),url:shareURL()};
+  if(navigator.share){try{await navigator.share(data);}catch(e){}}else copyResult();
+}
+function copyResult(){
+  const text=shareText()+' '+shareURL();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(showToast,()=>fallbackCopy(text));}else fallbackCopy(text);
+}
+function fallbackCopy(text){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast();}catch(e){}ta.remove();}
+function showToast(){const t=$('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+
+function resetTool(){
+  Object.keys(scores).forEach(k=>delete scores[k]);
+  $('results').classList.remove('active');$('questions').style.display='';$('qNav').style.display='';$('progWrap').style.display='';
+  document.querySelectorAll('.choice').forEach(b=>b.classList.remove('sel'));
+  currentStep=1;updateUI();$('tool').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+  if(!open){item.classList.add('open');const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}
+}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&$('btnNext').classList.contains('ready')&&!$('results').classList.contains('active'))nextStep();});
+
+/* hero signal-bokeh canvas */
+(function(){
+  const c=$('heroCanvas'),x=c.getContext('2d');let w,h,pts=[];
+  const cols=[[0,137,123],[0,184,212],[21,101,192],[124,255,203]];
+  function size(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;init();}
+  function init(){pts=[];const n=Math.min(24,Math.floor(w*h/36000));for(let i=0;i<n;i++){const col=cols[(Math.random()*cols.length)|0];pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:14+Math.random()*38,col,ph:Math.random()*6,sp:.6+Math.random()*1.2});}}
+  let t=0;
+  function frame(){
+    x.clearRect(0,0,w,h);x.globalCompositeOperation='lighter';
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-60)p.x=w+60;if(p.x>w+60)p.x=-60;if(p.y<-60)p.y=h+60;if(p.y>h+60)p.y=-60;
+      const a=(0.06+0.05*(Math.sin(t*0.02*p.sp+p.ph)+1)/2);
+      const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
+      g.addColorStop(0,'rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+(a*1.6)+')');
+      g.addColorStop(.6,'rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+(a*0.5)+')');
+      g.addColorStop(1,'rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+',0)');
+      x.beginPath();x.fillStyle=g;x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();
+    }
+    x.globalCompositeOperation='source-over';t++;requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',size);size();frame();
+})();
+
+/* CTA canvas */
+(function(){
+  const c=$('ctaCanvas');if(!c)return;const x=c.getContext('2d');let w,h,t=0;
+  function size(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;}
+  function frame(){
+    x.clearRect(0,0,w,h);
+    for(let k=0;k<3;k++){x.beginPath();for(let i=0;i<=w;i+=8){const y=h*0.5+Math.sin(i*0.012+t*0.03+k*1.7)*(22+k*9)+Math.cos(i*0.02-t*0.02)*10;i?x.lineTo(i,y):x.moveTo(i,y);}x.strokeStyle='rgba(255,255,255,'+(0.10+k*0.05)+')';x.lineWidth=2;x.stroke();}
+    for(let i=0;i<24;i++){const px=(i*63+t*1.1)%w,py=h*0.5+Math.sin(i+t*0.04)*h*0.3;x.beginPath();x.fillStyle='rgba(255,255,255,.5)';x.arc(px,py,1.6,0,Math.PI*2);x.fill();}
+    t++;requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',size);size();frame();
+})();
+
+/* tilt (desktop only) */
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;card.style.transform='perspective(800px) rotateX('+((py-.5)*-9)+'deg) rotateY('+((px-.5)*11)+'deg) translateY(-6px)';card.style.setProperty('--mx',(px*100)+'%');card.style.setProperty('--my',(py*100)+'%');});
+    card.addEventListener('mouseleave',()=>card.style.transform='');
+  });
+})();
+
+/* reveal + scroll */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const tocLinks=[...document.querySelectorAll('#tocNav a')];const secs=tocLinks.map(a=>$(a.getAttribute('href').slice(1)));
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;const max=document.body.scrollHeight-innerHeight;
+  $('scrollProg').style.width=(y/max*100)+'%';$('toTop').classList.toggle('show',y>600);
+  let act=0;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<140)act=i;});tocLinks.forEach((a,i)=>a.classList.toggle('active',i===act));
+},{passive:true});
+
+updateUI();
+</script>
+</body>
+</html>

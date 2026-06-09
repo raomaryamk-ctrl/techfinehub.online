@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mobile Data Usage Calculator | Monthly GB for Jazz, Jio, Verizon, EE, Vodafone & 40+ Carriers | TechFineHub</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%234F46E5%27/%3E%3Cpath d=%27M13 2 4 14h6l-1 8 9-12h-6l1-8Z%27 fill=%27white%27/%3E%3C/svg%3E">
+<meta name="description" content="Free Mobile Data Usage Calculator for 15+ countries. Set your daily YouTube, WhatsApp, TikTok, Instagram, gaming and Zoom usage to see monthly GB — and the best plan from Jazz, Telenor, Zong, Ufone, Jio, Airtel, Verizon, AT&T, T-Mobile, EE, Vodafone, Etisalat, STC and more.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.techfinehub.online/mobile-data-usage-calculator">
+<meta property="og:title" content="Mobile Data Usage Calculator — How Much Data Do You Need?">
+<meta property="og:description" content="Calculate your monthly mobile data (GB) from daily app usage and choose the right Pakistan telecom package.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F4900C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Mobile Data Usage Calculator","url":"https://www.techfinehub.online/mobile-data-usage-calculator","description":"Estimate monthly mobile data usage in GB from daily app usage and find the right telecom package.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"PKR"},"provider":{"@type":"Organization","name":"TechFineHub"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much mobile data does YouTube use per hour?","acceptedAnswer":{"@type":"Answer","text":"YouTube uses roughly 0.3 GB/hour at 480p, about 0.9 GB/hour at 720p HD, and up to 1.5-3 GB/hour at 1080p or higher."}},
+{"@type":"Question","name":"How much data does WhatsApp use?","acceptedAnswer":{"@type":"Answer","text":"Text chats use almost nothing. WhatsApp voice calls use about 0.3 GB/hour and video calls about 1.5 GB/hour."}},
+{"@type":"Question","name":"How much data does TikTok use per hour?","acceptedAnswer":{"@type":"Answer","text":"TikTok uses roughly 0.8-1 GB/hour of continuous scrolling because it auto-plays HD videos."}},
+{"@type":"Question","name":"Which mobile package should I choose in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Match the package GB to your calculated monthly need with a little buffer."}}
+]}
+]}
+</script>
+<style>
+:root{
+  --primary:#F4900C;--primary-hover:#DB8009;--primary-light:#FBB041;--primary-container:#FCE7C6;--on-primary-container:#3D2400;
+  --primary-08:rgba(244,144,12,.08);--primary-12:rgba(244,144,12,.14);--accent:#C2410C;
+  --bg:#FBF5EE;--surface:#FFFFFF;--surface-2:#FEFAF3;--surface-3:#F7EEE0;
+  --on-surface:#221C14;--on-surface-2:#4A4034;--on-surface-3:#675B4B;--outline:#E6DAC8;--outline-2:#EFE6D7;
+  --green:#1E8E3E;--green-c:#E6F4EA;--blue:#1565C0;--blue-c:#E3EEFB;--amber:#F4900C;--amber-c:#FCE7C6;--red:#D93025;--red-c:#FCE8E6;--violet:#6A1B9A;--violet-c:#F1E4F8;
+  --e1:0 1px 2px rgba(70,50,20,.10),0 1px 3px 1px rgba(70,50,20,.06);
+  --e2:0 1px 3px rgba(70,50,20,.12),0 4px 8px 3px rgba(70,50,20,.07);
+  --e3:0 4px 8px rgba(70,50,20,.12),0 8px 24px 6px rgba(70,50,20,.09);
+  --e4:0 8px 16px rgba(70,50,20,.14),0 16px 40px 10px rgba(70,50,20,.10);
+  --radius-s:12px;--radius:18px;--radius-l:28px;--radius-xl:36px;
+  --font:"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Roboto Mono",ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--on-surface);line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--primary-container)}
+a{color:inherit;text-decoration:none}
+img,svg,canvas{display:block;max-width:100%}
+button{touch-action:manipulation}
+.wrap{max-width:1140px;margin:0 auto;padding:0 max(18px,4vw)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--accent);background:var(--primary-08);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+
+h1,h2,h3{letter-spacing:-.5px;line-height:1.14;color:var(--on-surface)}
+.section-head{max-width:700px;margin-bottom:40px}
+.section-head h2{font-size:clamp(26px,4.2vw,42px);font-weight:700;margin-bottom:14px}
+.section-head p{font-size:clamp(15px,2vw,18px);color:var(--on-surface-3);line-height:1.7}
+.pad{padding:clamp(46px,9vw,100px) 0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-size:15px;font-weight:600;border:none;cursor:pointer;border-radius:999px;padding:14px 26px;transition:all .22s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden}
+.btn-filled{background:var(--primary);color:#fff;box-shadow:var(--e2)}
+.btn-filled:hover{background:var(--primary-hover);box-shadow:var(--e3);transform:translateY(-2px)}
+.btn-filled svg{transition:transform .22s}
+.btn-filled:hover svg{transform:translateX(4px)}
+.btn-tonal{background:var(--primary-container);color:var(--on-primary-container)}
+.btn-tonal:hover{box-shadow:var(--e1);transform:translateY(-2px)}
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.45);animation:rip .6s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+
+/* SUBNAV */
+.tool-subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--outline-2)}
+.tool-subnav .tsn-inner{max-width:1140px;margin:0 auto;padding:0 max(14px,4vw);display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tool-subnav .tsn-inner::-webkit-scrollbar{display:none}
+.tool-subnav a{flex:none;padding:13px 13px;font-size:14px;font-weight:600;color:var(--on-surface-3);position:relative;white-space:nowrap;transition:color .2s}
+.tool-subnav a:hover,.tool-subnav a.active{color:var(--accent)}
+.tool-subnav a.active::after{content:"";position:absolute;left:13px;right:13px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--primary)}
+.tool-subnav .tsn-cta{margin-left:auto;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border-radius:999px;padding:9px 18px;box-shadow:var(--e1);display:inline-flex;align-items:center;gap:8px}
+.tool-subnav .tsn-cta:hover{color:#fff;filter:brightness(1.05);transform:translateY(-1px)}
+.tool-subnav .tsn-cta::after{display:none}
+.tool-subnav .tsn-cta svg{width:15px;height:15px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(34px,7vw,84px) 0 clamp(44px,8vw,90px)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-mesh{position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 50% at 16% 20%,rgba(244,144,12,.20),transparent 60%),radial-gradient(45% 55% at 88% 26%,rgba(251,176,65,.16),transparent 60%);animation:meshFloat 16s ease-in-out infinite alternate}
+@keyframes meshFloat{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-3%,2%,0) scale(1.08)}}
+.hero-grid-overlay{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;background-image:linear-gradient(var(--outline-2) 1px,transparent 1px),linear-gradient(90deg,var(--outline-2) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(circle at 50% 38%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 38%,#000,transparent 75%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.hero-copy{opacity:0;transform:translateY(20px);animation:rise .8s .1s cubic-bezier(.2,.7,.2,1) forwards}
+.badge-live{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:7px 15px 7px 12px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:var(--e1);margin-bottom:22px}
+.badge-live .live{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(33px,6vw,62px);font-weight:900;letter-spacing:-1.4px}
+.hero h1 .grad{background:linear-gradient(120deg,var(--primary-light),var(--accent) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:clamp(15.5px,2.1vw,19px);color:var(--on-surface-3);margin:20px 0 28px;max-width:560px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-stats{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.hstat{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-s);padding:13px 16px;box-shadow:var(--e1);flex:1;min-width:100px}
+.hstat b{display:block;font-size:23px;font-weight:800;color:var(--accent);letter-spacing:-.5px}
+.hstat span{font-size:12px;color:var(--on-surface-3);font-weight:500}
+
+.scene-wrap{opacity:0;transform:translateY(24px);animation:rise .9s .25s cubic-bezier(.2,.7,.2,1) forwards;perspective:1300px;display:grid;place-items:center}
+.meter-scene{position:relative;width:min(330px,84%);aspect-ratio:1/1;transform-style:preserve-3d;transform:rotateX(16deg) rotateY(-12deg);animation:mspin 13s ease-in-out infinite alternate}
+@keyframes mspin{0%{transform:rotateX(16deg) rotateY(-12deg)}100%{transform:rotateX(12deg) rotateY(10deg)}}
+.meter-scene::before{content:"";position:absolute;inset:-14%;border-radius:50%;background:radial-gradient(circle,rgba(244,144,12,.32),rgba(251,176,65,.2) 45%,transparent 70%);filter:blur(30px);transform:translateZ(-70px);animation:auraPulse 5s ease-in-out infinite}
+@keyframes auraPulse{0%,100%{opacity:.7;transform:translateZ(-70px) scale(1)}50%{opacity:1;transform:translateZ(-70px) scale(1.1)}}
+.meter-card{position:absolute;inset:8%;border-radius:30px;background:linear-gradient(160deg,#fff,#fef3e2);box-shadow:var(--e4);border:1px solid var(--outline-2);transform-style:preserve-3d;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+.meter-card canvas{width:78%;transform:translateZ(20px)}
+.meter-card .mlabel{font-family:var(--mono);font-size:13px;color:var(--on-surface-3);margin-top:6px;transform:translateZ(20px)}
+
+/* Real app bubbles floating around the meter */
+.app-bub{position:absolute;width:60px;height:60px;border-radius:18px;display:grid;place-items:center;box-shadow:var(--e3);transform-style:preserve-3d;background:transparent;overflow:visible}
+.app-bub svg{width:100%;height:100%;display:block;border-radius:18px;box-shadow:var(--e3)}
+.ab-yt{top:-4%;left:-6%;transform:translateZ(90px);animation:floaty 5s ease-in-out infinite}
+.ab-wa{bottom:8%;left:-10%;transform:translateZ(76px);animation:floaty 6s ease-in-out infinite .7s}
+.ab-tt{top:8%;right:-8%;transform:translateZ(86px);animation:floaty 5.5s ease-in-out infinite .4s}
+.ab-ig{bottom:-2%;right:-4%;transform:translateZ(70px);animation:floaty 6.5s ease-in-out infinite 1s}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -13px}}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+.trust-row{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:6px;position:relative;z-index:2}
+.trust-chip{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--outline-2);border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:500;color:var(--on-surface-2);box-shadow:var(--e1)}
+.trust-chip svg{width:15px;height:15px;color:var(--amber);flex:none}
+
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:30px}.scene-wrap{order:-1}.meter-scene{width:min(240px,64%)}}
+
+/* CALC TOOL */
+.tool-section{padding:clamp(36px,7vw,70px) 0}
+.calc-card{background:var(--surface);border-radius:var(--radius-xl);box-shadow:var(--e3);border:1px solid var(--outline-2);overflow:hidden}
+.calc-grid{display:grid;grid-template-columns:1fr 380px}
+.calc-inputs{padding:clamp(20px,4vw,38px)}
+.calc-inputs h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.calc-inputs .sub{font-size:13.5px;color:var(--on-surface-3);margin-bottom:22px}
+.app-row{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.app-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;overflow:hidden;background:transparent}
+.app-ico svg{width:100%;height:100%;display:block}
+.app-ico.ico-br{background:#fff;box-shadow:var(--e1)}
+.app-main{flex:1;min-width:0}
+.app-main .at{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600;margin-bottom:7px;gap:8px}
+.app-main .at .v{font-family:var(--mono);font-weight:700;color:var(--accent);font-size:13px}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:999px;background:var(--surface-3);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--primary);cursor:pointer;box-shadow:var(--e2);border:3px solid #fff;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:active{transform:scale(1.15)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff;box-shadow:var(--e2)}
+
+.qrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.qrow .seg{flex:1;min-width:120px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg.two{grid-template-columns:repeat(2,1fr)}
+.seg button{font-family:inherit;font-size:13px;font-weight:600;padding:11px 6px;border:1.5px solid var(--outline);border-radius:var(--radius-s);background:var(--surface);color:var(--on-surface-2);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.seg button:hover{border-color:var(--primary-light)}
+.seg button.on{border-color:var(--primary);background:var(--primary-08);color:var(--accent)}
+.seg.nets button{flex-direction:column;padding:10px 6px;gap:4px}
+.seg.nets .nlogo{width:38px;height:24px;border-radius:6px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:11px;letter-spacing:.5px}
+.seg.nets .nlogo.jazz{background:linear-gradient(135deg,#ED1C24,#7B0F12)}
+.seg.nets .nlogo.telenor{background:#0099CC}
+.seg.nets .nlogo.zong{background:linear-gradient(135deg,#86C440,#3F7D14)}
+.seg.nets .nlogo.ufone{background:linear-gradient(135deg,#FFC72C,#E6A800);color:#222}
+/* International network swatches */
+.seg.nets .nlogo.verizon{background:#CD040B}
+.seg.nets .nlogo.att{background:linear-gradient(135deg,#00A8E0,#067AB4)}
+.seg.nets .nlogo.tmobile{background:#E20074}
+.seg.nets .nlogo.ee{background:linear-gradient(135deg,#00B5B0,#007E7A)}
+.seg.nets .nlogo.vodafone{background:#E60000}
+.seg.nets .nlogo.o2{background:#0019A5}
+.seg.nets .nlogo.three{background:#000}
+.seg.nets .nlogo.jio{background:linear-gradient(135deg,#0F3CC9,#001E96)}
+.seg.nets .nlogo.airtel{background:linear-gradient(135deg,#E40000,#8B0000)}
+.seg.nets .nlogo.vi{background:linear-gradient(135deg,#ED1B24,#EC008C)}
+.seg.nets .nlogo.bsnl{background:linear-gradient(135deg,#F47920,#1B4F8C);color:#fff}
+.seg.nets .nlogo.etisalat{background:linear-gradient(135deg,#71BF44,#006A4E)}
+.seg.nets .nlogo.du{background:#00529B}
+.seg.nets .nlogo.stc{background:#4F2D7F}
+.seg.nets .nlogo.mobily{background:linear-gradient(135deg,#702F8A,#3A1457)}
+.seg.nets .nlogo.zain{background:#7B2D8E}
+.seg.nets .nlogo.bell{background:#00549A}
+.seg.nets .nlogo.rogers{background:#DA291C}
+.seg.nets .nlogo.telus{background:linear-gradient(135deg,#4B286D,#66CC00)}
+.seg.nets .nlogo.telstra{background:#0099CC}
+.seg.nets .nlogo.optus{background:#FBB040;color:#222}
+.seg.nets .nlogo.china{background:#E60012}
+.seg.nets .nlogo.unicom{background:#E4002B}
+.seg.nets .nlogo.docomo{background:#CC0033}
+.seg.nets .nlogo.softbank{background:linear-gradient(135deg,#888,#444)}
+.seg.nets .nlogo.kt{background:#E60012}
+.seg.nets .nlogo.skt{background:linear-gradient(135deg,#EA002C,#A30019)}
+.seg.nets .nlogo.mtn{background:#FFCB05;color:#222}
+.seg.nets .nlogo.glo{background:#00B14F}
+.seg.nets .nlogo.safaricom{background:linear-gradient(135deg,#7FBA00,#3D8B00)}
+
+/* Country picker chips */
+.country-pick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.country-pick button{font-family:inherit;font-size:13px;font-weight:600;padding:8px 14px;border:1.5px solid var(--outline);border-radius:999px;background:var(--surface);color:var(--on-surface-2);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:7px}
+.country-pick button:hover{border-color:var(--primary-light)}
+.country-pick button.on{border-color:var(--primary);background:var(--primary-08);color:var(--accent)}
+.country-pick .flag{font-size:16px;line-height:1}
+
+/* Networks grid international cards */
+.net-card .nlogo-lg.verizon{background:#CD040B}
+.net-card .nlogo-lg.att{background:linear-gradient(135deg,#00A8E0,#067AB4);font-size:18px}
+.net-card .nlogo-lg.tmobile{background:#E20074;font-size:14px}
+.net-card .nlogo-lg.vodafone{background:#E60000;font-size:14px}
+.net-card .nlogo-lg.jio{background:linear-gradient(135deg,#0F3CC9,#001E96)}
+.net-card .nlogo-lg.airtel{background:linear-gradient(135deg,#E40000,#8B0000);font-size:14px}
+.net-card .nlogo-lg.etisalat{background:linear-gradient(135deg,#71BF44,#006A4E);font-size:13px}
+.net-card .nlogo-lg.stc{background:#4F2D7F}
+.net-card .nlogo-lg.mtn{background:#FFCB05;color:#222}
+.fld-lbl{font-size:14px;font-weight:600;margin-bottom:9px}
+
+.calc-result{background:linear-gradient(165deg,#5a3408,#2e1a04);color:#fff;padding:clamp(22px,4vw,34px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.calc-result::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(251,176,65,.25),transparent 55%),radial-gradient(circle at 0% 100%,rgba(244,144,12,.18),transparent 55%);pointer-events:none}
+.calc-result>*{position:relative}
+.cr-label{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:rgba(251,176,65,.85);font-weight:600}
+.cr-gb{font-size:clamp(34px,6vw,52px);font-weight:900;letter-spacing:-1.5px;margin:4px 0 0;color:#fff;line-height:1}
+.cr-gb small{font-size:20px;font-weight:700;color:#FBB041}
+.cr-sub{font-family:var(--mono);font-size:13px;color:#FBB041;margin-top:4px}
+.cr-pkg{margin-top:22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:16px}
+.cr-pkg .pt{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600;margin-bottom:6px}
+.cr-pkg .pv{font-size:18px;font-weight:800}
+.cr-pkg .pd{font-size:12.5px;color:rgba(255,255,255,.75);margin-top:4px;line-height:1.6}
+.cr-split{margin-top:20px;border-top:1px solid rgba(255,255,255,.14);padding-top:16px;display:grid;gap:9px}
+.crb{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.crb .bar{flex:1;height:7px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.crb .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#FBB041,#F4900C);transition:width .6s}
+.crb .lab{width:80px;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:6px}
+.crb .lab svg{width:13px;height:13px}
+.crb .num{width:54px;text-align:right;font-family:var(--mono);font-weight:700}
+.cr-actions{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:9px}
+.cr-actions button{flex:1;min-width:120px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:600;font-size:13.5px;padding:12px;border-radius:999px;border:none;cursor:pointer;transition:all .2s}
+.cr-actions .b1{background:#fff;color:var(--accent)}
+.cr-actions .b1:hover{background:#fff5e8}
+.cr-actions .b2{background:rgba(255,255,255,.16);color:#fff}
+.cr-actions .b2:hover{background:rgba(255,255,255,.28)}
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* HOW IT WORKS */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+.flow-line{position:absolute;top:54px;left:14%;right:14%;height:3px;border-radius:999px;background:var(--outline-2);overflow:hidden;z-index:0}
+.flow-line::after{content:"";position:absolute;top:0;left:0;height:100%;width:40%;border-radius:999px;background:linear-gradient(90deg,transparent,var(--primary-light),var(--accent),transparent);animation:flowMove 2.6s linear infinite}
+@keyframes flowMove{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+@media(max-width:980px){.flow-line{display:none}}
+.step-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:26px;box-shadow:var(--e1);position:relative;z-index:1;transition:transform .3s,box-shadow .3s;overflow:hidden}
+.step-card:hover{transform:translateY(-5px);box-shadow:var(--e2)}
+.step-card .step-art{position:absolute;right:-20px;bottom:-20px;width:120px;height:120px;opacity:.10;pointer-events:none}
+.step-num{font-size:15px;font-weight:800;color:#fff;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--primary-light),var(--primary));display:grid;place-items:center;margin-bottom:16px;position:relative}
+.step-num::after{content:"";position:absolute;inset:-6px;border-radius:18px;border:1.5px dashed rgba(244,144,12,.4);animation:spinSlow 9s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.step-card h3{font-size:18px;font-weight:700;margin-bottom:9px}
+.step-card p{font-size:14px;color:var(--on-surface-3);line-height:1.7}
+.step-apps{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.step-apps .mini{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden;background:transparent}
+.step-apps .mini svg{width:100%;height:100%;display:block;border-radius:8px;box-shadow:var(--e1)}
+.step-apps .mini.qual-sd{background:var(--primary-08);color:var(--accent);font-weight:800;font-size:11px;box-shadow:var(--e1)}
+.step-apps .mini.qual-hd{background:var(--primary-12);color:var(--accent);font-weight:800;font-size:11px;box-shadow:var(--e1)}
+.step-apps .mini.qual-fhd{background:var(--primary);color:#fff;font-weight:800;font-size:10px;box-shadow:var(--e1)}
+.step-apps .mini.net-jazz{background:linear-gradient(135deg,#ED1C24,#7B0F12);color:#fff;font-weight:800;font-size:9px;box-shadow:var(--e1)}
+.step-apps .mini.net-telenor{background:#0099CC;color:#fff;font-weight:800;font-size:11px;box-shadow:var(--e1)}
+.step-apps .mini.net-zong{background:linear-gradient(135deg,#86C440,#3F7D14);color:#fff;font-weight:800;font-size:9px;box-shadow:var(--e1)}
+.step-apps .mini.net-ufone{background:linear-gradient(135deg,#FFC72C,#E6A800);color:#222;font-weight:800;font-size:12px;box-shadow:var(--e1)}
+
+/* NETWORK SHOWCASE */
+.net-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
+@media(max-width:780px){.net-grid{grid-template-columns:repeat(2,1fr)}}
+.net-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:22px;box-shadow:var(--e1);text-align:center;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.net-card:hover{transform:translateY(-4px);box-shadow:var(--e2)}
+.net-card .nlogo-lg{width:78px;height:78px;border-radius:20px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:22px;margin:0 auto 14px;box-shadow:var(--e2);letter-spacing:.5px}
+.net-card .nlogo-lg.jazz{background:linear-gradient(135deg,#ED1C24,#7B0F12)}
+.net-card .nlogo-lg.telenor{background:#0099CC}
+.net-card .nlogo-lg.zong{background:linear-gradient(135deg,#86C440,#3F7D14)}
+.net-card .nlogo-lg.ufone{background:linear-gradient(135deg,#FFC72C,#E6A800);color:#222}
+.net-card h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.net-card p{font-size:13px;color:var(--on-surface-3);line-height:1.6}
+.net-card .nstrip{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary-light),var(--accent))}
+
+/* APPS STRIP - visual showcase of real apps */
+.apps-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:36px}
+@media(max-width:780px){.apps-strip{grid-template-columns:repeat(3,1fr)}}
+.app-tile{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius);padding:18px 10px;text-align:center;box-shadow:var(--e1);transition:transform .3s;cursor:default}
+.app-tile:hover{transform:translateY(-4px)}
+.app-tile .tlogo{width:54px;height:54px;border-radius:14px;margin:0 auto 10px;display:grid;place-items:center;overflow:hidden;background:transparent}
+.app-tile .tlogo svg{width:100%;height:100%;display:block;border-radius:14px;box-shadow:var(--e1)}
+.app-tile .tn{font-size:13px;font-weight:700;color:var(--on-surface)}
+.app-tile .tg{font-family:var(--mono);font-size:12px;color:var(--accent);margin-top:3px}
+
+/* GUIDE */
+.guide-layout{display:grid;grid-template-columns:230px 1fr;gap:44px;align-items:start}
+.toc{position:sticky;top:60px}
+.toc-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--on-surface-3);margin-bottom:14px}
+.toc a{display:block;font-size:14px;color:var(--on-surface-2);padding:8px 14px;border-radius:10px;border-left:2px solid transparent;transition:all .2s;font-weight:500}
+.toc a:hover,.toc a.active{background:var(--primary-08);color:var(--accent)}
+.toc a.active{border-left-color:var(--primary)}
+.guide-body{perspective:1200px}
+.guide-body h3{font-size:clamp(21px,3vw,28px);font-weight:700;margin:40px 0 14px;scroll-margin-top:60px;position:relative;padding-left:20px}
+.guide-body h3:first-child{margin-top:0}
+.guide-body h3::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:6px;border-radius:6px;background:linear-gradient(180deg,var(--primary-light),var(--accent));animation:barPulse 2.6s ease-in-out infinite}
+@keyframes barPulse{0%,100%{transform:scaleY(.55);opacity:.6}50%{transform:scaleY(1);opacity:1}}
+.guide-body p{font-size:15.5px;color:var(--on-surface-2);line-height:1.8;margin-bottom:16px}
+.guide-body strong{color:var(--on-surface)}
+.guide-body ul,.guide-body ol{margin:0 0 18px 4px;padding-left:22px}
+.guide-body li{font-size:15px;color:var(--on-surface-2);line-height:1.8;margin-bottom:9px}
+.guide-body li::marker{color:var(--primary);font-weight:700}
+.callout{display:flex;gap:14px;background:var(--amber-c);border-radius:var(--radius);padding:18px 20px;margin:22px 0;border:1px solid rgba(244,144,12,.25);transition:transform .35s,box-shadow .3s}
+.callout:hover{transform:perspective(900px) rotateX(2deg) translateY(-3px);box-shadow:var(--e2)}
+.callout.good{background:var(--green-c);border-color:rgba(30,142,62,.2)}
+.callout .ci{flex:none;width:24px;height:24px;color:var(--accent)}
+.callout.good .ci{color:var(--green)}
+.callout p{margin:0;font-size:14px;line-height:1.7}
+.callout .ct{font-weight:700;color:var(--on-surface);display:block;margin-bottom:3px}
+
+/* APP DATA RATE VISUAL CARDS (in guide) */
+.rate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px 0}
+@media(max-width:640px){.rate-grid{grid-template-columns:1fr}}
+.rate-card{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--e1);transition:transform .2s,box-shadow .2s}
+.rate-card:hover{transform:translateY(-3px);box-shadow:var(--e2)}
+.rate-card .rlogo{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;overflow:hidden;background:transparent}
+.rate-card .rlogo svg{width:100%;height:100%;display:block;border-radius:12px;box-shadow:var(--e1)}
+.rate-card .rinfo{flex:1;min-width:0}
+.rate-card .rname{font-size:14.5px;font-weight:700;color:var(--on-surface)}
+.rate-card .rbarw{height:8px;background:var(--surface-3);border-radius:999px;margin-top:7px;overflow:hidden}
+.rate-card .rbarw i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--primary-light),var(--accent))}
+.rate-card .rval{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:700;margin-top:5px}
+
+.tbl-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--outline-2);border-radius:var(--radius);box-shadow:var(--e1)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:460px;background:var(--surface)}
+thead th{background:var(--surface-3);text-align:left;padding:13px 15px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px}
+tbody td{padding:12px 15px;border-top:1px solid var(--outline-2);color:var(--on-surface-2)}
+tbody tr:hover{background:var(--surface-2)}
+.td-app{display:flex;align-items:center;gap:10px}
+.td-app .ml{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;flex:none}
+.td-app .ml svg{width:60%;height:60%}
+
+/* USER-TYPE CARDS */
+.usr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+@media(max-width:780px){.usr-grid{grid-template-columns:1fr}}
+.usr-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:20px;box-shadow:var(--e1);position:relative;overflow:hidden}
+.usr-card .uh{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.usr-card .ub{font-size:22px;font-weight:800;margin:4px 0 4px}
+.usr-card .uv{font-family:var(--mono);font-size:13px;color:var(--on-surface-3);margin-bottom:10px}
+.usr-card .ud{font-size:13.5px;color:var(--on-surface-3);line-height:1.6}
+.usr-card .ricon{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--primary-08);color:var(--accent)}
+.usr-card .ricon svg{width:55%;height:55%}
+
+/* FAQ */
+.faq-list{display:grid;gap:11px;max-width:840px;margin:0 auto}
+.faq-item{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.faq-item.open{box-shadow:var(--e2);border-color:var(--primary-container)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;font-size:15.5px;font-weight:600;color:var(--on-surface);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-icon{width:26px;height:26px;flex:none;border-radius:50%;background:var(--primary-08);display:grid;place-items:center;position:relative;transition:background .2s}
+.faq-item.open .faq-icon{background:var(--primary)}
+.faq-icon::before,.faq-icon::after{content:"";position:absolute;background:var(--accent);border-radius:2px;transition:all .25s}
+.faq-icon::before{width:12px;height:2px}
+.faq-icon::after{width:2px;height:12px}
+.faq-item.open .faq-icon::before,.faq-item.open .faq-icon::after{background:#fff}
+.faq-item.open .faq-icon::after{transform:rotate(90deg);opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)}
+.faq-a p{padding:0 20px 20px;font-size:14.5px;color:var(--on-surface-3);line-height:1.8}
+
+/* CTA */
+.cta-banner{background:linear-gradient(135deg,var(--primary),#C2410C 65%,#9a3412);border-radius:var(--radius-xl);padding:clamp(30px,6vw,62px);text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--e3)}
+#ctaCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.5}
+.cta-banner>*{position:relative;z-index:1}
+.cta-banner h2{font-size:clamp(24px,4vw,40px);font-weight:800;color:#fff}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:16px;margin:14px auto 26px;max-width:540px}
+.cta-banner .btn-filled{background:#fff;color:var(--accent)}
+.cta-banner .btn-filled:hover{background:#fff5e8}
+.cta-apps{display:flex;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap}
+.cta-apps .ct-mini{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;overflow:hidden;background:transparent;transition:transform .2s}
+.cta-apps .ct-mini:hover{transform:translateY(-3px)}
+.cta-apps .ct-mini svg{width:100%;height:100%;display:block;border-radius:11px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+
+.disclaimer{max-width:1140px;margin:30px auto;padding:0 max(18px,4vw);font-size:12.5px;color:var(--on-surface-3);line-height:1.7}
+.disclaimer .inner{border-top:1px solid var(--outline-2);padding-top:22px}
+
+#scrollProg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary-light),var(--accent));z-index:200;transition:width .1s}
+#toTop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;box-shadow:var(--e3);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(12px);transition:all .3s;z-index:90}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:#221C14;color:#fff;padding:13px 22px;border-radius:999px;font-size:14px;font-weight:500;box-shadow:var(--e3);opacity:0;pointer-events:none;transition:all .3s;z-index:300}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:860px){.guide-layout{grid-template-columns:1fr}.toc{display:none}.steps3{grid-template-columns:1fr}}
+@media(max-width:980px){.steps3{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.hero h1{font-size:29px}}
+
+html{scroll-padding-top:118px}
+section[id],div[id="tool"],#tool,#how,#guide,#faq,#apps,#networks,#result{scroll-margin-top:118px}
+/* keep subnav directly under fixed site header */
+</style>
+<style>
+
+/* ===== TechFineHub unified brand override ===== */
+:root{
+  --primary:#4F46E5;--primary-hover:#4338CA;--primary-light:#818CF8;--primary-container:#E0E7FF;--on-primary-container:#1E1B4B;
+  --primary-08:rgba(79,70,229,.08);--primary-12:rgba(79,70,229,.14);--accent:#0EA5E9;
+}
+
+/* ===== Unified header ===== */
+.site-head{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.site-head .sh-inner{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw);height:64px;display:flex;align-items:center;gap:18px}
+.sh-brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.sh-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));flex:none}
+.sh-mark svg{width:21px;height:21px}
+.sh-name{display:flex;flex-direction:column;line-height:1.05;font-size:18px}
+.sh-name small{font-size:11px;font-weight:500;color:var(--on-surface-3,#5e6368);letter-spacing:.1px}
+.sh-nav{display:flex;align-items:center;gap:6px;margin-left:auto}
+.sh-nav>a,.sh-drop-btn{font-size:14.5px;font-weight:600;color:var(--on-surface-2,#3c4744);padding:9px 13px;border-radius:10px;transition:all .18s;background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:5px}
+.sh-nav>a:hover,.sh-drop-btn:hover{color:var(--primary);background:var(--primary-08)}
+.sh-nav>a[aria-current="page"],.sh-drop-btn[aria-current="page"]{color:var(--primary);background:var(--primary-08)}
+.sh-cta{background:linear-gradient(135deg,var(--primary),var(--accent))!important;color:#fff!important;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));padding:9px 18px!important}
+.sh-cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.sh-drop{position:relative}
+.sh-caret{transition:transform .22s}
+.sh-drop.open .sh-caret{transform:rotate(180deg)}
+.sh-mega{position:absolute;top:calc(100% + 12px);right:0;width:min(560px,92vw);background:#fff;border:1px solid var(--outline-2,#e6e9ee);border-radius:20px;box-shadow:var(--e4,0 16px 40px rgba(0,0,0,.16));padding:16px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .22s cubic-bezier(.2,.7,.2,1)}
+.sh-drop.open .sh-mega{opacity:1;visibility:visible;transform:translateY(0)}
+.thd-head{display:flex;align-items:center;justify-content:space-between;padding:4px 8px 12px;margin-bottom:8px;border-bottom:1px solid var(--outline-2,#eee)}
+.thd-head b{font-size:13px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-head a{font-size:12.5px;font-weight:600;color:var(--primary)}
+.thd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.thd-tool{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:13px;transition:background .16s}
+.thd-tool:hover{background:var(--primary-08)}
+.thd-ti{width:38px;height:38px;border-radius:10px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center;flex:none}
+.thd-ti svg{width:20px;height:20px}
+.thd-tx{display:flex;flex-direction:column;line-height:1.2}
+.thd-tx b{font-size:14px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-tx i{font-size:11.5px;font-style:normal;color:var(--on-surface-3,#5e6368);font-weight:500}
+.sh-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.sh-burger span{width:24px;height:2.4px;border-radius:3px;background:var(--on-surface,#222);transition:.25s}
+.sh-burger.open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+.sh-burger.open span:nth-child(2){opacity:0}
+.sh-burger.open span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+@media(max-width:900px){
+  .sh-burger{display:flex}
+  .sh-nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;background:#fff;padding:14px max(16px,4vw) 22px;border-bottom:1px solid var(--outline-2,#e6e9ee);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));transform:translateY(-130%);transition:transform .3s cubic-bezier(.2,.7,.2,1);max-height:calc(100vh - 64px);overflow:auto}
+  .sh-nav.open{transform:translateY(0)}
+  .sh-nav>a,.sh-drop-btn{padding:13px 12px;font-size:16px;border-radius:12px;width:100%;justify-content:space-between}
+  .sh-drop{width:100%}
+  .sh-mega{position:static;width:100%;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:6px 0 4px;max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .sh-drop.open .sh-mega{max-height:760px}
+  .thd-grid{grid-template-columns:1fr}
+  .sh-cta{margin-top:8px;text-align:center;justify-content:center}
+}
+/* ===== Unified footer ===== */
+.site-foot{background:#0f1226;color:#c7cbe0;margin-top:0}
+.site-foot .sf-inner{max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,76px) max(16px,4vw) 30px}
+.sf-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.sf-about .sh-brand{color:#fff;margin-bottom:14px}
+.sf-about .sh-name{color:#fff}
+.sf-about p{font-size:14px;line-height:1.7;color:#9aa0c4;max-width:330px}
+.sf-social{margin-top:16px;display:flex;gap:10px}
+.sf-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);display:grid;place-items:center;color:#c7cbe0;transition:.18s}
+.sf-social a:hover{background:var(--primary);color:#fff}
+.sf-social svg{width:18px;height:18px}
+.sf-col h5{font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.7px;margin-bottom:15px}
+.sf-col a{display:block;font-size:14px;color:#9aa0c4;padding:6px 0;transition:.16s}
+.sf-col a:hover{color:#fff;padding-left:4px}
+.sf-bottom{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09);font-size:13px;color:#7e84ab}
+@media(max-width:820px){.sf-grid{grid-template-columns:1fr 1fr}.sf-about{grid-column:1/-1}}
+@media(max-width:460px){.sf-grid{grid-template-columns:1fr}}
+
+/* ===== unified per-tool sticky sub-nav ===== */
+.tool-subnav{position:sticky;top:64px;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.tool-subnav .tsn-inner{max-width:1180px;margin:0 auto;padding:0 max(14px,4vw);display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tool-subnav .tsn-inner::-webkit-scrollbar{display:none}
+.tool-subnav a{flex:none;padding:13px 13px;font-size:14px;font-weight:600;color:var(--on-surface-3,#5e6368);position:relative;white-space:nowrap;transition:color .2s}
+.tool-subnav a:hover,.tool-subnav a.active{color:var(--primary)}
+.tool-subnav a.active::after{content:"";position:absolute;left:13px;right:13px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--primary)}
+.tool-subnav a.tsn-cta,.tool-subnav a.tsn-cta:hover{margin-left:auto;background:var(--primary);color:#fff;border-radius:999px;padding:9px 16px;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12))}
+.tool-subnav a.tsn-cta::after{display:none}
+.tool-subnav a.tsn-cta:hover{filter:brightness(1.05)}
+/* related-tools strip shared by every tool */
+.related-tools{padding:clamp(40px,7vw,72px) 0;background:var(--surface,#fff);border-top:1px solid var(--outline-2,#e6e9ee)}
+.related-tools .wrap,.related-tools .rt-wrap{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw)}
+.rt-head{text-align:center;max-width:620px;margin:0 auto 34px}
+.rt-head .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--accent,#0EA5E9);background:var(--primary-08);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.rt-head h2{font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.6px;color:var(--on-surface,#16201e);margin-bottom:10px}
+.rt-head p{color:var(--on-surface-3,#5e6368);font-size:15.5px;line-height:1.7}
+.rt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rt-card{display:flex;flex-direction:column;gap:12px;background:var(--surface,#fff);border:1px solid var(--outline-2,#e6e9ee);border-radius:18px;padding:22px;transition:all .22s cubic-bezier(.2,.7,.2,1);box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.08))}
+.rt-card:hover{transform:translateY(-4px);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));border-color:var(--primary-light)}
+.rt-ic{width:46px;height:46px;border-radius:13px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center}
+.rt-ic svg{width:24px;height:24px}
+.rt-card h3{font-size:16.5px;font-weight:700;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.rt-card p{font-size:13.5px;color:var(--on-surface-3,#5e6368);line-height:1.6;flex:1}
+.rt-card .rt-go{font-size:13.5px;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:6px}
+.rt-card:hover .rt-go svg{transform:translateX(3px)}
+.rt-card .rt-go svg{transition:transform .2s}
+.rt-all{text-align:center;margin-top:30px}
+.rt-all a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--primary),var(--accent));padding:13px 26px;border-radius:999px;box-shadow:var(--e2,0 4px 8px rgba(0,0,0,.12));transition:.2s}
+.rt-all a:hover{transform:translateY(-2px);filter:brightness(1.05)}
+@media(max-width:820px){.rt-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.rt-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-head" id="siteHead">
+  <div class="sh-inner">
+    <a class="sh-brand" href="index.html" aria-label="TechFineHub home">
+      <span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span>
+      <span class="sh-name">TechFineHub<small>Smart device tools</small></span>
+    </a>
+    <button class="sh-burger" id="shBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="sh-nav" id="shNav">
+      <a href="index.html">Home</a>
+      <div class="sh-drop" id="shDrop">
+        <button class="sh-drop-btn" aria-current="page" aria-expanded="false">
+          Toolkit
+          <svg class="sh-caret" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="sh-mega" role="menu">
+          <div class="thd-head"><b>All 6 free tools</b><a href="toolkit.html">View toolkit →</a></div>
+          <div class="thd-grid"><a class="thd-tool" href="charger-health-analyzer.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Charger Health</b><i>Diagnostic</i></span></a><a class="thd-tool" href="wifi-health-score-checker.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>WiFi Health</b><i>Score</i></span></a><a class="thd-tool" href="phone-camera-health-test.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Camera Health</b><i>Test</i></span></a><a class="thd-tool" href="screen-time-health-score.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Screen Time</b><i>Score</i></span></a><a class="thd-tool" href="mobile-data-usage-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Data Calculator</b><i>Calculator</i></span></a><a class="thd-tool" href="phone-resale-value-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Resale Value</b><i>Calculator</i></span></a></div>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="sh-cta" href="toolkit.html">Explore tools</a>
+    </nav>
+  </div>
+</header>
+<nav class="tool-subnav" id="toolSubnav"><div class="tsn-inner">
+  <a href="#tool" data-sec="tool">Calculator</a><a href="#how" data-sec="how">How it works</a><a href="#guide" data-sec="guide">Guide</a><a href="#faq" data-sec="faq">FAQ</a>
+  <a href="toolkit.html" style="color:var(--on-surface-3)">All tools</a><a href="#tool" class="tsn-cta">Calculate</a>
+</div></nav>
+
+
+<!-- Reusable SVG sprite for real brand icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Brand gradients -->
+    <radialGradient id="g-ig" cx=".3" cy="1.1" r="1.3">
+      <stop offset="0" stop-color="#FFD600"/>
+      <stop offset=".15" stop-color="#FFB000"/>
+      <stop offset=".35" stop-color="#FF6E40"/>
+      <stop offset=".55" stop-color="#F50057"/>
+      <stop offset=".75" stop-color="#D500F9"/>
+      <stop offset="1" stop-color="#7C4DFF"/>
+    </radialGradient>
+    <linearGradient id="g-tg" x1=".25" y1="0" x2=".75" y2="1">
+      <stop offset="0" stop-color="#37AEE2"/>
+      <stop offset="1" stop-color="#1E96C8"/>
+    </linearGradient>
+    <linearGradient id="g-mes" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00B2FF"/>
+      <stop offset=".5" stop-color="#A033FF"/>
+      <stop offset="1" stop-color="#FF5280"/>
+    </linearGradient>
+    <linearGradient id="g-mu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FA243C"/>
+      <stop offset="1" stop-color="#FB5C74"/>
+    </linearGradient>
+    <linearGradient id="g-gm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF9800"/>
+      <stop offset="1" stop-color="#E65100"/>
+    </linearGradient>
+
+    <!-- YouTube: white squircle + red play badge -->
+    <symbol id="i-yt" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#fff"/>
+      <path fill="#FF0000" d="M21.3 8.5a2.5 2.5 0 0 0-1.76-1.77C17.96 6.3 12 6.3 12 6.3s-5.96 0-7.54.43A2.5 2.5 0 0 0 2.7 8.5C2.27 10.08 2.27 12 2.27 12s0 1.92.43 3.5a2.5 2.5 0 0 0 1.76 1.77C6.04 17.7 12 17.7 12 17.7s5.96 0 7.54-.43a2.5 2.5 0 0 0 1.76-1.77c.43-1.58.43-3.5.43-3.5s0-1.92-.43-3.5z"/>
+      <path fill="#fff" d="m10.1 14.85 4.95-2.85-4.95-2.85z"/>
+    </symbol>
+
+    <!-- TikTok: black squircle with cyan + magenta + white note -->
+    <symbol id="i-tt" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#000"/>
+      <path fill="#25F4EE" d="M13.4 6.1c.27 1.6 1.16 2.99 2.46 3.87.91.62 2.01.99 3.19.99v2.04c-2.06 0-3.97-.66-5.53-1.78v6.1a5.43 5.43 0 0 1-5.43 5.43c-1.21 0-2.32-.4-3.22-1.06a5.42 5.42 0 0 0 3.94 1.7 5.43 5.43 0 0 0 5.43-5.43v-6.1a9.39 9.39 0 0 0 5.53 1.78V11.6c-1.04 0-2.01-.34-2.78-.92 0 0-1.94-1.4-2.59-4.58z"/>
+      <path fill="#FE2C55" d="M7.07 14.18a2.49 2.49 0 0 0-.92 1.93c0 .88.47 1.66 1.18 2.1a2.5 2.5 0 0 1-.46-1.45 2.5 2.5 0 0 1 2.5-2.5c.26 0 .52.04.76.12V12.3a5.55 5.55 0 0 0-.76-.05c-.1 0-.21 0-.31.01v2.06c-.24-.08-.5-.12-.76-.12-.46 0-.89.13-1.23.34z"/>
+      <path fill="#fff" d="M13.4 6.1V4.05h-2.78v11.18a2.5 2.5 0 0 1-2.5 2.5 2.49 2.49 0 0 1-1.18-.3c.45.61 1.18 1 2 1a2.5 2.5 0 0 0 2.5-2.5V4.74h2.78c-.05-.27-.07-.55-.07-.84h-.75v2.2zm5.65 4.86V9.04a4.59 4.59 0 0 1-2.78-.94c.68.78 1.6 1.36 2.78 1.62 0 0 0 0 0 0z"/>
+      <path fill="#fff" d="M9.33 9.84a5.43 5.43 0 0 0-5.43 5.43c0 1.86.94 3.51 2.36 4.49a5.41 5.41 0 0 1-1.4-3.65 5.43 5.43 0 0 1 5.43-5.43c.26 0 .51.03.76.06V8.65a5.45 5.45 0 0 0-.76-.06c-.1 0-.21 0-.31.01v2.06c-.21-.05-.42-.07-.65-.07z" opacity=".95"/>
+    </symbol>
+
+    <!-- Instagram: real gradient squircle camera (used everywhere) -->
+    <symbol id="i-ig" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="6.5" fill="url(#g-ig)"/>
+      <rect x="4.5" y="4.5" width="15" height="15" rx="4.5" fill="none" stroke="#fff" stroke-width="1.7"/>
+      <circle cx="12" cy="12" r="3.7" fill="none" stroke="#fff" stroke-width="1.7"/>
+      <circle cx="17.1" cy="6.9" r="1.1" fill="#fff"/>
+    </symbol>
+    <!-- alias -->
+    <symbol id="i-ig-full" viewBox="0 0 24 24"><use href="#i-ig"/></symbol>
+
+    <!-- WhatsApp: real green squircle with white phone-in-bubble -->
+    <symbol id="i-wa" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#25D366"/>
+      <path fill="#fff" d="M17.47 6.42A7.83 7.83 0 0 0 11.91 4.1c-4.34 0-7.87 3.53-7.87 7.86 0 1.4.36 2.74 1.05 3.94L4 20l4.18-1.1a7.87 7.87 0 0 0 3.73.95h.01c4.33 0 7.86-3.53 7.87-7.87a7.81 7.81 0 0 0-2.32-5.56zm-5.56 12.1h-.01c-1.18 0-2.34-.32-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.53 6.53 0 0 1-1-3.47 6.55 6.55 0 0 1 11.18-4.63 6.5 6.5 0 0 1 1.92 4.64 6.56 6.56 0 0 1-6.5 6.55zm3.59-4.9c-.2-.1-1.17-.57-1.35-.64-.18-.07-.31-.1-.45.1-.13.2-.51.64-.63.77-.12.13-.23.15-.43.05-.2-.1-.83-.31-1.59-.98a5.95 5.95 0 0 1-1.1-1.37c-.12-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.14.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.34-.45-.34l-.38-.01a.73.73 0 0 0-.53.25c-.18.2-.7.68-.7 1.66s.71 1.92.81 2.05c.1.13 1.4 2.14 3.4 3 .47.21.85.33 1.13.42.48.15.92.13 1.26.08.38-.06 1.18-.48 1.35-.94.17-.46.17-.86.12-.94-.05-.08-.18-.13-.38-.23z"/>
+    </symbol>
+
+    <!-- Chrome -->
+    <symbol id="i-br" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11.5" fill="#fff"/>
+      <path fill="#EA4335" d="M12 .5c4.36 0 8.16 2.43 10.11 6H12a5.5 5.5 0 0 0-4.76 8.25L2.42 6.3A11.49 11.49 0 0 1 12 .5z"/>
+      <path fill="#FBBC04" d="M2.42 6.3l4.82 8.45A5.5 5.5 0 0 0 12 17.5l-4.82 8.34A11.51 11.51 0 0 1 .5 12c0-2.13.58-4.13 1.6-5.84.04.05.08.09.12.14z"/>
+      <path fill="#34A853" d="M22.11 6.5A11.5 11.5 0 0 1 23.5 12a11.5 11.5 0 0 1-11.39 11.5l4.82-8.34A5.5 5.5 0 0 0 16.93 6.5h5.18z"/>
+      <circle cx="12" cy="12" r="4.6" fill="#fff"/>
+      <circle cx="12" cy="12" r="3.7" fill="#4285F4"/>
+    </symbol>
+
+    <!-- Netflix N: stylized double column -->
+    <symbol id="i-nf" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#000"/>
+      <path fill="#E50914" d="M9 4.5v15.21c.65-.06 1.3-.1 1.95-.13l1.05-.04V14.7l3.5 9.27c.83.05 1.66.13 2.5.23V4.5h-3v9.04l-3.3-9.04H9z"/>
+    </symbol>
+
+    <!-- Facebook: blue squircle with white f -->
+    <symbol id="i-fb" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#1877F2"/>
+      <path fill="#fff" d="M16.67 15.47 17.2 12h-3.33V9.75c0-.95.46-1.88 1.96-1.88h1.5V4.92s-1.37-.23-2.69-.23c-2.74 0-4.53 1.66-4.53 4.66V12h-3.05v3.47h3.05v8.41a11.94 11.94 0 0 0 3.76 0v-8.41h2.8z"/>
+    </symbol>
+
+    <!-- Spotify: green disc with sound waves -->
+    <symbol id="i-sp" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11.5" fill="#1DB954"/>
+      <path fill="#fff" d="M18.05 16.93a.9.9 0 0 1-1.24.3c-3.4-2.07-7.67-2.54-12.7-1.4a.9.9 0 1 1-.4-1.75c5.5-1.26 10.23-.72 14.04 1.61a.9.9 0 0 1 .3 1.24zm1.6-3.34a1.13 1.13 0 0 1-1.55.37c-3.89-2.39-9.83-3.08-14.43-1.69a1.12 1.12 0 1 1-.65-2.15c5.27-1.6 11.81-.83 16.28 1.92.53.33.7 1.03.35 1.55zm.14-3.48c-4.66-2.77-12.35-3.02-16.8-1.67a1.35 1.35 0 1 1-.78-2.58c5.11-1.55 13.6-1.25 18.96 1.94a1.35 1.35 0 1 1-1.38 2.31z"/>
+    </symbol>
+
+    <!-- X (Twitter) -->
+    <symbol id="i-x" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#000"/>
+      <path fill="#fff" d="M17.53 4h2.93l-6.4 7.31L21.5 20h-5.91l-4.62-6.04L5.7 20H2.77l6.85-7.83L2.5 4h6.05l4.18 5.52L17.53 4zm-1.03 14.4h1.62L7.6 5.52H5.86l10.64 12.88z"/>
+    </symbol>
+
+    <!-- Snapchat: yellow squircle with white ghost -->
+    <symbol id="i-sc" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#FFFC00"/>
+      <path fill="#fff" d="M12 3.5c2.4 0 4.71 1.32 5.78 3.47.58 1.23.41 3.31.33 4.96 0 .17-.08.57-.08.74.1 0 .25.08.41.08.33 0 .74-.08 1.15-.25.17-.08.33-.08.5-.08.25 0 .58.08.74.41.17.41-.17.83-.99 1.15-.08 0-.25.08-.41.17-.58.17-1.4.41-1.57.82-.08.25 0 .58.25 1.07v.08c.08.17 1.65 3.3 4.62 3.8.25 0 .41.25.41.5 0 .08 0 .17-.08.25-.25.58-1.24 1-3.06 1.24-.08.08-.17.33-.25.5-.08.25-.17.58-.25.83-.08.33-.25.41-.58.41h-.17c-.17 0-.41-.08-.66-.08-.33-.08-.66-.08-1.07-.08-.25 0-.5 0-.74.08-.5.08-.91.33-1.4.66-.66.41-1.32.82-2.31.82h-.08c-.08 0-.08 0-.17-.08H12c-.99 0-1.73-.41-2.31-.82-.5-.33-.91-.58-1.4-.66-.25-.08-.5-.08-.74-.08-.41 0-.74.08-1.07.16-.33.08-.58.08-.74.08-.41 0-.58-.25-.66-.5-.08-.25-.17-.58-.25-.83-.08-.25-.17-.5-.25-.5-1.82-.25-2.81-.66-3.06-1.24-.08-.08-.08-.17-.08-.25 0-.25.17-.41.41-.5 2.97-.5 4.54-3.63 4.62-3.8v-.08c.25-.5.33-.83.25-1.07-.17-.41-.91-.66-1.49-.82-.17-.08-.25-.08-.41-.17-.83-.33-1.15-.74-.99-1.15.08-.33.33-.41.74-.41h.5c.41.17.83.25 1.15.25.17 0 .33 0 .41-.08 0-.17-.08-.58-.08-.74-.08-1.65-.25-3.72.33-4.96C7.29 4.82 9.6 3.5 12 3.5z"/>
+    </symbol>
+
+    <!-- Pinterest -->
+    <symbol id="i-pn" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11.5" fill="#E60023"/>
+      <path fill="#fff" d="M12.1 3.5c-4.84 0-7.3 3.47-7.3 6.37 0 1.76.66 3.32 2.09 3.9.23.1.44.01.51-.26.05-.18.16-.65.21-.85.07-.27.04-.36-.15-.6-.43-.51-.71-1.17-.71-2.1 0-2.71 2.02-5.13 5.27-5.13 2.87 0 4.45 1.75 4.45 4.1 0 3.08-1.36 5.68-3.39 5.68-1.12 0-1.96-.93-1.69-2.07.32-1.36.94-2.83.94-3.82 0-.88-.47-1.61-1.45-1.61-1.15 0-2.07 1.19-2.07 2.78 0 1.01.34 1.7.34 1.7s-1.17 4.94-1.38 5.85c-.41 1.74-.06 3.87-.03 4.09.02.13.18.16.25.06.11-.14 1.46-1.8 1.92-3.49.13-.48.74-2.91.74-2.91.37.7 1.44 1.31 2.58 1.31 3.4 0 5.71-3.1 5.71-7.25 0-3.14-2.66-6.02-6.7-6.02z"/>
+    </symbol>
+
+    <!-- Gaming controller (PUBG/Free Fire/COD style) -->
+    <symbol id="i-gm" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="url(#g-gm)"/>
+      <path fill="#fff" d="M17.5 6.5h-11A4.5 4.5 0 0 0 2 11v5a4.5 4.5 0 0 0 4.5 4.5c1.3 0 2.4-.7 3.2-1.7L11 17.5h2l1.3 1.3c.8 1 1.9 1.7 3.2 1.7A4.5 4.5 0 0 0 22 16v-5a4.5 4.5 0 0 0-4.5-4.5zM9 14h-1.5v1.5h-1V14H5v-1h1.5v-1.5h1V13H9v1zm5.75-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.75 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+
+    <!-- Zoom: blue squircle with white video camera -->
+    <symbol id="i-zm" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#2D8CFF"/>
+      <path fill="#fff" d="M3.5 9.5C3.5 8.67 4.17 8 5 8h9c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5H5c-.83 0-1.5-.67-1.5-1.5v-5zM17 11.2l3-2c.45-.3 1 .02 1 .56v4.48c0 .54-.55.86-1 .56l-3-2v-1.6z"/>
+    </symbol>
+
+    <!-- Apple Music note (pink-red gradient squircle) -->
+    <symbol id="i-mu" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="url(#g-mu)"/>
+      <path fill="#fff" d="M18 6 9.6 7.8v8.4a3.2 3.2 0 1 0 1.6 2.78V10.4l5.2-1.13v5.13a3.2 3.2 0 1 0 1.6 2.78V6z"/>
+    </symbol>
+
+    <!-- Globe -->
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <!-- Telegram -->
+    <symbol id="i-tg" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11.5" fill="url(#g-tg)"/>
+      <path fill="#fff" d="m5.5 11.7 11.7-4.5c.55-.2 1.03.13.85.95l-1.99 9.37c-.16.66-.55.82-1.1.51l-3.06-2.26-1.48 1.42c-.16.16-.3.3-.61.3l.22-3.12 5.66-5.1c.25-.22-.06-.34-.4-.13L8.1 12.72l-2.94-.92c-.64-.2-.65-.64.34-1.1z"/>
+    </symbol>
+
+    <!-- Messenger -->
+    <symbol id="i-mg" viewBox="0 0 24 24">
+      <path fill="url(#g-mes)" d="M12 1C5.7 1 1 5.66 1 11.6c0 3.1 1.27 5.8 3.37 7.7v3.78l3.13-1.72c.83.23 1.7.35 2.6.37L11 22c6.3 0 11-4.66 11-10.4S18.3 1 12 1z"/>
+      <path fill="#fff" d="m4.95 14.83 3.25-5.16c.52-.82 1.62-1.03 2.4-.44L13.18 11c.24.17.55.18.78.01l3.5-2.65c.47-.36 1.07.2.76.7l-3.25 5.16c-.51.82-1.61 1.03-2.4.44L9.99 13c-.24-.17-.55-.18-.78-.01l-3.5 2.65c-.47.35-1.07-.2-.76-.7z"/>
+    </symbol>
+
+    <!-- Discord -->
+    <symbol id="i-dc" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5.5" fill="#5865F2"/>
+      <path fill="#fff" d="M18.94 7.55a15 15 0 0 0-3.7-1.13l-.18.34a13 13 0 0 1 3.36 1.06 13.7 13.7 0 0 0-9.32-1.5l-.55.06a11 11 0 0 0-2.77.62l.04-.02a13 13 0 0 1 3.34-1.05l-.13-.31a14 14 0 0 0-3.7 1.14C2.65 11.8 1.93 15.93 2.3 20a13.6 13.6 0 0 0 4.15 2.1c.33-.46.63-.95.9-1.46-.5-.18-.97-.4-1.43-.66.13-.09.25-.18.36-.27 2.78 1.3 5.78 1.3 8.52 0 .12.1.24.18.36.27-.45.27-.93.5-1.42.66.26.51.56 1 .9 1.45a13.6 13.6 0 0 0 4.14-2.1c.45-4.71-.7-8.8-2.91-12.44h.05ZM8.7 17.41c-.86 0-1.56-.8-1.56-1.79 0-.99.7-1.79 1.56-1.79.85 0 1.55.8 1.55 1.8 0 .98-.7 1.78-1.55 1.78zm6.6 0c-.85 0-1.55-.8-1.55-1.79 0-.99.7-1.79 1.55-1.79.86 0 1.56.8 1.56 1.8 0 .98-.7 1.78-1.56 1.78z"/>
+    </symbol>
+  </defs>
+</svg>
+
+    <!-- YouTube: red rounded rectangle "play" badge with white triangle -->
+    <symbol id="i-yt" viewBox="0 0 24 24">
+      <path fill="#FF0000" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1C4.5 20 12 20 12 20s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1C24 15.6 24 12 24 12s0-3.6-.5-5.5z"/>
+      <path fill="#fff" d="M9.6 15.6 15.8 12 9.6 8.4z"/>
+    </symbol>
+
+    <!-- TikTok: signature musical note with cyan + magenta chromatic offset on black -->
+    <symbol id="i-tt" viewBox="0 0 24 24">
+      <path fill="#25F4EE" d="M16.2 7.4c-1-.6-1.7-1.5-2.1-2.6-.1-.3-.2-.6-.2-.9V3.5h-3v12.9c0 1.5-1.2 2.6-2.6 2.6-.4 0-.8-.1-1.2-.3-.9-.4-1.5-1.3-1.5-2.4 0-1.5 1.2-2.6 2.6-2.6.3 0 .6 0 .8.1v-3.1c-.3 0-.6-.1-.8-.1-3.1 0-5.6 2.5-5.6 5.6 0 1.9.9 3.6 2.4 4.6-1-1-1.6-2.4-1.6-3.9 0-3.1 2.5-5.6 5.6-5.6.3 0 .6 0 .8.1V7.9c.3 0 .6.1.9.1V4.6c0-.4.1-.7.2-1 .4 1.1 1.1 2 2.1 2.6 0 0 .4.6 1.2 1.2z"/>
+      <path fill="#FE2C55" d="M19.6 8.5c-1.7-.1-3.2-.7-4.4-1.7-1-.8-1.8-1.9-2.2-3.2h-2.3v12.9c0 1.5-1.2 2.6-2.6 2.6-.9 0-1.7-.4-2.2-1.1.6.3 1.3.5 2 .5 1.5 0 2.6-1.2 2.6-2.6V3h3c.1.3.1.6.2.9.4 1.1 1.1 2 2.1 2.6 1 .6 2.1 1 3.3 1V8.5h.5z"/>
+      <path fill="#fff" d="M19.6 8.5V11.5c-2.1 0-4-.7-5.6-1.8v8c0 4-3.3 7.3-7.3 7.3-1.5 0-3-.5-4.2-1.3 1.4 1.5 3.4 2.4 5.6 2.4 4 0 7.3-3.3 7.3-7.3V10.7c1.6 1.1 3.5 1.8 5.6 1.8V8.6c-.4 0-.9 0-1.4-.1z"/>
+      <path fill="#fff" d="M14 17.7V9.7c1.6 1.1 3.5 1.8 5.6 1.8V8.5c-1.2 0-2.3-.4-3.3-1-1-.6-1.7-1.5-2.1-2.6-.1-.3-.2-.6-.2-.9h-3v12.9c0 1.5-1.2 2.6-2.6 2.6-.7 0-1.4-.3-1.9-.7-.9-.4-1.5-1.3-1.5-2.4 0-1.5 1.2-2.6 2.6-2.6.3 0 .6 0 .8.1v-3.1c-3.1.1-5.5 2.5-5.5 5.6 0 1.5.6 2.9 1.6 3.9 1.2.9 2.7 1.4 4.2 1.4 4 0 7.3-3.3 7.3-7.3z"/>
+    </symbol>
+
+    <!-- Instagram: full real squircle camera with gradient (used standalone in apps strip) -->
+    <symbol id="i-ig-full" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="6" fill="url(#g-ig-r)"/>
+      <rect x="4.5" y="4.5" width="15" height="15" rx="4.5" fill="none" stroke="#fff" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="3.7" fill="none" stroke="#fff" stroke-width="1.6"/>
+      <circle cx="17" cy="7" r="1.1" fill="#fff"/>
+    </symbol>
+
+    <!-- Instagram on a gradient parent (white outlines only) -->
+    <symbol id="i-ig" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="2"/>
+      <circle cx="17.4" cy="6.6" r="1.3" fill="#fff"/>
+    </symbol>
+
+    <!-- WhatsApp: white speech bubble with phone receiver, tail at bottom-left -->
+    <symbol id="i-wa" viewBox="0 0 24 24">
+      <path fill="#fff" d="M20.5 3.5A11.85 11.85 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.7 1 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.3zM12 21.8c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 0 1 2.1 12C2.1 6.5 6.5 2.1 12 2.1S21.9 6.5 21.9 12 17.5 21.8 12 21.8zm5.4-7.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3 1.8.7 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/>
+    </symbol>
+
+    <!-- Chrome browser: 4-color disc -->
+    <symbol id="i-br" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#fff"/>
+      <path fill="#EA4335" d="M12 1a11 11 0 0 1 9.53 5.5H12a5.5 5.5 0 0 0-4.76 8.25L2.47 6.5A11 11 0 0 1 12 1z"/>
+      <path fill="#FBBC04" d="M2.47 6.5l4.77 8.25a5.5 5.5 0 0 0 4.76 2.75l-4.77 8.25A11 11 0 0 1 1 12c0-2.04.56-3.96 1.47-5.5z"/>
+      <path fill="#34A853" d="M21.53 6.5A11 11 0 0 1 23 12a11 11 0 0 1-10.77 11l4.77-8.25A5.5 5.5 0 0 0 16.77 6.5h4.76z"/>
+      <circle cx="12" cy="12" r="4.4" fill="#fff"/>
+      <circle cx="12" cy="12" r="3.5" fill="#4285F4"/>
+    </symbol>
+
+    <!-- Netflix: real trapezoidal N -->
+    <symbol id="i-nf" viewBox="0 0 24 24">
+      <path fill="#E50914" d="M6 1.5v21l4-.6V12.4l4 10.6c1.3.1 2.6.2 4 .4V1.5h-4v9.7L10 .9C8.6 1 7.3 1.2 6 1.5z"/>
+    </symbol>
+
+    <!-- Facebook: f mark inside white circle (works on any bg) -->
+    <symbol id="i-fb" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#1877F2"/>
+      <path fill="#fff" d="M15.9 15.5l.5-3.2h-3.1v-2c0-.9.4-1.7 1.8-1.7h1.4V5.7s-1.3-.2-2.5-.2c-2.5 0-4.2 1.5-4.2 4.3v2.4H7v3.2h2.8V23a11 11 0 0 0 4.4 0v-7.5h2.7z"/>
+    </symbol>
+
+    <!-- Spotify: green disc with 3 sound bars -->
+    <symbol id="i-sp" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#1DB954"/>
+      <path fill="#fff" d="M17.9 16.8a.85.85 0 0 1-1.2.3c-3.2-1.95-7.25-2.4-12-1.31a.85.85 0 1 1-.38-1.66c5.2-1.2 9.65-.69 13.25 1.5.4.25.55.78.33 1.17zm1.55-3.3c-.32.52-1 .68-1.5.36-3.7-2.27-9.3-2.93-13.66-1.6a1 1 0 1 1-.58-1.92c4.97-1.5 11.13-.78 15.4 1.85.5.31.65 1 .35 1.5zm.13-3.4c-4.4-2.62-11.69-2.86-15.9-1.58a1.2 1.2 0 1 1-.7-2.3c4.84-1.46 12.85-1.18 17.93 1.85a1.2 1.2 0 1 1-1.34 2.03z"/>
+    </symbol>
+
+    <!-- X (Twitter) -->
+    <symbol id="i-x" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="4" fill="#000"/>
+      <path fill="#fff" d="M17.53 4h2.93l-6.4 7.31L21.5 20h-5.91l-4.62-6.04L5.7 20H2.77l6.85-7.83L2.5 4h6.05l4.18 5.52L17.53 4zm-1.03 14.4h1.62L7.6 5.52H5.86l10.64 12.88z"/>
+    </symbol>
+
+    <!-- Snapchat: signature white ghost mark (real logo always uses white ghost on yellow) -->
+    <symbol id="i-sc" viewBox="0 0 24 24">
+      <path fill="#fff" d="M12 1.5c2.9 0 5.7 1.6 7 4.2.7 1.5.5 4 .4 6 0 .2-.1.7-.1.9.1 0 .3.1.5.1.4 0 .9-.1 1.4-.3.2-.1.4-.1.6-.1.3 0 .7.1.9.5.2.5-.2 1-1.2 1.4-.1 0-.3.1-.5.2-.7.2-1.7.5-1.9 1-.1.3 0 .7.3 1.3v.1c.1.2 2 4 5.6 4.6.3 0 .5.3.5.6 0 .1 0 .2-.1.3-.3.7-1.5 1.2-3.7 1.5-.1.1-.2.4-.3.6-.1.3-.2.7-.3 1-.1.4-.3.5-.7.5h-.2c-.2 0-.5-.1-.8-.1-.4-.1-.8-.1-1.3-.1-.3 0-.6 0-.9.1-.6.1-1.1.4-1.7.8-.8.5-1.6 1-2.8 1-.1 0-.1 0-.2-.1H12c-1.2 0-2.1-.5-2.8-1-.6-.4-1.1-.7-1.7-.8-.3-.1-.6-.1-.9-.1-.5 0-.9.1-1.3.2-.4.1-.7.1-.9.1-.5 0-.7-.3-.8-.6-.1-.3-.2-.7-.3-1-.1-.3-.2-.6-.3-.6-2.2-.3-3.4-.8-3.7-1.5-.1-.1-.1-.2-.1-.3 0-.3.2-.5.5-.6 3.6-.6 5.5-4.5 5.6-4.6v-.1c.3-.6.4-1 .3-1.3-.2-.5-1.1-.8-1.8-1-.2-.1-.3-.1-.5-.2-1-.4-1.4-.9-1.2-1.4.1-.4.4-.5.9-.5h.6c.5.2 1 .3 1.4.3.2 0 .4 0 .5-.1 0-.2-.1-.7-.1-.9-.1-2-.3-4.5.4-6C6.3 3.1 9.1 1.5 12 1.5z"/>
+    </symbol>
+
+    <!-- Pinterest: red disc with white P -->
+    <symbol id="i-pn" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#E60023"/>
+      <path fill="#fff" d="M12 3.5c-4.7 0-7.07 3.36-7.07 6.17 0 1.7.64 3.21 2.02 3.78.23.09.43 0 .5-.25l.2-.78c.07-.26.04-.35-.15-.58-.42-.49-.7-1.13-.7-2.04 0-2.62 1.96-4.97 5.1-4.97 2.78 0 4.31 1.7 4.31 3.97 0 2.98-1.32 5.5-3.28 5.5-1.08 0-1.9-.9-1.64-2 .31-1.32.93-2.75.93-3.7 0-.85-.46-1.56-1.41-1.56-1.12 0-2.02 1.16-2.02 2.7 0 .99.34 1.66.34 1.66s-1.13 4.77-1.34 5.66c-.4 1.69-.06 3.76-.03 3.97.02.12.18.15.25.06.1-.13 1.41-1.75 1.85-3.39.13-.46.72-2.8.72-2.8.36.68 1.4 1.27 2.51 1.27 3.3 0 5.55-3.01 5.55-7.04 0-3.05-2.58-5.84-6.51-5.84z"/>
+    </symbol>
+
+    <!-- Gaming controller -->
+    <symbol id="i-gm" viewBox="0 0 24 24">
+      <path fill="#fff" d="M17.5 5h-11A4.5 4.5 0 0 0 2 9.5v5A4.5 4.5 0 0 0 6.5 19c1.3 0 2.4-.7 3.2-1.7L11 16h2l1.3 1.3c.8 1 1.9 1.7 3.2 1.7A4.5 4.5 0 0 0 22 14.5v-5A4.5 4.5 0 0 0 17.5 5zM9 12.5H7.5V14h-1v-1.5H5v-1h1.5V10h1v1.5H9v1zm5.75-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.75 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+
+    <!-- Zoom: real video-camera badge -->
+    <symbol id="i-zm" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="4.5" fill="#2D8CFF"/>
+      <path fill="#fff" d="M3.5 8.5C3.5 7.67 4.17 7 5 7h9c.83 0 1.5.67 1.5 1.5v7c0 .83-.67 1.5-1.5 1.5H5c-.83 0-1.5-.67-1.5-1.5v-7zM17 10.2l3-2c.45-.3 1 .02 1 .56v6.48c0 .54-.55.86-1 .56l-3-2v-3.6z"/>
+    </symbol>
+
+    <!-- Apple Music / generic music note -->
+    <symbol id="i-mu" viewBox="0 0 24 24">
+      <path fill="#fff" d="M19.5 3 9 5.2v10.36a4 4 0 1 0 2 3.44V8.7l7.5-1.6v5.7a4 4 0 1 0 2 3.45V3z"/>
+    </symbol>
+
+    <!-- Globe -->
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <!-- Telegram -->
+    <symbol id="i-tg" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="url(#g-tg)"/>
+      <path fill="#fff" d="m5.4 11.6 11.6-4.47c.55-.2 1.03.13.85.95l-.01.02-1.97 9.3c-.15.66-.55.82-1.1.51l-3.06-2.26-1.48 1.42c-.16.16-.3.3-.61.3l.22-3.12 5.66-5.1c.24-.22-.06-.34-.4-.13L8 12.62l-2.94-.92c-.64-.2-.65-.64.34-.95z"/>
+    </symbol>
+
+    <!-- Messenger -->
+    <symbol id="i-mg" viewBox="0 0 24 24">
+      <path fill="url(#g-mes)" d="M12 1C5.7 1 1 5.7 1 11.6c0 3.1 1.3 5.8 3.4 7.7v3.8l3.2-1.7c.9.25 1.86.4 2.85.42L11 22c6.3 0 11-4.7 11-10.4S18.3 1 12 1z"/>
+      <path fill="#fff" d="m4.95 14.83 3.25-5.16c.52-.82 1.62-1.03 2.4-.44L13.18 11c.24.17.55.18.78.01l3.5-2.65c.47-.36 1.07.2.76.7l-3.25 5.16c-.51.82-1.61 1.03-2.4.44L9.99 13c-.24-.17-.55-.18-.78-.01l-3.5 2.65c-.47.35-1.07-.2-.76-.7z"/>
+    </symbol>
+
+    <!-- Discord -->
+    <symbol id="i-dc" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="5" fill="url(#g-disc)"/>
+      <path fill="#fff" d="M18.94 7.55a15 15 0 0 0-3.7-1.13l-.18.34a13 13 0 0 1 3.36 1.06 13.7 13.7 0 0 0-9.32-1.5l-.55.06A11 11 0 0 0 5.78 7l.04-.02a13 13 0 0 1 3.34-1.05l-.13-.31a14 14 0 0 0-3.7 1.14C2.65 11.8 1.93 15.93 2.3 20a13.6 13.6 0 0 0 4.15 2.1c.33-.46.63-.95.9-1.46-.5-.18-.97-.4-1.43-.66.13-.09.25-.18.36-.27 2.78 1.3 5.78 1.3 8.52 0 .12.1.24.18.36.27-.45.27-.93.5-1.42.66.26.51.56 1 .9 1.45 1.46-.43 2.86-1.13 4.14-2.1.45-4.71-.7-8.8-2.91-12.44h.05ZM8.7 17.41c-.86 0-1.56-.8-1.56-1.79 0-.99.7-1.79 1.56-1.79.85 0 1.55.8 1.55 1.8 0 .98-.7 1.78-1.55 1.78zm6.6 0c-.85 0-1.55-.8-1.55-1.79 0-.99.7-1.79 1.55-1.79.86 0 1.56.8 1.56 1.8 0 .98-.7 1.78-1.56 1.78z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="scrollProg"></div>
+
+<!-- SUBNAV: All tools replaced with Calculate button -->
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="heroCanvas"></canvas><div class="hero-mesh"></div><div class="hero-grid-overlay"></div>
+  <div class="wrap"><div class="hero-inner">
+    <div class="hero-copy">
+      <span class="badge-live"><span class="live"></span> 🌍 Free · 15+ countries · 40+ carriers</span>
+      <h1>How much <span class="grad">mobile data</span> do you really need?</h1>
+      <p class="hero-sub">Set your daily YouTube, WhatsApp, TikTok, Instagram, gaming, Zoom and music time — and instantly see how many GB you'll use per month, plus which carrier plan fits you best in Pakistan, India, USA, UK, UAE, KSA &amp; more. Stop overpaying or running out mid-month.</p>
+      <div class="hero-actions">
+        <button class="btn btn-filled" onclick="goTool()">Calculate my data <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <a href="#guide" class="btn btn-tonal">Data-saving tips</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>GB</b><span>Monthly estimate</span></div>
+        <div class="hstat"><b>40+</b><span>Carriers covered</span></div>
+        <div class="hstat"><b>Live</b><span>Package match</span></div>
+      </div>
+    </div>
+    <div class="scene-wrap"><div class="meter-scene">
+      <div class="meter-card"><canvas id="heroMeter" width="300" height="180"></canvas><div class="mlabel">≈ 14.2 GB / month</div></div>
+      <div class="app-bub ab-yt"><svg><use href="#i-yt"/></svg></div>
+      <div class="app-bub ab-wa"><svg><use href="#i-wa"/></svg></div>
+      <div class="app-bub ab-tt"><svg><use href="#i-tt"/></svg></div>
+      <div class="app-bub ab-ig"><svg><use href="#i-ig"/></svg></div>
+    </div></div>
+  </div></div>
+</section>
+
+<div class="wrap" style="margin-top:-6px;padding-bottom:10px"><div class="trust-row">
+  <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Pakistan-specific</div>
+  <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Free · no sign-up</div>
+  <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Package help</div>
+  <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Mobile-friendly</div>
+</div></div>
+
+<!-- TOOL -->
+<section id="tool" class="tool-section"><div class="wrap">
+  <div class="section-head reveal" style="text-align:center;margin:0 auto 32px">
+    <span class="eyebrow" style="margin-left:auto;margin-right:auto"><span class="dot"></span> Data Calculator</span>
+    <h2>Calculate your monthly data</h2>
+    <p style="margin:0 auto">Drag each app's daily usage — your monthly GB and best package update live.</p>
+  </div>
+  <div class="calc-card reveal"><div class="calc-grid">
+    <div class="calc-inputs">
+      <h3>Your daily app usage</h3>
+      <div class="sub">Average hours/day. We turn it into monthly GB (×30).</div>
+
+      <div class="app-row">
+        <div class="app-ico ico-yt"><svg><use href="#i-yt"/></svg></div>
+        <div class="app-main"><div class="at"><span>YouTube</span><span class="v"><span id="vYt">2.0</span> hr/day</span></div>
+          <input type="range" id="yt" min="0" max="8" step="0.5" value="2" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico ico-tt"><svg><use href="#i-tt"/></svg></div>
+        <div class="app-main"><div class="at"><span>TikTok</span><span class="v"><span id="vTt">1.5</span> hr/day</span></div>
+          <input type="range" id="tt" min="0" max="8" step="0.5" value="1.5" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico ico-ig"><svg><use href="#i-ig"/></svg></div>
+        <div class="app-main"><div class="at"><span>Instagram / Facebook</span><span class="v"><span id="vIg">1.0</span> hr/day</span></div>
+          <input type="range" id="ig" min="0" max="8" step="0.5" value="1" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico ico-wa"><svg><use href="#i-wa"/></svg></div>
+        <div class="app-main"><div class="at"><span>WhatsApp video/voice</span><span class="v"><span id="vWa">0.5</span> hr/day</span></div>
+          <input type="range" id="wa" min="0" max="6" step="0.5" value="0.5" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico ico-br"><svg><use href="#i-br"/></svg></div>
+        <div class="app-main"><div class="at"><span>Browsing / social feed</span><span class="v"><span id="vBr">1.0</span> hr/day</span></div>
+          <input type="range" id="br" min="0" max="8" step="0.5" value="1" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico ico-nf"><svg><use href="#i-nf"/></svg></div>
+        <div class="app-main"><div class="at"><span>Netflix / streaming</span><span class="v"><span id="vNf">0.0</span> hr/day</span></div>
+          <input type="range" id="nf" min="0" max="6" step="0.5" value="0" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico"><svg><use href="#i-sc"/></svg></div>
+        <div class="app-main"><div class="at"><span>Snapchat</span><span class="v"><span id="vSc">0.0</span> hr/day</span></div>
+          <input type="range" id="sc" min="0" max="6" step="0.5" value="0" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico"><svg><use href="#i-gm"/></svg></div>
+        <div class="app-main"><div class="at"><span>Online gaming (PUBG, Free Fire, COD)</span><span class="v"><span id="vGm">0.0</span> hr/day</span></div>
+          <input type="range" id="gm" min="0" max="8" step="0.5" value="0" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico"><svg><use href="#i-zm"/></svg></div>
+        <div class="app-main"><div class="at"><span>Zoom / Google Meet (video call)</span><span class="v"><span id="vZm">0.0</span> hr/day</span></div>
+          <input type="range" id="zm" min="0" max="8" step="0.5" value="0" oninput="calc()"></div>
+      </div>
+
+      <div class="app-row">
+        <div class="app-ico"><svg><use href="#i-mu"/></svg></div>
+        <div class="app-main"><div class="at"><span>Music streaming (Spotify, YT Music)</span><span class="v"><span id="vMu">0.0</span> hr/day</span></div>
+          <input type="range" id="mu" min="0" max="8" step="0.5" value="0" oninput="calc()"></div>
+      </div>
+
+      <div class="fld-lbl" style="margin-top:6px">Video quality (YouTube/TikTok/streaming)</div>
+      <div class="seg" id="fQual" style="margin-bottom:22px">
+        <button data-v="0.45" onclick="seg('fQual',this);calc()">Low (SD)</button>
+        <button data-v="1" class="on" onclick="seg('fQual',this);calc()">HD (720p)</button>
+        <button data-v="1.9" onclick="seg('fQual',this);calc()">Full HD+</button>
+      </div>
+
+      <div class="fld-lbl">Your country</div>
+      <div class="country-pick" id="fCountry">
+        <button data-c="pk" class="on" onclick="pickCountry(this)"><span class="flag">🇵🇰</span> Pakistan</button>
+        <button data-c="in" onclick="pickCountry(this)"><span class="flag">🇮🇳</span> India</button>
+        <button data-c="us" onclick="pickCountry(this)"><span class="flag">🇺🇸</span> USA</button>
+        <button data-c="uk" onclick="pickCountry(this)"><span class="flag">🇬🇧</span> UK</button>
+        <button data-c="ae" onclick="pickCountry(this)"><span class="flag">🇦🇪</span> UAE</button>
+        <button data-c="sa" onclick="pickCountry(this)"><span class="flag">🇸🇦</span> KSA</button>
+        <button data-c="ca" onclick="pickCountry(this)"><span class="flag">🇨🇦</span> Canada</button>
+        <button data-c="au" onclick="pickCountry(this)"><span class="flag">🇦🇺</span> Australia</button>
+        <button data-c="cn" onclick="pickCountry(this)"><span class="flag">🇨🇳</span> China</button>
+        <button data-c="jp" onclick="pickCountry(this)"><span class="flag">🇯🇵</span> Japan</button>
+        <button data-c="kr" onclick="pickCountry(this)"><span class="flag">🇰🇷</span> S. Korea</button>
+        <button data-c="ng" onclick="pickCountry(this)"><span class="flag">🇳🇬</span> Nigeria</button>
+        <button data-c="ke" onclick="pickCountry(this)"><span class="flag">🇰🇪</span> Kenya</button>
+        <button data-c="za" onclick="pickCountry(this)"><span class="flag">🇿🇦</span> S. Africa</button>
+        <button data-c="other" onclick="pickCountry(this)"><span class="flag">🌍</span> Other</button>
+      </div>
+
+      <div class="fld-lbl">Your network</div>
+      <div class="seg nets" id="fNet" style="grid-template-columns:repeat(4,1fr);margin-bottom:0"></div>
+    </div>
+
+    <div class="calc-result">
+      <div class="cr-label">You'll need about</div>
+      <div class="cr-gb"><span id="crGb">0</span> <small>GB/month</small></div>
+      <div class="cr-sub" id="crDaily">≈ 0 GB per day</div>
+      <div class="cr-pkg"><div class="pt">Suggested package type</div><div class="pv" id="crPkg">—</div><div class="pd" id="crPkgD">—</div></div>
+      <div class="cr-split" id="crSplit"></div>
+      <div class="cr-actions">
+        <button class="b1" onclick="copyResult()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Copy</button>
+        <button class="b2" onclick="shareResult()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share</button>
+      </div>
+    </div>
+  </div></div>
+</div></section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="pad"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow"><span class="dot"></span> How it works</span><h2>From daily habits to monthly GB</h2><p>We use real per-hour data rates for each app, adjusted for your chosen video quality.</p></div>
+  <div class="steps3"><div class="flow-line"></div>
+    <div class="step-card reveal">
+      <div class="step-num">1</div>
+      <h3>Enter daily hours</h3>
+      <p>Set how long you use each app on an average day — YouTube, TikTok, WhatsApp, and more.</p>
+      <div class="step-apps">
+        <div class="mini"><svg><use href="#i-yt"/></svg></div>
+        <div class="mini"><svg><use href="#i-tt"/></svg></div>
+        <div class="mini"><svg><use href="#i-wa"/></svg></div>
+        <div class="mini"><svg><use href="#i-ig"/></svg></div>
+      </div>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">2</div>
+      <h3>We apply data rates</h3>
+      <p>Each app has a typical GB/hour rate; video quality scales it up or down realistically.</p>
+      <div class="step-apps">
+        <div class="mini qual-sd">SD</div>
+        <div class="mini qual-hd">HD</div>
+        <div class="mini qual-fhd">FHD</div>
+      </div>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">3</div>
+      <h3>Get GB + package</h3>
+      <p>See your monthly GB and a matching Jazz/Telenor/Zong/Ufone package type.</p>
+      <div class="step-apps">
+        <div class="mini net-jazz">JAZZ</div>
+        <div class="mini net-telenor">Tn</div>
+        <div class="mini net-zong">ZONG</div>
+        <div class="mini net-ufone">U</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- APPS DATA STRIP -->
+<section id="apps" class="pad" style="padding-top:0"><div class="wrap">
+  <div class="section-head reveal" style="text-align:center;margin:0 auto 10px">
+    <span class="eyebrow" style="margin-left:auto;margin-right:auto"><span class="dot"></span> Popular apps in Pakistan</span>
+    <h2>How much data does each app eat?</h2>
+    <p style="margin:0 auto">A quick at-a-glance look at the apps Pakistanis use most — and their typical hourly data footprint.</p>
+  </div>
+  <div class="apps-strip reveal">
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-yt"/></svg></div><div class="tn">YouTube</div><div class="tg">~0.9 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-tt"/></svg></div><div class="tn">TikTok</div><div class="tg">~0.9 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-ig-full"/></svg></div><div class="tn">Instagram</div><div class="tg">~0.7 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-fb"/></svg></div><div class="tn">Facebook</div><div class="tg">~0.6 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-wa"/></svg></div><div class="tn">WhatsApp call</div><div class="tg">~0.3–1.5 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-nf"/></svg></div><div class="tn">Netflix HD</div><div class="tg">~3 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-sp"/></svg></div><div class="tn">Spotify</div><div class="tg">~0.07 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-x"/></svg></div><div class="tn">X (Twitter)</div><div class="tg">~0.3 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-sc"/></svg></div><div class="tn">Snapchat</div><div class="tg">~0.5 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-pn"/></svg></div><div class="tn">Pinterest</div><div class="tg">~0.3 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-br"/></svg></div><div class="tn">Browsing</div><div class="tg">~0.1–0.3 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-zm"/></svg></div><div class="tn">Zoom HD</div><div class="tg">~0.9–1.5 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-gm"/></svg></div><div class="tn">PUBG / COD</div><div class="tg">~0.06–0.1 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-mu"/></svg></div><div class="tn">Music HQ</div><div class="tg">~0.07–0.15 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-tg"/></svg></div><div class="tn">Telegram</div><div class="tg">~0.05 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-mg"/></svg></div><div class="tn">Messenger</div><div class="tg">~0.3–1.2 GB/hr</div></div>
+    <div class="app-tile"><div class="tlogo"><svg><use href="#i-dc"/></svg></div><div class="tn">Discord</div><div class="tg">~0.1–0.6 GB/hr</div></div>
+  </div>
+</div></section>
+
+<!-- NETWORKS (multi-country) -->
+<section id="networks" class="pad" style="padding-top:0"><div class="wrap">
+  <div class="section-head reveal" style="text-align:center;margin:0 auto 10px">
+    <span class="eyebrow" style="margin-left:auto;margin-right:auto"><span class="dot"></span> Worldwide Telecom</span>
+    <h2>Pick the right network for your data</h2>
+    <p style="margin:0 auto">Major mobile carriers from Pakistan to the USA, UK, India, UAE, KSA and beyond — match your calculated GB with the plan that fits best.</p>
+  </div>
+  <div class="country-pick" id="netCountryPick" style="justify-content:center;margin-bottom:24px">
+    <button data-c="pk" class="on" onclick="pickNetCountry(this)"><span class="flag">🇵🇰</span> Pakistan</button>
+    <button data-c="in" onclick="pickNetCountry(this)"><span class="flag">🇮🇳</span> India</button>
+    <button data-c="us" onclick="pickNetCountry(this)"><span class="flag">🇺🇸</span> USA</button>
+    <button data-c="uk" onclick="pickNetCountry(this)"><span class="flag">🇬🇧</span> UK</button>
+    <button data-c="ae" onclick="pickNetCountry(this)"><span class="flag">🇦🇪</span> UAE</button>
+    <button data-c="sa" onclick="pickNetCountry(this)"><span class="flag">🇸🇦</span> KSA</button>
+    <button data-c="ca" onclick="pickNetCountry(this)"><span class="flag">🇨🇦</span> Canada</button>
+    <button data-c="au" onclick="pickNetCountry(this)"><span class="flag">🇦🇺</span> Australia</button>
+    <button data-c="ng" onclick="pickNetCountry(this)"><span class="flag">🇳🇬</span> Nigeria</button>
+  </div>
+  <div class="net-grid" id="netGrid"></div>
+</div></section>
+
+<!-- GUIDE -->
+<section id="guide" class="pad" style="background:var(--surface);border-top:1px solid var(--outline-2);border-bottom:1px solid var(--outline-2)"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow"><span class="dot"></span> Complete Guide</span><h2>Mobile data: how to use less &amp; choose right</h2><p>Understand what eats your data and how to pick the perfect package in Pakistan.</p></div>
+  <div class="guide-layout">
+    <aside class="toc reveal"><div class="toc-title">On this page</div><nav id="tocNav">
+      <a href="#g-rates" class="active">App data rates</a>
+      <a href="#g-save">Save mobile data</a>
+      <a href="#g-pick">Pick a package</a>
+      <a href="#g-net">Networks around the world</a>
+      <a href="#g-myths">Data myths</a>
+    </nav></aside>
+
+    <div class="guide-body reveal">
+      <h3 id="g-rates">How much data each app uses</h3>
+      <p>Different apps consume wildly different amounts of data. Streaming video is the biggest drain; messaging is the smallest. Here's a realistic per-hour guide with visuals so you can spot the heavy hitters at a glance:</p>
+
+      <div class="rate-grid">
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-yt"/></svg></div><div class="rinfo"><div class="rname">YouTube (HD)</div><div class="rbarw"><i style="width:60%"></i></div><div class="rval">~0.9 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-yt"/></svg></div><div class="rinfo"><div class="rname">YouTube (1080p+)</div><div class="rbarw"><i style="width:95%"></i></div><div class="rval">~1.5–3 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-tt"/></svg></div><div class="rinfo"><div class="rname">TikTok scrolling</div><div class="rbarw"><i style="width:62%"></i></div><div class="rval">~0.8–1 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-ig-full"/></svg></div><div class="rinfo"><div class="rname">Instagram / Facebook feed</div><div class="rbarw"><i style="width:48%"></i></div><div class="rval">~0.6–0.8 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-nf"/></svg></div><div class="rinfo"><div class="rname">Netflix (HD)</div><div class="rbarw"><i style="width:100%"></i></div><div class="rval">~3 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-wa"/></svg></div><div class="rinfo"><div class="rname">WhatsApp video call</div><div class="rbarw"><i style="width:75%"></i></div><div class="rval">~1.5 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-wa"/></svg></div><div class="rinfo"><div class="rname">WhatsApp voice call</div><div class="rbarw"><i style="width:18%"></i></div><div class="rval">~0.3 GB / hour</div></div></div>
+        <div class="rate-card"><div class="rlogo"><svg><use href="#i-br"/></svg></div><div class="rinfo"><div class="rname">Web browsing / chatting</div><div class="rbarw"><i style="width:12%"></i></div><div class="rval">~0.1–0.3 GB / hour</div></div></div>
+      </div>
+
+      <div class="callout"><svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="ct">Video = 80% of most bills</span>If your data finishes too fast, it's almost always YouTube, TikTok, or Netflix in high quality.</p></div>
+
+      <h3 id="g-save">How to save mobile data</h3>
+      <p>Small habit changes can cut your monthly bill in half. Here are the tweaks with the biggest impact:</p>
+      <ul>
+        <li><strong>Lower video quality</strong> to 480p — instantly cuts streaming data in half or more.</li>
+        <li>Turn on <strong>Data Saver</strong> in YouTube, TikTok, Instagram, and Chrome.</li>
+        <li>Use <strong>Wi-Fi</strong> for big downloads, system updates, and Netflix binges.</li>
+        <li>Disable <strong>auto-play videos</strong> and <strong>auto-download media</strong> in WhatsApp.</li>
+        <li>Restrict <strong>background data</strong> for apps you don't need live.</li>
+        <li>Download music/playlists on Wi-Fi instead of streaming on mobile data.</li>
+        <li>Use the <strong>"Lite" versions</strong> of Facebook, Messenger and Instagram on slow days.</li>
+      </ul>
+
+      <div class="callout good"><svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="ct">Biggest single win</span>Switching YouTube from 1080p to 480p can save you several GB a week with barely any difference on a phone screen.</p></div>
+
+      <h3 id="g-pick">How to pick the right package</h3>
+      <p>Take your calculated monthly GB and add a <strong>15–20% buffer</strong> for busy months. Then match it:</p>
+
+      <div class="usr-grid">
+        <div class="usr-card">
+          <div class="ricon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 0a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 0V2m-7 14h14M5 22h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="uh">Light user</div><div class="ub">Under 10 GB</div><div class="uv">≈ &lt;0.3 GB/day</div>
+          <div class="ud">Mostly chatting, voice notes, light browsing. Weekly bundles or a small ~10 GB monthly bundle is enough.</div>
+        </div>
+        <div class="usr-card">
+          <div class="ricon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3-9 4 18 3-9h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="uh">Medium user</div><div class="ub">10–40 GB</div><div class="uv">≈ 0.3–1.3 GB/day</div>
+          <div class="ud">Daily YouTube, social scrolling, some WhatsApp calls. Pick a standard monthly internet bundle with an app add-on.</div>
+        </div>
+        <div class="usr-card">
+          <div class="ricon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div class="uh">Heavy user</div><div class="ub">40 GB+</div><div class="uv">≈ 1.5+ GB/day</div>
+          <div class="ud">Streaming, gaming, video calls all day. Go for large monthly or "unlimited"-style offers with night/social bonuses.</div>
+        </div>
+      </div>
+
+      <h3 id="g-net">Networks around the world</h3>
+      <p>Mobile data is a global game. No matter which country you're in, the "best" network is usually the one with the strongest signal where you live, the right price-per-GB, and app add-ons that match your habits. Here are the major carriers our calculator covers — pick yours and compare bundles on a per-GB basis:</p>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Country</th><th>Major carriers</th><th>Typical sweet spot</th></tr></thead>
+        <tbody>
+          <tr><td>🇵🇰 Pakistan</td><td><span class="td-app"><span class="ml" style="background:linear-gradient(135deg,#ED1C24,#7B0F12);color:#fff;font-weight:800;font-size:9px">JAZZ</span>Jazz, Telenor, Zong, Ufone</span></td><td>Monthly 25–50 GB internet bundles</td></tr>
+          <tr><td>🇮🇳 India</td><td><span class="td-app"><span class="ml" style="background:linear-gradient(135deg,#0F3CC9,#001E96);color:#fff;font-weight:800;font-size:11px">Jio</span>Jio, Airtel, Vi, BSNL</span></td><td>~1.5–2 GB/day unlimited-style plans</td></tr>
+          <tr><td>🇺🇸 USA</td><td><span class="td-app"><span class="ml" style="background:#CD040B;color:#fff;font-weight:800;font-size:10px">vzw</span>Verizon, AT&amp;T, T-Mobile</span></td><td>Unlimited 5G plans (50–100 GB premium data)</td></tr>
+          <tr><td>🇬🇧 UK</td><td><span class="td-app"><span class="ml" style="background:linear-gradient(135deg,#00B5B0,#007E7A);color:#fff;font-weight:800;font-size:11px">EE</span>EE, Vodafone, O2, Three</span></td><td>SIM-only 100 GB+ monthly plans</td></tr>
+          <tr><td>🇦🇪 UAE</td><td><span class="td-app"><span class="ml" style="background:linear-gradient(135deg,#71BF44,#006A4E);color:#fff;font-weight:800;font-size:11px">e&amp;</span>Etisalat (e&amp;), du</span></td><td>Postpaid 40–100 GB with social bundles</td></tr>
+          <tr><td>🇸🇦 KSA</td><td><span class="td-app"><span class="ml" style="background:#4F2D7F;color:#fff;font-weight:800;font-size:11px">stc</span>STC, Mobily, Zain</span></td><td>Monthly 50+ GB 5G plans</td></tr>
+          <tr><td>🇨🇦 Canada</td><td><span class="td-app"><span class="ml" style="background:#00549A;color:#fff;font-weight:800;font-size:11px">Bell</span>Bell, Rogers, TELUS</span></td><td>50–100 GB 5G plans with US roaming</td></tr>
+          <tr><td>🇦🇺 Australia</td><td><span class="td-app"><span class="ml" style="background:#0099CC;color:#fff;font-weight:800;font-size:11px">Tls</span>Telstra, Optus, Vodafone</span></td><td>40–100 GB monthly plans</td></tr>
+          <tr><td>🇳🇬 Nigeria</td><td><span class="td-app"><span class="ml" style="background:#FFCB05;color:#222;font-weight:800;font-size:11px">MTN</span>MTN, Airtel, Glo</span></td><td>Monthly data bundles 25–75 GB</td></tr>
+          <tr><td>🇰🇪 Kenya</td><td><span class="td-app"><span class="ml" style="background:linear-gradient(135deg,#7FBA00,#3D8B00);color:#fff;font-weight:800;font-size:11px">SAF</span>Safaricom, Airtel</span></td><td>Weekly / monthly bundles with social add-ons</td></tr>
+          <tr><td>🇿🇦 S. Africa</td><td><span class="td-app"><span class="ml" style="background:#E60000;color:#fff;font-weight:800;font-size:11px">Vd</span>Vodacom, MTN, Cell C</span></td><td>Prepaid 20–60 GB bundles with night data</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 id="g-myths">Common data myths</h3>
+      <ul>
+        <li><strong>"Closing apps saves data."</strong> Not really — background restrictions and lower quality save far more.</li>
+        <li><strong>"WhatsApp uses tons of data."</strong> Only video calls do; texting is negligible.</li>
+        <li><strong>"Bigger package = waste."</strong> Only if you don't use it — match it to your real GB.</li>
+        <li><strong>"4G uses more data than 3G."</strong> Same content uses the same data — speed just delivers it faster.</li>
+        <li><strong>"Airplane mode at night saves data."</strong> Modern phones already pause most background data; useful for battery, not data.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq" class="pad"><div class="wrap">
+  <div class="section-head reveal" style="text-align:center;margin:0 auto 34px"><span class="eyebrow" style="margin-left:auto;margin-right:auto"><span class="dot"></span> FAQ</span><h2>Data questions, answered</h2></div>
+  <div class="faq-list">
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How much data does YouTube use per hour?<span class="faq-icon"></span></button><div class="faq-a"><p>About 0.3 GB/hour at 480p, ~0.9 GB/hour at 720p HD, and 1.5–3 GB/hour at 1080p+. Lowering quality is the fastest way to save.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How much data does WhatsApp use?<span class="faq-icon"></span></button><div class="faq-a"><p>Texting uses almost nothing. Voice calls ~0.3 GB/hour and video calls ~1.5 GB/hour — that's where WhatsApp data goes.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How much data does TikTok use per hour?<span class="faq-icon"></span></button><div class="faq-a"><p>Roughly 0.8–1 GB/hour because it auto-plays HD video. Data Saver mode roughly halves it.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Which package should I choose?<span class="faq-icon"></span></button><div class="faq-a"><p>Match the package GB to your calculated need plus a small buffer. Light users → weekly bundles, medium → monthly bundles, heavy streamers → large monthly/unlimited offers.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Is this calculator exact?<span class="faq-icon"></span></button><div class="faq-a"><p>It's a close estimate using typical app data rates. Real usage varies with quality, app changes, and habits — check your phone's data usage screen to fine-tune.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Does 4G use more data than 3G?<span class="faq-icon"></span></button><div class="faq-a"><p>No. The same video or web page uses the same amount of data on any network — 4G just delivers it faster, which can make you watch more.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Can I get unlimited data in Pakistan?<span class="faq-icon"></span></button><div class="faq-a"><p>Most "unlimited" plans are actually large monthly buckets (often 100–300 GB) or "unlimited at reduced speed" after a cap. Always read the fair-use policy.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Does this calculator work for India, USA, UK, UAE or KSA?<span class="faq-icon"></span></button><div class="faq-a"><p>Yes — pick your country in the calculator and it instantly switches the carrier list (Jio, Airtel, Vi, BSNL for India; Verizon, AT&amp;T, T-Mobile for USA; EE, Vodafone, O2, Three for UK; Etisalat &amp; du for UAE; STC, Mobily, Zain for KSA, and more). The GB estimate works the same worldwide since app data rates don't change by country.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How much data does online gaming (PUBG, Free Fire, COD) use?<span class="faq-icon"></span></button><div class="faq-a"><p>Online mobile games are surprisingly light — around 0.06–0.1 GB per hour. The big spikes come from large updates (1–5 GB+) which you should always do on Wi-Fi.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How much data does a Zoom or Google Meet call use?<span class="faq-icon"></span></button><div class="faq-a"><p>A 1-on-1 HD Zoom or Meet call uses roughly 0.9 GB/hour. Group HD calls can hit 1.5–2.5 GB/hour. Switching to audio-only drops it to ~0.05 GB/hour.</p></div></div>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="pad" style="padding-top:0"><div class="wrap"><div class="cta-banner reveal"><canvas id="ctaCanvas"></canvas>
+  <h2>Never run out of data mid-month again</h2>
+  <p>Calculate your real monthly GB in seconds and pick the package that actually fits.</p>
+  <button class="btn btn-filled" onclick="goTool()">Calculate my data <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="cta-apps">
+    <div class="ct-mini"><svg><use href="#i-yt"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-tt"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-ig"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-fb"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-wa"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-nf"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-sp"/></svg></div>
+    <div class="ct-mini"><svg><use href="#i-x"/></svg></div>
+  </div>
+</div></div></section>
+
+</main>
+
+<section class="related-tools">
+  <div class="rt-wrap">
+    <div class="rt-head">
+      <span class="eyebrow"><span class="dot"></span> More free tools</span>
+      <h2>Keep your devices in top shape</h2>
+      <p>Solved this one? These companion tools from the TechFineHub toolkit fix the next problem on your list — all free, all private.</p>
+    </div>
+    <div class="rt-grid"><a class="rt-card" href="charger-health-analyzer.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Charger Health Analyzer</h3>
+        <p>Run a 5-parameter diagnostic on your phone charger — thermal, voltage, cable, PMIC & efficiency — and get an instant health score with fixes.</p>
+        <span class="rt-go">Run diagnostic <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="rt-card" href="wifi-health-score-checker.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>WiFi Router Health Score</h3>
+        <p>Answer 6 quick questions to get a 0–100 WiFi router health score with practical fixes for slow speed, weak signal and disconnections.</p>
+        <span class="rt-go">Check score <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="rt-card" href="phone-camera-health-test.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Phone Camera Health Test</h3>
+        <p>A 5-parameter camera health test that scores sharpness, focus, low-light and stabilisation (0–100) and tells you what to fix.</p>
+        <span class="rt-go">Test camera <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></div>
+    <div class="rt-all"><a href="toolkit.html">Browse all 6 tools <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+<footer class="site-foot">
+  <div class="sf-inner">
+    <div class="sf-grid">
+      <div class="sf-about">
+        <a class="sh-brand" href="index.html"><span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span><span class="sh-name">TechFineHub</span></a>
+        <p>Free, private, easy-to-use tools that help everyday people understand and fix their phones, chargers, WiFi and digital habits — no sign-up, no jargon.</p>
+        <div class="sf-social" aria-label="Social links">
+          <a href="contact.html" aria-label="Contact"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4zM4 6l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="sf-col"><h5>Toolkit</h5><a href="charger-health-analyzer.html">Charger Health</a><a href="wifi-health-score-checker.html">WiFi Health</a><a href="phone-camera-health-test.html">Camera Health</a><a href="screen-time-health-score.html">Screen Time</a><a href="mobile-data-usage-calculator.html">Data Calculator</a><a href="phone-resale-value-calculator.html">Resale Value</a></div>
+      <div class="sf-col"><h5>Company</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="sf-col"><h5>Resources</h5>
+        <a href="toolkit.html">All tools</a>
+        <a href="blog.html">Guides &amp; tips</a>
+        <a href="contact.html">Help &amp; support</a>
+      </div>
+    </div>
+    <div class="sf-bottom">
+      <span>© 2026 TechFineHub. All rights reserved.</span>
+      <span>Made with care for everyday device owners.</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var burger=document.getElementById('shBurger'),nav=document.getElementById('shNav'),drop=document.getElementById('shDrop');
+  if(burger){burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});}
+  if(drop){var db=drop.querySelector('.sh-drop-btn');
+    db.addEventListener('click',function(e){e.stopPropagation();var o=drop.classList.toggle('open');db.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!drop.contains(e.target))drop.classList.remove('open');});
+    drop.addEventListener('mouseenter',function(){if(window.innerWidth>900)drop.classList.add('open');});
+    drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)drop.classList.remove('open');});
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(drop)drop.classList.remove('open');if(nav){nav.classList.remove('open');if(burger){burger.classList.remove('open');burger.setAttribute('aria-expanded',false);}}}});
+})();
+</script>
+
+
+<div class="disclaimer"><div class="inner"><strong>Disclaimer:</strong> This Mobile Data Usage Calculator gives an educational estimate based on typical per-app data rates and the hours you enter. Actual usage varies by video quality, app updates, and personal habits. Brand logos shown belong to their respective owners and are used for identification only — TechFineHub is not affiliated with Jazz, Telenor, Zong, Ufone, YouTube, TikTok, Meta, WhatsApp, Netflix, Spotify, or X. Always confirm current bundles with your operator.</div></div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m6 14 6-6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div id="toast">Copied!</div>
+
+<script>
+const $=id=>document.getElementById(id);
+function goTool(){$('tool').scrollIntoView({behavior:'smooth'});}
+document.addEventListener('click',e=>{const b=e.target.closest('.btn');if(!b)return;const r=document.createElement('span');r.className='ripple';const rc=b.getBoundingClientRect(),s=Math.max(rc.width,rc.height);r.style.width=r.style.height=s+'px';r.style.left=(e.clientX-rc.left-s/2)+'px';r.style.top=(e.clientY-rc.top-s/2)+'px';b.appendChild(r);setTimeout(()=>r.remove(),600);});
+
+/* GB/hour at HD baseline */
+const RATE={yt:0.9,tt:0.9,ig:0.7,wa:1.0,br:0.2,nf:1.6,sc:0.5,gm:0.08,zm:0.9,mu:0.07};
+/* how much each is scaled by video-quality choice */
+const VIDEO={yt:1,tt:1,ig:0.6,wa:0,br:0,nf:1,sc:0.5,gm:0,zm:0.4,mu:0};
+const NAMES={yt:'YouTube',tt:'TikTok',ig:'Insta/FB',wa:'WhatsApp',br:'Browsing',nf:'Netflix',sc:'Snapchat',gm:'Gaming',zm:'Zoom/Meet',mu:'Music'};
+const ICO={yt:'#i-yt',tt:'#i-tt',ig:'#i-ig',wa:'#i-wa',br:'#i-br',nf:'#i-nf',sc:'#i-sc',gm:'#i-gm',zm:'#i-zm',mu:'#i-mu'};
+
+/* Countries → networks (logo class + short tag + display name) */
+const COUNTRIES={
+  pk:{name:'Pakistan',flag:'🇵🇰',nets:[
+    {v:'jazz',cls:'jazz',tag:'JAZZ',label:'Jazz'},
+    {v:'telenor',cls:'telenor',tag:'Tn',label:'Telenor'},
+    {v:'zong',cls:'zong',tag:'ZONG',label:'Zong'},
+    {v:'ufone',cls:'ufone',tag:'U',label:'Ufone'}
+  ]},
+  in:{name:'India',flag:'🇮🇳',nets:[
+    {v:'jio',cls:'jio',tag:'Jio',label:'Reliance Jio'},
+    {v:'airtel',cls:'airtel',tag:'airtel',label:'Airtel'},
+    {v:'vi',cls:'vi',tag:'Vi',label:'Vi (Vodafone Idea)'},
+    {v:'bsnl',cls:'bsnl',tag:'BSNL',label:'BSNL'}
+  ]},
+  us:{name:'USA',flag:'🇺🇸',nets:[
+    {v:'verizon',cls:'verizon',tag:'vzw',label:'Verizon'},
+    {v:'att',cls:'att',tag:'AT&T',label:'AT&T'},
+    {v:'tmobile',cls:'tmobile',tag:'T-Mo',label:'T-Mobile'}
+  ]},
+  uk:{name:'UK',flag:'🇬🇧',nets:[
+    {v:'ee',cls:'ee',tag:'EE',label:'EE'},
+    {v:'vodafone',cls:'vodafone',tag:'Vf',label:'Vodafone'},
+    {v:'o2',cls:'o2',tag:'O2',label:'O2'},
+    {v:'three',cls:'three',tag:'3',label:'Three'}
+  ]},
+  ae:{name:'UAE',flag:'🇦🇪',nets:[
+    {v:'etisalat',cls:'etisalat',tag:'e&',label:'Etisalat (e&)'},
+    {v:'du',cls:'du',tag:'du',label:'du'}
+  ]},
+  sa:{name:'Saudi Arabia',flag:'🇸🇦',nets:[
+    {v:'stc',cls:'stc',tag:'stc',label:'STC'},
+    {v:'mobily',cls:'mobily',tag:'Mob',label:'Mobily'},
+    {v:'zain',cls:'zain',tag:'Zain',label:'Zain'}
+  ]},
+  ca:{name:'Canada',flag:'🇨🇦',nets:[
+    {v:'bell',cls:'bell',tag:'Bell',label:'Bell'},
+    {v:'rogers',cls:'rogers',tag:'R',label:'Rogers'},
+    {v:'telus',cls:'telus',tag:'TELUS',label:'TELUS'}
+  ]},
+  au:{name:'Australia',flag:'🇦🇺',nets:[
+    {v:'telstra',cls:'telstra',tag:'Tls',label:'Telstra'},
+    {v:'optus',cls:'optus',tag:'Opt',label:'Optus'},
+    {v:'vodafone',cls:'vodafone',tag:'Vf',label:'Vodafone AU'}
+  ]},
+  cn:{name:'China',flag:'🇨🇳',nets:[
+    {v:'china',cls:'china',tag:'CM',label:'China Mobile'},
+    {v:'unicom',cls:'unicom',tag:'CU',label:'China Unicom'},
+    {v:'telecom',cls:'verizon',tag:'CT',label:'China Telecom'}
+  ]},
+  jp:{name:'Japan',flag:'🇯🇵',nets:[
+    {v:'docomo',cls:'docomo',tag:'NTT',label:'NTT Docomo'},
+    {v:'softbank',cls:'softbank',tag:'SB',label:'SoftBank'},
+    {v:'au',cls:'att',tag:'au',label:'au by KDDI'}
+  ]},
+  kr:{name:'South Korea',flag:'🇰🇷',nets:[
+    {v:'skt',cls:'skt',tag:'SKT',label:'SK Telecom'},
+    {v:'kt',cls:'kt',tag:'KT',label:'KT'},
+    {v:'lg',cls:'tmobile',tag:'LG',label:'LG U+'}
+  ]},
+  ng:{name:'Nigeria',flag:'🇳🇬',nets:[
+    {v:'mtn',cls:'mtn',tag:'MTN',label:'MTN'},
+    {v:'glo',cls:'glo',tag:'Glo',label:'Glo'},
+    {v:'airtel',cls:'airtel',tag:'airtel',label:'Airtel NG'}
+  ]},
+  ke:{name:'Kenya',flag:'🇰🇪',nets:[
+    {v:'safaricom',cls:'safaricom',tag:'SAF',label:'Safaricom'},
+    {v:'airtel',cls:'airtel',tag:'airtel',label:'Airtel KE'}
+  ]},
+  za:{name:'South Africa',flag:'🇿🇦',nets:[
+    {v:'vodacom',cls:'vodafone',tag:'Vd',label:'Vodacom'},
+    {v:'mtn',cls:'mtn',tag:'MTN',label:'MTN SA'},
+    {v:'cellc',cls:'tmobile',tag:'CC',label:'Cell C'}
+  ]},
+  other:{name:'your country',flag:'🌍',nets:[
+    {v:'localA',cls:'verizon',tag:'A',label:'Local Carrier A'},
+    {v:'localB',cls:'att',tag:'B',label:'Local Carrier B'},
+    {v:'localC',cls:'tmobile',tag:'C',label:'Local Carrier C'}
+  ]}
+};
+
+let qual=1, country='pk', net='jazz';
+let lastGb=0;
+
+function seg(group,btn){const g=$(group);g.querySelectorAll('button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');if(group==='fQual')qual=parseFloat(btn.dataset.v);if(group==='fNet')net=btn.dataset.v;calc();}
+
+function pickCountry(btn){
+  document.querySelectorAll('#fCountry button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  country=btn.dataset.c;
+  renderNets();
+  calc();
+}
+function renderNets(){
+  const c=COUNTRIES[country]; const wrap=$('fNet');
+  const cols=Math.min(c.nets.length,4);
+  wrap.style.gridTemplateColumns='repeat('+cols+',1fr)';
+  wrap.innerHTML=c.nets.map((n,i)=>'<button data-v="'+n.v+'" class="'+(i===0?'on':'')+'" onclick="seg(\'fNet\',this)"><span class="nlogo '+n.cls+'">'+n.tag+'</span><span>'+n.label+'</span></button>').join('');
+  net=c.nets[0].v;
+}
+function currentNetLabel(){
+  const c=COUNTRIES[country]; const n=c.nets.find(x=>x.v===net); return n?n.label:net;
+}
+
+function calc(){
+  const keys=['yt','tt','ig','wa','br','nf','sc','gm','zm','mu'];
+  const idMap={yt:'vYt',tt:'vTt',ig:'vIg',wa:'vWa',br:'vBr',nf:'vNf',sc:'vSc',gm:'vGm',zm:'vZm',mu:'vMu'};
+  let perDay={}, totalDay=0;
+  keys.forEach(k=>{
+    const el=$(k); if(!el) return;
+    const hrs=+el.value; $(idMap[k]).textContent=hrs.toFixed(1);
+    const q=1+(qual-1)*VIDEO[k];
+    const gb=hrs*RATE[k]*q;
+    perDay[k]=gb; totalDay+=gb;
+  });
+  const month=totalDay*30; lastGb=month;
+  $('crGb').textContent=month.toFixed(1);
+  $('crDaily').textContent='≈ '+totalDay.toFixed(2)+' GB per day';
+  const buf=month*1.18; let pkg,pd; const nl=currentNetLabel();
+  if(buf<8){pkg='Weekly / small monthly plan';pd='You\'re a light user. A weekly bundle or small ~10 GB monthly plan on '+nl+' is enough.';}
+  else if(buf<25){pkg='Standard monthly plan (~'+Math.ceil(buf/5)*5+' GB)';pd='Medium user. Pick a '+nl+' monthly plan around '+Math.ceil(buf/5)*5+' GB, ideally with a free-app add-on.';}
+  else if(buf<55){pkg='Large monthly plan (~'+Math.ceil(buf/10)*10+' GB)';pd='Heavy user. Choose a large '+nl+' monthly plan (~'+Math.ceil(buf/10)*10+' GB) or one with night/social data.';}
+  else {pkg='Unlimited-style / max monthly';pd='Very heavy streamer. Look at '+nl+'\'s biggest monthly or unlimited-style offer, and use Wi-Fi for Netflix where possible.';}
+  $('crPkg').textContent=pkg; $('crPkgD').textContent=pd;
+  const items=keys.map(k=>({k,gb:perDay[k]*30})).filter(o=>o.gb>0.05).sort((a,b)=>b.gb-a.gb).slice(0,6);
+  const max=Math.max(...items.map(o=>o.gb),1);
+  $('crSplit').innerHTML=items.map(o=>'<div class="crb"><span class="lab"><svg><use href="'+ICO[o.k]+'"/></svg>'+NAMES[o.k]+'</span><span class="bar"><i style="width:'+(o.gb/max*100)+'%"></i></span><span class="num">'+o.gb.toFixed(1)+'</span></div>').join('')||'<div class="crb"><span class="lab">No usage yet</span></div>';
+}
+function resultText(){return 'My monthly mobile data: ~'+lastGb.toFixed(1)+' GB. Suggested: '+$('crPkg').textContent+' ('+currentNetLabel()+'). Calculated free at TechFineHub.';}
+function copyResult(){const t=resultText();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(showToast,fb);}else fb();function fb(){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast();}catch(e){}ta.remove();}}
+async function shareResult(){const d={title:'Mobile Data Usage',text:resultText(),url:location.href.split('#')[0]};if(navigator.share){try{await navigator.share(d);}catch(e){}}else copyResult();}
+function showToast(){const t=$('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1700);}
+function toggleFaq(btn){const it=btn.closest('.faq-item');const op=it.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!op){it.classList.add('open');const a=it.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}}
+
+/* hero meter gauge */
+(function(){const c=$('heroMeter');if(!c)return;const x=c.getContext('2d');let t=0;function f(){x.clearRect(0,0,300,180);const cx=150,cy=160,r=120;x.lineWidth=18;x.lineCap='round';x.beginPath();x.strokeStyle='#f3e3cd';x.arc(cx,cy,r,Math.PI,0);x.stroke();const p=.45+.18*Math.sin(t*.03);const a=Math.PI+Math.PI*p;const g=x.createLinearGradient(30,0,270,0);g.addColorStop(0,'#FBB041');g.addColorStop(1,'#F4900C');x.beginPath();x.strokeStyle=g;x.arc(cx,cy,r,Math.PI,a);x.stroke();x.beginPath();x.fillStyle='#F4900C';x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,9,0,7);x.fill();x.beginPath();x.fillStyle='#fff';x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,3.5,0,7);x.fill();t++;requestAnimationFrame(f);}f();})();
+
+/* hero bokeh */
+(function(){const c=$('heroCanvas'),x=c.getContext('2d');let w,h,p=[];const cols=[[244,144,12],[251,176,65],[194,65,12],[255,200,120]];function sz(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;in_();}function in_(){p=[];const n=Math.min(22,(w*h/38000)|0);for(let i=0;i<n;i++){const co=cols[(Math.random()*cols.length)|0];p.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:14+Math.random()*34,co,ph:Math.random()*6,sp:.6+Math.random()*1.1});}}let t=0;function f(){x.clearRect(0,0,w,h);x.globalCompositeOperation='lighter';for(const o of p){o.x+=o.vx;o.y+=o.vy;if(o.x<-60)o.x=w+60;if(o.x>w+60)o.x=-60;if(o.y<-60)o.y=h+60;if(o.y>h+60)o.y=-60;const a=.05+.05*(Math.sin(t*.02*o.sp+o.ph)+1)/2;const g=x.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);g.addColorStop(0,'rgba('+o.co[0]+','+o.co[1]+','+o.co[2]+','+(a*1.6)+')');g.addColorStop(.6,'rgba('+o.co[0]+','+o.co[1]+','+o.co[2]+','+(a*.5)+')');g.addColorStop(1,'rgba('+o.co[0]+','+o.co[1]+','+o.co[2]+',0)');x.beginPath();x.fillStyle=g;x.arc(o.x,o.y,o.r,0,7);x.fill();}x.globalCompositeOperation='source-over';t++;requestAnimationFrame(f);}window.addEventListener('resize',sz);sz();f();})();
+
+/* CTA waves */
+(function(){const c=$('ctaCanvas');if(!c)return;const x=c.getContext('2d');let w,h,t=0;function sz(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;}function f(){x.clearRect(0,0,w,h);for(let k=0;k<3;k++){x.beginPath();for(let i=0;i<=w;i+=8){const y=h*.5+Math.sin(i*.012+t*.03+k*1.7)*(22+k*9)+Math.cos(i*.02-t*.02)*10;i?x.lineTo(i,y):x.moveTo(i,y);}x.strokeStyle='rgba(255,255,255,'+(.1+k*.05)+')';x.lineWidth=2;x.stroke();}t++;requestAnimationFrame(f);}window.addEventListener('resize',sz);sz();f();})();
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+renderNets();
+
+/* ---- Multi-country networks showcase ---- */
+const NET_DESC={
+  jazz:'Pakistan\'s largest 4G footprint. Strong monthly bundles and WhatsApp / YouTube add-ons.',
+  telenor:'Good value monthly bundles in Pakistan. Reliable urban + rural coverage.',
+  zong:'Often the fastest 4G in Pakistani cities. Great for heavy streamers.',
+  ufone:'Strong call rates and growing 4G coverage in Pakistan.',
+  jio:'India\'s biggest 4G/5G network. Aggressive unlimited-style daily data plans.',
+  airtel:'Premium 4G/5G in India + Africa. Reliable speeds and wide app offers.',
+  vi:'Vodafone Idea (India). Competitive prepaid bundles, strong urban coverage.',
+  bsnl:'India\'s state telecom. Affordable plans, expanding 4G rollout.',
+  verizon:'USA – top-rated coverage and 5G Ultra Wideband in major cities.',
+  att:'USA – broad 5G footprint with unlimited plans across all tiers.',
+  tmobile:'USA – fastest 5G in many markets, generous unlimited data + roaming.',
+  ee:'UK\'s fastest 4G/5G network, owned by BT. Premium speeds nationwide.',
+  vodafone:'Global brand – strong 5G in UK, EU, Africa & beyond.',
+  o2:'UK – good urban coverage with Priority perks and rewards.',
+  three:'UK – very generous data caps, popular for heavy streamers.',
+  etisalat:'UAE (now e&) – flagship telecom with full 5G coverage.',
+  du:'UAE – strong value bundles and rich app add-ons.',
+  stc:'Saudi Arabia\'s largest carrier — wide 5G across the Kingdom.',
+  mobily:'Saudi Arabia – competitive data bundles and youth plans.',
+  zain:'Saudi Arabia, Kuwait + region – flexible postpaid & prepaid plans.',
+  bell:'Canada – nationwide LTE/5G, strong in eastern provinces.',
+  rogers:'Canada – wide 5G coverage and bundle perks.',
+  telus:'Canada – top customer-rated carrier, growing 5G.',
+  telstra:'Australia – the widest national 4G/5G coverage.',
+  optus:'Australia – strong city 5G plus generous data bundles.',
+  china:'China Mobile – the world\'s largest carrier by subscribers.',
+  unicom:'China Unicom – competitive 5G plans in major cities.',
+  telecom:'China Telecom – wide nationwide LTE + 5G footprint.',
+  docomo:'Japan\'s largest operator – premium 5G nationwide.',
+  softbank:'Japan – strong city 5G + global brand bundling.',
+  au:'au by KDDI – Japan\'s #2 operator with rich app perks.',
+  skt:'South Korea\'s #1 carrier with cutting-edge 5G.',
+  kt:'South Korea – KT offers strong 5G + media bundles.',
+  lg:'LG U+ – South Korea\'s value-focused 5G carrier.',
+  mtn:'Africa\'s largest mobile network — wide coverage across the continent.',
+  glo:'Nigeria – Globacom, popular for affordable data bundles.',
+  safaricom:'Kenya – home of M-Pesa, dominant 4G + early 5G.',
+  vodacom:'South Africa – nationwide 4G/5G and rich app offers.',
+  cellc:'South Africa – value-focused prepaid + postpaid data.',
+  localA:'A leading local carrier in your market.',
+  localB:'A major regional carrier offering competitive bundles.',
+  localC:'A growing challenger brand with budget plans.'
+};
+let netCountry='pk';
+function pickNetCountry(btn){
+  document.querySelectorAll('#netCountryPick button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  netCountry=btn.dataset.c;
+  renderNetGrid();
+}
+function renderNetGrid(){
+  const c=COUNTRIES[netCountry]; const grid=$('netGrid');
+  grid.innerHTML=c.nets.map(n=>'<div class="net-card"><div class="nstrip"></div><div class="nlogo-lg '+n.cls+'">'+n.tag+'</div><h4>'+n.label+'</h4><p>'+(NET_DESC[n.v]||'A major mobile carrier in '+c.name+'.')+'</p></div>').join('');
+}
+renderNetGrid();
+
+(function(){var nav=$('toolSubnav');if(!nav)return;var L=[].slice.call(nav.querySelectorAll('a[data-sec]'));var S=L.map(a=>$(a.getAttribute('data-sec')));function nh(){return nav.offsetHeight||0;}nav.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{var id=a.getAttribute('href').slice(1);var t=$(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-nh()-6,behavior:'smooth'});}));var tc=$('tocNav');if(tc)tc.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{var t=$(a.getAttribute('href').slice(1));if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-nh()-12,behavior:'smooth'});}));addEventListener('scroll',()=>{var pos=scrollY+nh()+20,ac=0;S.forEach((s,i)=>{if(s&&s.offsetTop<=pos)ac=i;});L.forEach((a,i)=>a.classList.toggle('active',i===ac));$('scrollProg').style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';$('toTop').classList.toggle('show',scrollY>600);var tl=$('tocNav');if(tl){var ts=[...tl.querySelectorAll('a')].map(a=>$(a.getAttribute('href').slice(1)));var act=0;ts.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<140)act=i;});tl.querySelectorAll('a').forEach((a,i)=>a.classList.toggle('active',i===act));}},{passive:true});})();
+
+calc();
+</script>
+</body>
+</html>

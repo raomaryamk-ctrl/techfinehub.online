@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Charger Health Analyzer | Diagnose Charging Degradation | TechFineHub</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%234F46E5%27/%3E%3Cpath d=%27M13 2 4 14h6l-1 8 9-12h-6l1-8Z%27 fill=%27white%27/%3E%3C/svg%3E">
+<meta name="description" content="Run a free 5-parameter diagnostic on your smartphone charger. Assess thermal stability, voltage continuity, cable integrity, PMIC risk, and output efficiency. Get an instant health score backed by IEEE and USB-IF standards, plus a complete charger-care guide.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.techfinehub.online/charger-health-analyzer">
+<meta property="og:title" content="Smart Charger Health Analyzer — TechFineHub">
+<meta property="og:description" content="5-parameter diagnostic tool for smartphone chargers. Know if your charger is damaging your battery before it's too late.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B57D0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Smart Charger Health Analyzer",
+      "url": "https://www.techfinehub.online/charger-health-analyzer",
+      "description": "A 5-parameter diagnostic tool that assesses smartphone charger health across thermal, electrical, mechanical, and efficiency dimensions.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "provider": { "@type": "Organization", "name": "TechFineHub", "url": "https://www.techfinehub.online" }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Diagnose Charger Health",
+      "description": "Use the 5-step Smart Charger Health Analyzer to assess whether your charging unit is safe to continue using.",
+      "step": [
+        { "@type": "HowToStep", "name": "Answer 5 diagnostic parameters", "text": "Respond to five calibrated questions covering charger age, thermal behavior, connection continuity, cable condition, and output efficiency." },
+        { "@type": "HowToStep", "name": "Receive your weighted health score", "text": "The engine calculates a composite score from 0-100 based on weighted inputs across all five parameters." },
+        { "@type": "HowToStep", "name": "Review engineering-grade recommendations", "text": "Based on your score, receive specific remediation guidance - from monitoring intervals to immediate replacement protocols." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How does charger internal resistance affect smartphone battery health?", "acceptedAnswer": { "@type": "Answer", "text": "Rising internal resistance (ESR) forces the smartphone PMIC to compensate by drawing more current, generating excess heat that accelerates SEI layer breakdown in lithium-ion cells. Per IEEE 1725 guidelines, thermal stress is the primary driver of irreversible capacity fade." } },
+        { "@type": "Question", "name": "What safety steps should I follow when my charger overheats?", "acceptedAnswer": { "@type": "Answer", "text": "Disconnect from the wall outlet first. Move to a non-flammable surface. Allow 30 minutes of cooling time. Inspect for casing deformation, discoloration, or burnt odor. Do not resume use until the root cause is identified. Use only adapters with UL, CE, FCC, or CCC certification marks." } },
+        { "@type": "Question", "name": "Can this diagnostic tool physically repair a damaged charger?", "acceptedAnswer": { "@type": "Answer", "text": "No. This is an analytical assessment tool. It identifies risk and scores degradation parameters, but cannot replace physical hardware repair. A Critical or Degrading score is a hard replacement trigger." } },
+        { "@type": "Question", "name": "How often should I run a charger health diagnostic?", "acceptedAnswer": { "@type": "Answer", "text": "Every 3-6 months for daily-use chargers. Immediately if you notice slower charge speeds, unusual warmth, intermittent connections, or battery percentage anomalies. Heavy fast-charging users should run diagnostics monthly." } },
+        { "@type": "Question", "name": "Is a third-party fast charger safe if it matches my phone's wattage?", "acceptedAnswer": { "@type": "Answer", "text": "Wattage matching is necessary but not sufficient. USB-IF certification ensures the charger correctly implements the USB Power Delivery protocol, preventing voltage spikes and handshake failures that damage the PMIC. Uncertified chargers may advertise correct wattage while delivering unstable power." } },
+        { "@type": "Question", "name": "What is voltage ripple and why does it damage batteries?", "acceptedAnswer": { "@type": "Answer", "text": "Voltage ripple is high-frequency AC noise superimposed on the DC charging rail from a degraded charger. This ripple current circulates through the battery cell as waste heat, causing localized hotspots that break down the SEI layer and accelerate capacity fade." } },
+        { "@type": "Question", "name": "What is a GaN charger and why is it recommended for replacement?", "acceptedAnswer": { "@type": "Answer", "text": "Gallium Nitride (GaN) chargers use wide-bandgap semiconductor technology that operates at higher switching frequencies with significantly lower heat generation compared to silicon-based designs. They deliver tighter voltage regulation, higher conversion efficiency (typically above 93%), and a smaller physical footprint." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* ============ MATERIAL DESIGN 3 — TOKENS ============ */
+:root{
+  /* Brand / primary (Google Blue) */
+  --primary:#0B57D0;
+  --primary-hover:#0A4DBA;
+  --primary-light:#1A73E8;
+  --primary-container:#D3E3FD;
+  --on-primary-container:#041E49;
+  --primary-08:rgba(11,87,208,.08);
+  --primary-12:rgba(11,87,208,.12);
+
+  /* Surfaces */
+  --bg:#F0F4F9;
+  --bg-2:#E9EEF6;
+  --surface:#FFFFFF;
+  --surface-2:#F8FAFD;
+  --surface-3:#EEF3FB;
+
+  /* Text */
+  --on-surface:#1F1F1F;
+  --on-surface-2:#444746;
+  --on-surface-3:#5E6368;
+  --outline:#DADCE0;
+  --outline-2:#E6E9EE;
+
+  /* Status (Material tonal) */
+  --green:#1E8E3E; --green-c:#E6F4EA;
+  --blue:#1A73E8;  --blue-c:#E8F0FE;
+  --amber:#E37400; --amber-c:#FEEFC3;
+  --red:#D93025;   --red-c:#FCE8E6;
+  --violet:#8430CE;--violet-c:#F3E8FD;
+
+  /* Elevation (Google grey shadows) */
+  --e1:0 1px 2px rgba(60,64,67,.10), 0 1px 3px 1px rgba(60,64,67,.06);
+  --e2:0 1px 3px rgba(60,64,67,.12), 0 4px 8px 3px rgba(60,64,67,.07);
+  --e3:0 4px 8px rgba(60,64,67,.12), 0 8px 24px 6px rgba(60,64,67,.09);
+  --e4:0 8px 16px rgba(60,64,67,.14), 0 16px 40px 10px rgba(60,64,67,.10);
+
+  --radius-s:12px; --radius:18px; --radius-l:28px; --radius-xl:36px;
+  --font:"Roboto",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--on-surface);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+::selection{background:var(--primary-container);color:var(--on-primary-container)}
+a{color:inherit;text-decoration:none}
+img,svg,canvas{display:block;max-width:100%}
+
+/* ============ TOP APP BAR ============ */
+.appbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px max(20px,4vw);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(180%) blur(18px);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:1px solid var(--outline-2);
+  transition:box-shadow .3s ease;
+}
+.appbar.scrolled{box-shadow:var(--e1)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:-.2px;font-size:18px}
+.brand-mark{
+  width:34px;height:34px;border-radius:10px;flex:none;
+  background:linear-gradient(135deg,var(--primary-light),var(--primary));
+  display:grid;place-items:center;box-shadow:var(--e1);position:relative;overflow:hidden;
+}
+.brand-mark::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.55),transparent 55%)}
+.brand-mark svg{width:20px;height:20px;position:relative;z-index:1}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--on-surface-3);letter-spacing:.3px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--on-surface-2);
+  transition:background .2s ease,color .2s ease;
+}
+.nav-links a:hover{background:var(--primary-08);color:var(--primary)}
+.nav-cta{
+  background:var(--primary)!important;color:#fff!important;box-shadow:var(--e1);
+  padding:9px 18px!important;
+}
+.nav-cta:hover{background:var(--primary-hover)!important}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:50%}
+.menu-btn:hover{background:var(--primary-08)}
+@media(max-width:880px){
+  .nav-links .hide-sm{display:none}
+}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:1140px;margin:0 auto;padding:0 max(20px,4vw)}
+section{position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;
+  color:var(--primary);background:var(--primary-08);
+  padding:6px 14px;border-radius:999px;margin-bottom:18px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+h1,h2,h3{letter-spacing:-.5px;line-height:1.15;color:var(--on-surface)}
+.section-head{max-width:680px;margin-bottom:44px}
+.section-head h2{font-size:clamp(28px,4.2vw,42px);font-weight:700;margin-bottom:14px}
+.section-head p{font-size:clamp(16px,2vw,18px);color:var(--on-surface-3);line-height:1.7}
+.pad{padding:clamp(56px,9vw,110px) 0}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,7vw,90px) 0 clamp(56px,8vw,100px)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-mesh{
+  position:absolute;inset:-20%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(40% 50% at 18% 20%,rgba(26,115,232,.18),transparent 60%),
+    radial-gradient(45% 55% at 85% 30%,rgba(132,48,206,.12),transparent 60%),
+    radial-gradient(50% 60% at 70% 90%,rgba(30,142,62,.10),transparent 60%);
+  animation:meshFloat 16s ease-in-out infinite alternate;
+}
+@keyframes meshFloat{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-3%,2%,0) scale(1.08)}}
+.hero-grid-overlay{
+  position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--outline-2) 1px,transparent 1px),linear-gradient(90deg,var(--outline-2) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);
+  mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);
+}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-copy{opacity:0;transform:translateY(20px);animation:rise .8s .1s cubic-bezier(.2,.7,.2,1) forwards}
+.badge-live{
+  display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--outline);
+  padding:7px 14px 7px 10px;border-radius:999px;font-size:13px;font-weight:500;color:var(--on-surface-2);
+  box-shadow:var(--e1);margin-bottom:22px;
+}
+.badge-live .live{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(30,142,62,.5);animation:ring 1.8s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(30,142,62,.4)}70%{box-shadow:0 0 0 9px rgba(30,142,62,0)}100%{box-shadow:0 0 0 0 rgba(30,142,62,0)}}
+.hero h1{font-size:clamp(36px,6.2vw,68px);font-weight:900;letter-spacing:-1.6px}
+.hero h1 .grad{
+  background:linear-gradient(120deg,var(--primary-light),var(--violet) 70%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:clamp(16px,2.1vw,19px);color:var(--on-surface-3);margin:22px 0 30px;max-width:560px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-family:inherit;font-size:15px;font-weight:600;
+  border:none;cursor:pointer;border-radius:999px;padding:15px 28px;transition:all .22s cubic-bezier(.2,.7,.2,1);
+  position:relative;overflow:hidden;
+}
+.btn-filled{background:var(--primary);color:#fff;box-shadow:var(--e2)}
+.btn-filled:hover{background:var(--primary-hover);box-shadow:var(--e3);transform:translateY(-2px)}
+.btn-filled svg{transition:transform .22s ease}
+.btn-filled:hover svg{transform:translateX(4px)}
+.btn-tonal{background:var(--primary-container);color:var(--on-primary-container)}
+.btn-tonal:hover{box-shadow:var(--e1);transform:translateY(-2px)}
+.btn-text{background:transparent;color:var(--primary);padding:15px 18px}
+.btn-text:hover{background:var(--primary-08)}
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.45);animation:rip .6s linear;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+
+.hero-stats{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.hstat{
+  background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-s);
+  padding:14px 18px;box-shadow:var(--e1);flex:1;min-width:120px;
+}
+.hstat b{display:block;font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-.5px}
+.hstat span{font-size:12.5px;color:var(--on-surface-3);font-weight:500}
+
+/* ===== Hero 3D scene ===== */
+.scene-wrap{opacity:0;transform:translateY(24px);animation:rise .9s .25s cubic-bezier(.2,.7,.2,1) forwards;perspective:1200px;display:grid;place-items:center}
+.scene{
+  position:relative;width:min(420px,90%);aspect-ratio:1/1;
+  transform-style:preserve-3d;transform:rotateX(14deg) rotateY(-18deg);
+  animation:sceneSpin 14s ease-in-out infinite alternate;
+}
+@keyframes sceneSpin{0%{transform:rotateX(14deg) rotateY(-18deg)}100%{transform:rotateX(10deg) rotateY(16deg)}}
+.disc{
+  position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--outline);
+  transform-style:preserve-3d;
+}
+.disc.r1{transform:rotateX(78deg) rotateZ(0deg);border-color:rgba(26,115,232,.35);animation:spinz 9s linear infinite}
+.disc.r2{inset:12%;transform:rotateX(78deg) rotateZ(0deg);border-color:rgba(132,48,206,.30);animation:spinz 13s linear infinite reverse}
+.disc.r3{inset:24%;transform:rotateX(78deg);border-style:dashed;border-color:rgba(30,142,62,.30);animation:spinz 7s linear infinite}
+@keyframes spinz{to{transform:rotateX(78deg) rotateZ(360deg)}}
+.core{
+  position:absolute;left:50%;top:50%;width:128px;height:128px;margin:-64px 0 0 -64px;border-radius:30px;
+  background:linear-gradient(145deg,#fff,#eaf1fd);box-shadow:var(--e4),inset 0 1px 0 #fff;
+  display:grid;place-items:center;transform:translateZ(46px);border:1px solid var(--outline-2);
+}
+.core .bolt{width:58px;height:58px;color:var(--primary);filter:drop-shadow(0 6px 10px rgba(11,87,208,.35));animation:boltPulse 2.4s ease-in-out infinite}
+@keyframes boltPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.core .ring-glow{position:absolute;inset:-14px;border-radius:40px;border:2px solid var(--primary-container);opacity:.7;animation:gpulse 2.4s ease-in-out infinite}
+@keyframes gpulse{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.18);opacity:0}}
+.chip-float{
+  position:absolute;background:var(--surface);border:1px solid var(--outline-2);box-shadow:var(--e2);
+  border-radius:12px;padding:9px 13px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:8px;
+  transform-style:preserve-3d;
+}
+.chip-float i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.cf1{top:6%;left:-6%;transform:translateZ(80px);animation:floaty 5s ease-in-out infinite}
+.cf2{bottom:14%;right:-8%;transform:translateZ(70px);animation:floaty 6s ease-in-out infinite .8s}
+.cf3{bottom:-2%;left:8%;transform:translateZ(60px);animation:floaty 5.5s ease-in-out infinite .4s}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+.trust-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px;position:relative;z-index:2}
+.trust-chip{
+  display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--outline-2);
+  border-radius:999px;padding:8px 16px;font-size:13px;font-weight:500;color:var(--on-surface-2);box-shadow:var(--e1);
+}
+.trust-chip svg{width:15px;height:15px;color:var(--green)}
+
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:30px}
+  .scene-wrap{order:-1;margin-bottom:8px}
+  .scene{width:min(320px,80%)}
+}
+
+/* ============ THE TOOL ============ */
+.tool-section{padding:clamp(40px,7vw,80px) 0}
+.tool-card{
+  background:var(--surface);border-radius:var(--radius-xl);box-shadow:var(--e3);
+  border:1px solid var(--outline-2);overflow:hidden;position:relative;
+}
+.tool-top{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:22px clamp(20px,4vw,38px);border-bottom:1px solid var(--outline-2);
+  background:linear-gradient(180deg,var(--surface-2),var(--surface));
+}
+.tool-top .t-left{display:flex;align-items:center;gap:12px}
+.engine-ico{width:40px;height:40px;border-radius:11px;background:var(--primary-container);display:grid;place-items:center;color:var(--primary)}
+.tool-top h3{font-size:17px;font-weight:700}
+.tool-top .ver{font-size:12px;color:var(--on-surface-3);font-family:var(--mono)}
+.step-pill{
+  font-family:var(--mono);font-size:13px;font-weight:500;color:var(--primary);
+  background:var(--primary-08);padding:7px 14px;border-radius:999px;
+}
+.tool-body{padding:clamp(22px,4vw,40px)}
+
+/* progress */
+.prog-wrap{margin-bottom:30px}
+.prog-rail{height:6px;border-radius:999px;background:var(--surface-3);overflow:hidden}
+.prog-fill{height:100%;width:20%;border-radius:999px;background:linear-gradient(90deg,var(--primary-light),var(--primary));transition:width .55s cubic-bezier(.2,.7,.2,1)}
+.dots{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.dot-step{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--on-surface-3);font-weight:500;transition:color .3s}
+.dot-step .d{width:24px;height:24px;border-radius:50%;border:2px solid var(--outline);display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--on-surface-3);background:var(--surface);transition:all .3s}
+.dot-step.active .d{border-color:var(--primary);color:var(--primary);background:var(--primary-08)}
+.dot-step.done .d{border-color:var(--green);background:var(--green);color:#fff}
+.dot-step.active{color:var(--primary)}
+.dot-conn{width:18px;height:2px;background:var(--outline)}
+@media(max-width:640px){.dot-step .lbl{display:none}.dot-conn{width:10px}}
+
+/* questions */
+.q-step{display:none;animation:qfade .4s cubic-bezier(.2,.7,.2,1)}
+.q-step.active{display:block}
+@keyframes qfade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.q-param{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--primary);letter-spacing:.4px;text-transform:uppercase;margin-bottom:10px}
+.q-text{font-size:clamp(20px,3vw,27px);font-weight:700;letter-spacing:-.4px;margin-bottom:12px}
+.q-desc{font-size:15px;color:var(--on-surface-3);line-height:1.7;margin-bottom:24px;max-width:760px}
+.choices{display:grid;gap:12px}
+.choice{
+  display:flex;align-items:flex-start;gap:14px;text-align:left;width:100%;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--outline);border-radius:var(--radius);
+  padding:16px 18px;transition:all .2s cubic-bezier(.2,.7,.2,1);font-family:inherit;position:relative;
+}
+.choice:hover{border-color:var(--primary-light);background:var(--surface-2);transform:translateX(3px)}
+.choice.sel{border-color:var(--primary);background:var(--primary-08);box-shadow:0 0 0 3px var(--primary-12)}
+.choice .radio{
+  width:22px;height:22px;border-radius:50%;border:2px solid var(--outline);flex:none;margin-top:1px;
+  display:grid;place-items:center;transition:all .2s;
+}
+.choice.sel .radio{border-color:var(--primary)}
+.choice .radio::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--primary);transform:scale(0);transition:transform .2s}
+.choice.sel .radio::after{transform:scale(1)}
+.choice .c-body{flex:1}
+.choice .c-label{font-size:15.5px;font-weight:600;color:var(--on-surface);display:block;line-height:1.4}
+.choice .c-hint{font-size:13px;color:var(--on-surface-3);font-family:var(--mono);margin-top:5px;display:block;line-height:1.5}
+
+/* nav buttons */
+.q-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.btn-back{background:transparent;color:var(--on-surface-2);border:1.5px solid var(--outline);border-radius:999px;padding:13px 26px;font-weight:600;font-size:15px;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-back:hover:not(:disabled){background:var(--surface-2);border-color:var(--on-surface-3)}
+.btn-back:disabled{opacity:.4;cursor:not-allowed}
+.btn-next{background:var(--outline);color:var(--surface);border:none;border-radius:999px;padding:13px 30px;font-weight:600;font-size:15px;cursor:not-allowed;font-family:inherit;transition:all .25s;display:inline-flex;align-items:center;gap:9px}
+.btn-next.ready{background:var(--primary);color:#fff;cursor:pointer;box-shadow:var(--e2)}
+.btn-next.ready:hover{background:var(--primary-hover);box-shadow:var(--e3);transform:translateY(-1px)}
+
+/* calibrating */
+.calib{display:none;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center}
+.calib.active{display:flex;animation:qfade .4s}
+.calib canvas{width:160px;height:160px}
+.calib h4{font-size:20px;font-weight:700;margin-top:10px}
+.calib p{font-size:14px;color:var(--on-surface-3);font-family:var(--mono);margin-top:6px}
+.calib .scan-log{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--primary);min-height:20px}
+
+/* results */
+.results{display:none}
+.results.active{display:block;animation:qfade .5s}
+.res-hero{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;margin-bottom:34px}
+.gauge-wrap{position:relative;width:220px;height:220px;flex:none}
+.gauge-wrap canvas{position:absolute;inset:0}
+.gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.gauge-center .score{font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1}
+.gauge-center .of{font-size:13px;color:var(--on-surface-3);font-family:var(--mono);margin-top:2px}
+.res-meta .status-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:7px 16px;border-radius:999px;margin-bottom:14px}
+.res-meta h3{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
+.res-meta p{font-size:15.5px;color:var(--on-surface-3);line-height:1.7}
+
+/* radar + breakdown */
+.res-cols{display:grid;grid-template-columns:340px 1fr;gap:26px;margin-bottom:30px}
+.radar-card,.breakdown-card{background:var(--surface-2);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:24px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--on-surface-2);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.radar-card canvas{width:100%;height:auto;aspect-ratio:1/1;max-width:290px;margin:0 auto}
+.bd-item{margin-bottom:18px}
+.bd-item:last-child{margin-bottom:0}
+.bd-top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:7px}
+.bd-top .bl{font-weight:600;color:var(--on-surface)}
+.bd-top .bv{font-weight:700;font-family:var(--mono)}
+.bd-track{height:8px;border-radius:999px;background:var(--surface-3);overflow:hidden}
+.bd-fill{height:100%;width:0;border-radius:999px;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+
+.analysis-box{background:var(--blue-c);border-left:4px solid var(--primary);border-radius:var(--radius-s);padding:22px 24px;margin-bottom:18px}
+.analysis-box .ab-t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--primary);margin-bottom:10px}
+.analysis-box p{font-size:15px;line-height:1.75;color:var(--on-surface)}
+.rem-box{background:var(--surface-2);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:24px}
+.rem-box .ab-t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--on-surface-2);margin-bottom:12px}
+.rem-box p{font-size:15px;line-height:1.75;color:var(--on-surface-2)}
+.rem-box strong{color:var(--on-surface)}
+.gan-tip{margin-top:16px;display:flex;gap:12px;align-items:flex-start;background:var(--green-c);border-radius:var(--radius-s);padding:14px 16px}
+.gan-tip svg{color:var(--green);flex:none;margin-top:2px}
+.gan-tip span{font-size:13.5px;color:var(--on-surface);line-height:1.6}
+.res-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+@media(max-width:760px){
+  .res-hero{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px}
+  .res-cols{grid-template-columns:1fr}
+}
+
+/* ============ GENERIC SECTIONS / CARDS ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proc-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:30px;box-shadow:var(--e1);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.proc-card:hover{transform:translateY(-6px);box-shadow:var(--e3)}
+.proc-num{font-size:15px;font-weight:800;color:#fff;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--primary-light),var(--primary));display:grid;place-items:center;margin-bottom:18px;box-shadow:var(--e1)}
+.proc-card h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.proc-card p{font-size:14.5px;color:var(--on-surface-3);line-height:1.7}
+
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:26px;box-shadow:var(--e1);transition:transform .3s,box-shadow .3s}
+.feat-card:hover{transform:translateY(-5px);box-shadow:var(--e2)}
+.feat-ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px}
+.feat-param{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--on-surface-3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.feat-card h3{font-size:18px;font-weight:700;margin-bottom:9px}
+.feat-card p{font-size:14px;color:var(--on-surface-3);line-height:1.7}
+.feat-card.accent{background:linear-gradient(150deg,var(--primary),var(--primary-light));border:none;color:#fff}
+.feat-card.accent .feat-param,.feat-card.accent p{color:rgba(255,255,255,.85)}
+.feat-card.accent .feat-ico{background:rgba(255,255,255,.18);color:#fff}
+.feat-card.accent h3{color:#fff}
+
+/* ============ GUIDE ============ */
+.guide-layout{display:grid;grid-template-columns:240px 1fr;gap:46px;align-items:start}
+.toc{position:sticky;top:90px}
+.toc-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--on-surface-3);margin-bottom:14px}
+.toc a{display:block;font-size:14px;color:var(--on-surface-2);padding:8px 14px;border-radius:10px;border-left:2px solid transparent;transition:all .2s;font-weight:500}
+.toc a:hover{background:var(--primary-08);color:var(--primary)}
+.toc a.active{color:var(--primary);background:var(--primary-08);border-left-color:var(--primary)}
+.guide-body h3{font-size:clamp(22px,3vw,28px);font-weight:700;margin:42px 0 14px;scroll-margin-top:90px}
+.guide-body h3:first-child{margin-top:0}
+.guide-body h4{font-size:18px;font-weight:700;margin:26px 0 10px;color:var(--on-surface)}
+.guide-body p{font-size:16px;color:var(--on-surface-2);line-height:1.8;margin-bottom:16px}
+.guide-body strong{color:var(--on-surface);font-weight:700}
+.guide-body ul,.guide-body ol{margin:0 0 18px 4px;padding-left:22px}
+.guide-body li{font-size:15.5px;color:var(--on-surface-2);line-height:1.8;margin-bottom:9px}
+.guide-body li::marker{color:var(--primary);font-weight:700}
+
+.callout{display:flex;gap:14px;background:var(--blue-c);border-radius:var(--radius);padding:18px 20px;margin:22px 0;border:1px solid rgba(26,115,232,.18)}
+.callout.warn{background:var(--amber-c);border-color:rgba(227,116,0,.22)}
+.callout.danger{background:var(--red-c);border-color:rgba(217,48,37,.2)}
+.callout.good{background:var(--green-c);border-color:rgba(30,142,62,.2)}
+.callout .ci{flex:none;width:24px;height:24px}
+.callout.warn .ci{color:var(--amber)} .callout.danger .ci{color:var(--red)} .callout.good .ci{color:var(--green)} .callout .ci{color:var(--primary)}
+.callout p{margin:0;font-size:14.5px;line-height:1.7}
+.callout .ct{font-weight:700;color:var(--on-surface);display:block;margin-bottom:3px}
+
+.steps-list{counter-reset:step;list-style:none;padding:0;margin:22px 0}
+.steps-list li{counter-increment:step;position:relative;padding:0 0 22px 56px;margin:0}
+.steps-list li::before{content:counter(step);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:12px;background:var(--primary-container);color:var(--on-primary-container);font-weight:800;display:grid;place-items:center;font-size:15px}
+.steps-list li::after{content:"";position:absolute;left:18px;top:42px;bottom:-4px;width:2px;background:var(--outline)}
+.steps-list li:last-child::after{display:none}
+.steps-list li .st{font-weight:700;font-size:16.5px;color:var(--on-surface);display:block;margin-bottom:4px}
+.steps-list li p{margin:0;font-size:15px}
+
+.tbl-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--outline-2);border-radius:var(--radius);box-shadow:var(--e1)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px;background:var(--surface)}
+thead th{background:var(--surface-3);text-align:left;padding:14px 16px;font-weight:700;color:var(--on-surface);font-size:13px;text-transform:uppercase;letter-spacing:.4px}
+tbody td{padding:13px 16px;border-top:1px solid var(--outline-2);color:var(--on-surface-2);vertical-align:top}
+tbody tr:hover{background:var(--surface-2)}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.tag.g{background:var(--green-c);color:var(--green)} .tag.b{background:var(--blue-c);color:var(--blue)} .tag.a{background:var(--amber-c);color:var(--amber)} .tag.r{background:var(--red-c);color:var(--red)}
+
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.dd-col{border-radius:var(--radius);padding:22px;border:1px solid var(--outline-2)}
+.dd-col.do{background:var(--green-c)} .dd-col.dont{background:var(--red-c)}
+.dd-col h4{display:flex;align-items:center;gap:9px;margin:0 0 12px;font-size:16px}
+.dd-col.do h4{color:var(--green)} .dd-col.dont h4{color:var(--red)}
+.dd-col ul{list-style:none;padding:0;margin:0}
+.dd-col li{font-size:14px;color:var(--on-surface-2);padding:7px 0 7px 26px;position:relative;line-height:1.6;margin:0}
+.dd-col.do li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.dd-col.dont li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:800}
+
+@media(max-width:860px){
+  .guide-layout{grid-template-columns:1fr}
+  .toc{position:static;margin-bottom:10px;display:none}
+  .process,.feat-grid{grid-template-columns:1fr}
+  .dd-grid{grid-template-columns:1fr}
+}
+@media(max-width:980px){.feat-grid,.process{grid-template-columns:1fr 1fr}}
+
+/* ============ FAQ ============ */
+.faq-list{display:grid;gap:12px;max-width:840px;margin:0 auto}
+.faq-item{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.faq-item.open{box-shadow:var(--e2);border-color:var(--primary-container)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;font-size:16.5px;font-weight:600;color:var(--on-surface);padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-icon{width:26px;height:26px;flex:none;border-radius:50%;background:var(--primary-08);display:grid;place-items:center;position:relative;transition:background .2s}
+.faq-item.open .faq-icon{background:var(--primary)}
+.faq-icon::before,.faq-icon::after{content:"";position:absolute;background:var(--primary);border-radius:2px;transition:all .25s}
+.faq-icon::before{width:12px;height:2px} .faq-icon::after{width:2px;height:12px}
+.faq-item.open .faq-icon::before,.faq-item.open .faq-icon::after{background:#fff}
+.faq-item.open .faq-icon::after{transform:rotate(90deg);opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)}
+.faq-a p{padding:0 22px 22px;font-size:15px;color:var(--on-surface-3);line-height:1.8}
+
+/* ============ CTA banner ============ */
+.cta-banner{background:linear-gradient(135deg,var(--primary),#1453B8 60%,var(--violet));border-radius:var(--radius-xl);padding:clamp(34px,6vw,64px);text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--e3)}
+.cta-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(255,255,255,.18),transparent 50%)}
+.cta-banner h2{font-size:clamp(26px,4vw,40px);font-weight:800;color:#fff;position:relative;letter-spacing:-.6px}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:17px;margin:14px auto 28px;max-width:560px;position:relative}
+.cta-banner .btn-filled{background:#fff;color:var(--primary)}
+.cta-banner .btn-filled:hover{background:#f1f5ff}
+
+/* ============ FOOTER ============ */
+footer{background:var(--surface);border-top:1px solid var(--outline-2);padding:50px 0 30px;margin-top:30px}
+.foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:30px}
+.foot-about{max-width:340px}
+.foot-about p{font-size:14px;color:var(--on-surface-3);margin-top:14px;line-height:1.7}
+.foot-col h5{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;color:var(--on-surface)}
+.foot-col a{display:block;font-size:14px;color:var(--on-surface-3);margin-bottom:10px;transition:color .2s}
+.foot-col a:hover{color:var(--primary)}
+.foot-bottom{border-top:1px solid var(--outline-2);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--on-surface-3)}
+.disclaimer{max-width:1140px;margin:18px auto 0;padding:0 max(20px,4vw);font-size:12.5px;color:var(--on-surface-3);line-height:1.7}
+
+/* print */
+@media print{
+  .appbar,.hero,.trust-row,.process,.feat-grid,.guide-layout,.faq-list,.cta-banner,footer,.res-actions,.q-nav,.tool-top .step-pill{display:none!important}
+  body{background:#fff}
+  .tool-card{box-shadow:none;border:1px solid #ccc}
+}
+
+/* scroll progress bar */
+#scrollProg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary-light),var(--violet));z-index:200;transition:width .1s}
+
+/* back to top */
+#toTop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;box-shadow:var(--e3);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(12px);transition:all .3s;z-index:90}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+
+html{scroll-padding-top:118px}
+section[id],div[id="tool"],#tool,#how,#guide,#faq,#apps,#networks,#result{scroll-margin-top:118px}
+/* keep subnav directly under fixed site header */
+</style>
+<style>
+
+/* ===== TechFineHub unified brand override ===== */
+:root{
+  --primary:#4F46E5;--primary-hover:#4338CA;--primary-light:#818CF8;--primary-container:#E0E7FF;--on-primary-container:#1E1B4B;
+  --primary-08:rgba(79,70,229,.08);--primary-12:rgba(79,70,229,.14);--accent:#0EA5E9;
+}
+
+/* ===== Unified header ===== */
+.site-head{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.site-head .sh-inner{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw);height:64px;display:flex;align-items:center;gap:18px}
+.sh-brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.sh-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));flex:none}
+.sh-mark svg{width:21px;height:21px}
+.sh-name{display:flex;flex-direction:column;line-height:1.05;font-size:18px}
+.sh-name small{font-size:11px;font-weight:500;color:var(--on-surface-3,#5e6368);letter-spacing:.1px}
+.sh-nav{display:flex;align-items:center;gap:6px;margin-left:auto}
+.sh-nav>a,.sh-drop-btn{font-size:14.5px;font-weight:600;color:var(--on-surface-2,#3c4744);padding:9px 13px;border-radius:10px;transition:all .18s;background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:5px}
+.sh-nav>a:hover,.sh-drop-btn:hover{color:var(--primary);background:var(--primary-08)}
+.sh-nav>a[aria-current="page"],.sh-drop-btn[aria-current="page"]{color:var(--primary);background:var(--primary-08)}
+.sh-cta{background:linear-gradient(135deg,var(--primary),var(--accent))!important;color:#fff!important;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));padding:9px 18px!important}
+.sh-cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.sh-drop{position:relative}
+.sh-caret{transition:transform .22s}
+.sh-drop.open .sh-caret{transform:rotate(180deg)}
+.sh-mega{position:absolute;top:calc(100% + 12px);right:0;width:min(560px,92vw);background:#fff;border:1px solid var(--outline-2,#e6e9ee);border-radius:20px;box-shadow:var(--e4,0 16px 40px rgba(0,0,0,.16));padding:16px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .22s cubic-bezier(.2,.7,.2,1)}
+.sh-drop.open .sh-mega{opacity:1;visibility:visible;transform:translateY(0)}
+.thd-head{display:flex;align-items:center;justify-content:space-between;padding:4px 8px 12px;margin-bottom:8px;border-bottom:1px solid var(--outline-2,#eee)}
+.thd-head b{font-size:13px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-head a{font-size:12.5px;font-weight:600;color:var(--primary)}
+.thd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.thd-tool{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:13px;transition:background .16s}
+.thd-tool:hover{background:var(--primary-08)}
+.thd-ti{width:38px;height:38px;border-radius:10px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center;flex:none}
+.thd-ti svg{width:20px;height:20px}
+.thd-tx{display:flex;flex-direction:column;line-height:1.2}
+.thd-tx b{font-size:14px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-tx i{font-size:11.5px;font-style:normal;color:var(--on-surface-3,#5e6368);font-weight:500}
+.sh-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.sh-burger span{width:24px;height:2.4px;border-radius:3px;background:var(--on-surface,#222);transition:.25s}
+.sh-burger.open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+.sh-burger.open span:nth-child(2){opacity:0}
+.sh-burger.open span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+@media(max-width:900px){
+  .sh-burger{display:flex}
+  .sh-nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;background:#fff;padding:14px max(16px,4vw) 22px;border-bottom:1px solid var(--outline-2,#e6e9ee);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));transform:translateY(-130%);transition:transform .3s cubic-bezier(.2,.7,.2,1);max-height:calc(100vh - 64px);overflow:auto}
+  .sh-nav.open{transform:translateY(0)}
+  .sh-nav>a,.sh-drop-btn{padding:13px 12px;font-size:16px;border-radius:12px;width:100%;justify-content:space-between}
+  .sh-drop{width:100%}
+  .sh-mega{position:static;width:100%;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:6px 0 4px;max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .sh-drop.open .sh-mega{max-height:760px}
+  .thd-grid{grid-template-columns:1fr}
+  .sh-cta{margin-top:8px;text-align:center;justify-content:center}
+}
+/* ===== Unified footer ===== */
+.site-foot{background:#0f1226;color:#c7cbe0;margin-top:0}
+.site-foot .sf-inner{max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,76px) max(16px,4vw) 30px}
+.sf-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.sf-about .sh-brand{color:#fff;margin-bottom:14px}
+.sf-about .sh-name{color:#fff}
+.sf-about p{font-size:14px;line-height:1.7;color:#9aa0c4;max-width:330px}
+.sf-social{margin-top:16px;display:flex;gap:10px}
+.sf-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);display:grid;place-items:center;color:#c7cbe0;transition:.18s}
+.sf-social a:hover{background:var(--primary);color:#fff}
+.sf-social svg{width:18px;height:18px}
+.sf-col h5{font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.7px;margin-bottom:15px}
+.sf-col a{display:block;font-size:14px;color:#9aa0c4;padding:6px 0;transition:.16s}
+.sf-col a:hover{color:#fff;padding-left:4px}
+.sf-bottom{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09);font-size:13px;color:#7e84ab}
+@media(max-width:820px){.sf-grid{grid-template-columns:1fr 1fr}.sf-about{grid-column:1/-1}}
+@media(max-width:460px){.sf-grid{grid-template-columns:1fr}}
+
+/* ===== unified per-tool sticky sub-nav ===== */
+.tool-subnav{position:sticky;top:64px;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.tool-subnav .tsn-inner{max-width:1180px;margin:0 auto;padding:0 max(14px,4vw);display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tool-subnav .tsn-inner::-webkit-scrollbar{display:none}
+.tool-subnav a{flex:none;padding:13px 13px;font-size:14px;font-weight:600;color:var(--on-surface-3,#5e6368);position:relative;white-space:nowrap;transition:color .2s}
+.tool-subnav a:hover,.tool-subnav a.active{color:var(--primary)}
+.tool-subnav a.active::after{content:"";position:absolute;left:13px;right:13px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--primary)}
+.tool-subnav a.tsn-cta,.tool-subnav a.tsn-cta:hover{margin-left:auto;background:var(--primary);color:#fff;border-radius:999px;padding:9px 16px;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12))}
+.tool-subnav a.tsn-cta::after{display:none}
+.tool-subnav a.tsn-cta:hover{filter:brightness(1.05)}
+/* related-tools strip shared by every tool */
+.related-tools{padding:clamp(40px,7vw,72px) 0;background:var(--surface,#fff);border-top:1px solid var(--outline-2,#e6e9ee)}
+.related-tools .wrap,.related-tools .rt-wrap{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw)}
+.rt-head{text-align:center;max-width:620px;margin:0 auto 34px}
+.rt-head .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--accent,#0EA5E9);background:var(--primary-08);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.rt-head h2{font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.6px;color:var(--on-surface,#16201e);margin-bottom:10px}
+.rt-head p{color:var(--on-surface-3,#5e6368);font-size:15.5px;line-height:1.7}
+.rt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rt-card{display:flex;flex-direction:column;gap:12px;background:var(--surface,#fff);border:1px solid var(--outline-2,#e6e9ee);border-radius:18px;padding:22px;transition:all .22s cubic-bezier(.2,.7,.2,1);box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.08))}
+.rt-card:hover{transform:translateY(-4px);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));border-color:var(--primary-light)}
+.rt-ic{width:46px;height:46px;border-radius:13px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center}
+.rt-ic svg{width:24px;height:24px}
+.rt-card h3{font-size:16.5px;font-weight:700;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.rt-card p{font-size:13.5px;color:var(--on-surface-3,#5e6368);line-height:1.6;flex:1}
+.rt-card .rt-go{font-size:13.5px;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:6px}
+.rt-card:hover .rt-go svg{transform:translateX(3px)}
+.rt-card .rt-go svg{transition:transform .2s}
+.rt-all{text-align:center;margin-top:30px}
+.rt-all a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--primary),var(--accent));padding:13px 26px;border-radius:999px;box-shadow:var(--e2,0 4px 8px rgba(0,0,0,.12));transition:.2s}
+.rt-all a:hover{transform:translateY(-2px);filter:brightness(1.05)}
+@media(max-width:820px){.rt-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.rt-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-head" id="siteHead">
+  <div class="sh-inner">
+    <a class="sh-brand" href="index.html" aria-label="TechFineHub home">
+      <span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span>
+      <span class="sh-name">TechFineHub<small>Smart device tools</small></span>
+    </a>
+    <button class="sh-burger" id="shBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="sh-nav" id="shNav">
+      <a href="index.html">Home</a>
+      <div class="sh-drop" id="shDrop">
+        <button class="sh-drop-btn" aria-current="page" aria-expanded="false">
+          Toolkit
+          <svg class="sh-caret" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="sh-mega" role="menu">
+          <div class="thd-head"><b>All 6 free tools</b><a href="toolkit.html">View toolkit →</a></div>
+          <div class="thd-grid"><a class="thd-tool" href="charger-health-analyzer.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Charger Health</b><i>Diagnostic</i></span></a><a class="thd-tool" href="wifi-health-score-checker.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>WiFi Health</b><i>Score</i></span></a><a class="thd-tool" href="phone-camera-health-test.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Camera Health</b><i>Test</i></span></a><a class="thd-tool" href="screen-time-health-score.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Screen Time</b><i>Score</i></span></a><a class="thd-tool" href="mobile-data-usage-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Data Calculator</b><i>Calculator</i></span></a><a class="thd-tool" href="phone-resale-value-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Resale Value</b><i>Calculator</i></span></a></div>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="sh-cta" href="toolkit.html">Explore tools</a>
+    </nav>
+  </div>
+</header>
+<nav class="tool-subnav" id="toolSubnav"><div class="tsn-inner">
+  <a href="#tool" data-sec="tool">Diagnostic</a><a href="#how" data-sec="how">How it works</a><a href="#guide" data-sec="guide">Guide</a><a href="#faq" data-sec="faq">FAQ</a>
+  <a href="toolkit.html" style="color:var(--on-surface-3)">All tools</a><a href="#tool" class="tsn-cta">Run diagnostic</a>
+</div></nav>
+
+
+<div id="scrollProg"></div>
+
+<!-- ============ APP BAR ============ -->
+
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-mesh"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="badge-live"><span class="live"></span> Free engineering-grade diagnostic · No sign-up</span>
+        <h1>Is your charger <span class="grad">silently killing</span> your battery?</h1>
+        <p class="hero-sub">Run a 5-parameter engineering diagnostic that evaluates your charging unit across thermal, electrical, mechanical, and efficiency dimensions — and get an actionable health score in under 90 seconds.</p>
+        <div class="hero-actions">
+          <button class="btn btn-filled" onclick="goTool()">
+            Start free diagnostic
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <a href="#guide" class="btn btn-tonal">Read the full guide</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><b>5</b><span>Diagnostic parameters</span></div>
+          <div class="hstat"><b>90s</b><span>Time to complete</span></div>
+          <div class="hstat"><b>2.3×</b><span>Faster degradation with a failing charger</span></div>
+        </div>
+      </div>
+
+      <div class="scene-wrap">
+        <div class="scene">
+          <div class="disc r1"></div>
+          <div class="disc r2"></div>
+          <div class="disc r3"></div>
+          <div class="core">
+            <span class="ring-glow"></span>
+            <svg class="bolt" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+          </div>
+          <div class="chip-float cf1"><i style="background:var(--green)"></i> Thermal OK</div>
+          <div class="chip-float cf2"><i style="background:var(--amber)"></i> Ripple 4.2%</div>
+          <div class="chip-float cf3"><i style="background:var(--primary)"></i> 27W PD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- trust -->
+<div class="wrap" style="margin-top:-10px;padding-bottom:14px">
+  <div class="trust-row">
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> IEEE 1725 referenced</div>
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> USB-IF PD specification</div>
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Journal of Power Sources</div>
+    <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% on-device, private</div>
+  </div>
+</div>
+
+<!-- ============ THE TOOL ============ -->
+<section id="tool" class="tool-section">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin:0 auto 38px">
+      <span class="eyebrow"><span class="dot"></span> Diagnostic Engine</span>
+      <h2>Analyze your charger now</h2>
+      <p style="margin:0 auto">Answer five calibrated questions. The engine returns a weighted health score, a parameter radar, and engineering-grade next steps.</p>
+    </div>
+
+    <div class="tool-card reveal">
+      <div class="tool-top">
+        <div class="t-left">
+          <span class="engine-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6M2 12h6m8 0h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="2"/></svg></span>
+          <div>
+            <h3>Charger Health Analyzer</h3>
+            <span class="ver">engine v3.0 · weighted model</span>
+          </div>
+        </div>
+        <span class="step-pill" id="stepPill">STEP 01 / 05</span>
+      </div>
+
+      <div class="tool-body">
+        <!-- progress -->
+        <div class="prog-wrap" id="progWrap">
+          <div class="prog-rail"><div class="prog-fill" id="progFill"></div></div>
+          <div class="dots" id="dots">
+            <div class="dot-step active" data-s="1"><span class="d">1</span><span class="lbl">History</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="2"><span class="d">2</span><span class="lbl">Thermal</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="3"><span class="d">3</span><span class="lbl">Protocol</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="4"><span class="d">4</span><span class="lbl">Cable</span></div>
+            <div class="dot-conn"></div>
+            <div class="dot-step" data-s="5"><span class="d">5</span><span class="lbl">Output</span></div>
+          </div>
+        </div>
+
+        <!-- questions -->
+        <div id="questions">
+          <!-- Q1 -->
+          <div class="q-step active" data-step="1">
+            <div class="q-param">Parameter 01 — Operational History</div>
+            <div class="q-text">What is the age and usage intensity of your charging unit?</div>
+            <div class="q-desc">Component wear accumulates with thermal cycles and electrical stress. Electrolytic capacitors degrade after roughly 2,000–5,000 hours of operation, causing rising ESR and compromised voltage regulation.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">Under 12 months — daily use, no visible wear</span><span class="c-hint">Capacitor ESR within spec · solder joints nominal</span></span></button>
+              <button class="choice" data-score="75" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">1–2 years — moderate wear, still functional</span><span class="c-hint">Early ESR rise likely · regulation within band</span></span></button>
+              <button class="choice" data-score="40" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">2–4 years — heavy use, possibly dropped/stored poorly</span><span class="c-hint">Significant capacitor aging · thermal-cycle stress</span></span></button>
+              <button class="choice" data-score="15" onclick="pick(this,1)"><span class="radio"></span><span class="c-body"><span class="c-label">4+ years or unknown — uncertified / third-party origin</span><span class="c-hint">End-of-life probability high · may never have been safe</span></span></button>
+            </div>
+          </div>
+          <!-- Q2 -->
+          <div class="q-step" data-step="2">
+            <div class="q-param">Parameter 02 — Thermal Signature</div>
+            <div class="q-text">How does your charger behave thermally during active charging?</div>
+            <div class="q-desc">Thermal management is the primary leading indicator of charger health. A unit above 50 °C (122 °F) surface temperature accelerates capacitor electrolyte evaporation and can trigger PMIC thermal shutdowns in the device.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Cool to the touch — barely warm even at full wattage</span><span class="c-hint">Efficiency &gt; 90% · GaN or well-designed silicon</span></span></button>
+              <button class="choice" data-score="65" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Warm but comfortable — standard operating temperature</span><span class="c-hint">Normal 5–10 °C rise · acceptable under 45W</span></span></button>
+              <button class="choice" data-score="30" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Hot — cannot hold for more than 3 seconds</span><span class="c-hint">Likely &gt; 55 °C · elevated ripple &amp; capacitor decay</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,2)"><span class="radio"></span><span class="c-body"><span class="c-label">Burns to touch or emits odor — thermal runaway risk</span><span class="c-hint">Critical failure · immediate discontinuation required</span></span></button>
+            </div>
+          </div>
+          <!-- Q3 -->
+          <div class="q-step" data-step="3">
+            <div class="q-param">Parameter 03 — Protocol Continuity</div>
+            <div class="q-text">How stable is the connection and charging-protocol handshake?</div>
+            <div class="q-desc">USB Power Delivery and proprietary fast-charge protocols (VOOC, SuperDart, Warp) rely on uninterrupted handshake continuity. Each disconnect forces the PMIC to renegotiate from 5 V, creating inrush spikes that stress battery chemistry.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Seamless — connects immediately at full protocol, holds</span><span class="c-hint">Full PD/proprietary handshake · CC pins functional</span></span></button>
+              <button class="choice" data-score="60" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Mostly stable — occasional slow-charge drop then recovery</span><span class="c-hint">Intermittent CC contact · minor connector oxidation</span></span></button>
+              <button class="choice" data-score="25" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Frequent drops — charging icon flickers on and off</span><span class="c-hint">PMIC renegotiation cycles · cable/port failure near</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,3)"><span class="radio"></span><span class="c-body"><span class="c-label">Fails to charge — needs precise angling or fails entirely</span><span class="c-hint">Severe signal degradation · bent pins / fractured traces</span></span></button>
+            </div>
+          </div>
+          <!-- Q4 -->
+          <div class="q-step" data-step="4">
+            <div class="q-param">Parameter 04 — Cable Structural Integrity</div>
+            <div class="q-text">Assess the physical condition of your charging cable.</div>
+            <div class="q-desc">Copper micro-fractures are among the most common — and most underdiagnosed — failure points. Partial breaks raise resistance, forcing the PMIC to draw more current and generating heat at both connector ends.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Pristine — no kinks, fraying, or connector looseness</span><span class="c-hint">Conductor resistance nominal · strain relief intact</span></span></button>
+              <button class="choice" data-score="65" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Light wear — slight bends near connectors, works fine</span><span class="c-hint">Early strain-relief fatigue · monitor for stiffening</span></span></button>
+              <button class="choice" data-score="35" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Visible damage — kinks, exposed shielding, or loose plug</span><span class="c-hint">Likely conductor micro-fractures · rising resistance</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,4)"><span class="radio"></span><span class="c-body"><span class="c-label">Severe — exposed copper, melted insulation, or burn marks</span><span class="c-hint">Short-circuit / fire hazard · discontinue immediately</span></span></button>
+            </div>
+          </div>
+          <!-- Q5 -->
+          <div class="q-step" data-step="5">
+            <div class="q-param">Parameter 05 — Output Efficiency</div>
+            <div class="q-text">What charging speed and output efficiency does it currently deliver?</div>
+            <div class="q-desc">Output efficiency reflects the health of the buck converter, MOSFET switching transistors, and voltage-regulation feedback loop. A degraded regulator delivers "dirty" DC with high ripple the PMIC cannot fully suppress.</div>
+            <div class="choices">
+              <button class="choice" data-score="100" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">Full speed — hits rated wattage, charges as fast as new</span><span class="c-hint">Regulator &amp; converter healthy · low ripple output</span></span></button>
+              <button class="choice" data-score="60" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">Slightly slower — noticeably longer than when new</span><span class="c-hint">Mild converter drift · efficiency declining</span></span></button>
+              <button class="choice" data-score="25" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">Much slower — barely keeps up during use</span><span class="c-hint">Regulation feedback degraded · high ripple likely</span></span></button>
+              <button class="choice" data-score="5" onclick="pick(this,5)"><span class="radio"></span><span class="c-body"><span class="c-label">Erratic — battery drains while plugged in or won't fill</span><span class="c-hint">Converter failing · output below device draw</span></span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- nav -->
+        <div class="q-nav" id="qNav">
+          <button class="btn-back" id="btnBack" onclick="prevStep()" disabled>Back</button>
+          <button class="btn-next" id="btnNext" onclick="nextStep()">Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <!-- calibrating -->
+        <div class="calib" id="calib">
+          <canvas id="calibCanvas" width="320" height="320"></canvas>
+          <h4>Running weighted analysis</h4>
+          <p>5-parameter model · IEEE / USB-IF reference set</p>
+          <div class="scan-log" id="scanLog">› initializing…</div>
+        </div>
+
+        <!-- results -->
+        <div class="results" id="results">
+          <div class="res-hero">
+            <div class="gauge-wrap">
+              <canvas id="gaugeCanvas" width="440" height="440"></canvas>
+              <div class="gauge-center">
+                <span class="score" id="scoreNum">0</span>
+                <span class="of">/ 100 health</span>
+              </div>
+            </div>
+            <div class="res-meta">
+              <span class="status-badge" id="statusBadge">—</span>
+              <h3 id="scoreHeadline">—</h3>
+              <p id="scoreSummary">—</p>
+            </div>
+          </div>
+
+          <div class="res-cols">
+            <div class="radar-card">
+              <div class="card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 8v8l9 6 9-6V8l-9-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> Parameter radar</div>
+              <canvas id="radarCanvas" width="580" height="580"></canvas>
+            </div>
+            <div class="breakdown-card">
+              <div class="card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Parameter breakdown</div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Operational history</span><span class="bv" id="v1">0%</span></div><div class="bd-track"><div class="bd-fill" id="b1"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Thermal state</span><span class="bv" id="v2">0%</span></div><div class="bd-track"><div class="bd-fill" id="b2"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Protocol continuity</span><span class="bv" id="v3">0%</span></div><div class="bd-track"><div class="bd-fill" id="b3"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Cable integrity</span><span class="bv" id="v4">0%</span></div><div class="bd-track"><div class="bd-fill" id="b4"></div></div></div>
+              <div class="bd-item"><div class="bd-top"><span class="bl">Output efficiency</span><span class="bv" id="v5">0%</span></div><div class="bd-track"><div class="bd-fill" id="b5"></div></div></div>
+            </div>
+          </div>
+
+          <div class="analysis-box">
+            <div class="ab-t">Health impact analysis</div>
+            <p id="analysisText">—</p>
+          </div>
+
+          <div class="rem-box">
+            <div class="ab-t">Diagnostic results &amp; next steps</div>
+            <p id="remContent">—</p>
+            <div class="gan-tip">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="currentColor"/></svg>
+              <span><strong>Upgrade tip:</strong> When replacing, choose a USB-IF certified GaN charger. Gallium-nitride designs run cooler, regulate voltage more tightly, and typically exceed 93% conversion efficiency.</span>
+            </div>
+          </div>
+
+          <div class="res-actions">
+            <button class="btn btn-filled" onclick="window.print()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Save / print report
+            </button>
+            <button class="btn btn-tonal" onclick="resetTool()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Run again
+            </button>
+            <a href="#guide" class="btn btn-text">Read care guide →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Methodology</span>
+      <h2>How the diagnostic works</h2>
+      <p>A transparent, repeatable model — every question maps to a documented failure mode in real charging hardware.</p>
+    </div>
+    <div class="process">
+      <div class="proc-card reveal"><div class="proc-num">1</div><h3>Answer 5 parameters</h3><p>Each question maps to a specific failure mode: operational fatigue, thermal overload, electrical continuity, mechanical degradation, or output-efficiency decay.</p></div>
+      <div class="proc-card reveal"><div class="proc-num">2</div><h3>Get a weighted score</h3><p>The engine computes a composite 0–100 score across all five parameters and maps it to four diagnostic tiers: Optimal, Stable, Degrading, and Critical.</p></div>
+      <div class="proc-card reveal"><div class="proc-num">3</div><h3>Act on the guidance</h3><p>Receive a parameter radar plus specific remediation — from monitoring intervals to immediate replacement and PMIC-inspection protocols.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT MEASURES ============ -->
+<section class="pad" style="background:var(--surface);border-top:1px solid var(--outline-2);border-bottom:1px solid var(--outline-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Diagnostic parameters</span>
+      <h2>What the tool measures</h2>
+      <p>Five orthogonal signals that together describe the true health of any phone charger.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><div class="feat-ico" style="background:var(--blue-c);color:var(--blue)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div><div class="feat-param">Parameter 01</div><h3>Operational age</h3><p>Estimates cumulative capacitor ESR rise and solder-joint fatigue from age, duty cycle, and handling history.</p></div>
+      <div class="feat-card reveal"><div class="feat-ico" style="background:var(--red-c);color:var(--red)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0Z" stroke="currentColor" stroke-width="2"/></svg></div><div class="feat-param">Parameter 02</div><h3>Thermal load</h3><p>Surface temperature is the leading indicator of efficiency loss and accelerated electrolyte evaporation.</p></div>
+      <div class="feat-card reveal"><div class="feat-ico" style="background:var(--green-c);color:var(--green)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12h4l2 6 4-12 2 6h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-param">Parameter 03</div><h3>Protocol handshake</h3><p>Connection stability of USB-PD / proprietary fast-charge negotiation and CC-line continuity.</p></div>
+      <div class="feat-card reveal"><div class="feat-ico" style="background:var(--violet-c);color:var(--violet)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 7 7 5a3 3 0 0 0-4 4l2 2m8 6 2 2a3 3 0 0 0 4-4l-2-2M8 16l8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-param">Parameter 04</div><h3>Conductor integrity</h3><p>Detects copper micro-fractures and strain-relief fatigue that raise resistance and generate heat.</p></div>
+      <div class="feat-card reveal"><div class="feat-ico" style="background:var(--amber-c);color:var(--amber)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div class="feat-param">Parameter 05</div><h3>Output efficiency</h3><p>Reflects buck-converter and MOSFET health via delivered speed and inferred ripple content.</p></div>
+      <div class="feat-card accent reveal"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 8v8l9 6 9-6V8l-9-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feat-param">Composite output</div><h3>Weighted health score</h3><p>One number, 0–100, summarizing all five parameters into an at-a-glance verdict and action tier.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPLETE GUIDE ============ -->
+<section id="guide" class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Complete Guide</span>
+      <h2>The complete charger health &amp; battery-care guide</h2>
+      <p>Everything you need to understand, diagnose, and extend the life of your charger — and protect the battery it feeds.</p>
+    </div>
+
+    <div class="guide-layout">
+      <aside class="toc reveal">
+        <div class="toc-title">On this page</div>
+        <nav id="tocNav">
+          <a href="#g-why" class="active">Why chargers matter</a>
+          <a href="#g-signs">7 warning signs</a>
+          <a href="#g-use">How to use this tool</a>
+          <a href="#g-science">The science explained</a>
+          <a href="#g-extend">Extend charger life</a>
+          <a href="#g-choose">Choosing a replacement</a>
+          <a href="#g-safety">Safety protocol</a>
+        </nav>
+      </aside>
+
+      <div class="guide-body reveal">
+        <h3 id="g-why">Why your charger matters more than you think</h3>
+        <p>Most people treat a phone charger as a disposable accessory — until it fails. But the charger is the single component that directly governs the quality of power flowing into your battery thousands of times over the device's life. A healthy charger delivers clean, regulated DC at exactly the voltage your phone negotiates. A degraded one delivers <strong>noisy, unstable power</strong> that your phone's power-management chip (PMIC) must constantly fight to clean up — at the cost of heat, efficiency, and ultimately battery lifespan.</p>
+        <p>Lithium-ion batteries don't fail suddenly; they fade. Independent studies and manufacturer guidance converge on a simple truth: <strong>heat and unstable voltage are the two biggest accelerants of capacity loss.</strong> Both are things a failing charger produces in abundance. That's why a five-dollar bad charger can quietly cost you a battery — or a phone.</p>
+        <div class="callout good">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">The 30-second takeaway</span>A charger that runs hot, charges slowly, or drops connection is not just annoying — it is measurably accelerating your battery's decline. Diagnose it early and you protect both the charger and the phone.</p>
+        </div>
+
+        <h3 id="g-signs">7 warning signs your charger is failing</h3>
+        <p>Run the diagnostic above if you notice any of these. They map directly to the five parameters the tool measures.</p>
+        <ol>
+          <li><strong>It gets uncomfortably hot.</strong> A brick you can't hold for more than a couple of seconds is operating well above safe surface temperature.</li>
+          <li><strong>Charging is noticeably slower than when new.</strong> Efficiency loss in the converter is a classic aging signature.</li>
+          <li><strong>The connection drops or flickers.</strong> The charging icon toggling on and off points to handshake or cable faults.</li>
+          <li><strong>You smell anything burnt or plasticky.</strong> Stop immediately — this is a thermal-runaway red flag.</li>
+          <li><strong>The cable is stiff, kinked, frayed, or shows copper.</strong> Conductor micro-fractures raise resistance and heat.</li>
+          <li><strong>The plug feels loose or needs a specific angle.</strong> Worn contacts cause arcing and inrush spikes.</li>
+          <li><strong>Your battery health is dropping faster than expected.</strong> Often the only symptom of "dirty" power.</li>
+        </ol>
+        <div class="callout warn">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">Two or more signs?</span>Treat the charger as suspect and run the diagnostic now. Multiple simultaneous symptoms usually indicate the unit has crossed from "aging" into "actively harmful."</p>
+        </div>
+
+        <h3 id="g-use">How to use this tool (step by step)</h3>
+        <p>The analyzer is designed to be answered honestly from everyday observation — no multimeter required. For the most accurate score, observe your charger during a real charging session first.</p>
+        <ol class="steps-list">
+          <li><span class="st">Charge for ~10 minutes, then observe</span><p>Let the phone charge normally so the brick reaches operating temperature and the protocol settles before you judge thermal and speed behaviour.</p></li>
+          <li><span class="st">Answer all five parameters honestly</span><p>Pick the option that best matches reality, not the one you hope is true. Each choice carries a calibrated weight in the model.</p></li>
+          <li><span class="st">Read your weighted score &amp; radar</span><p>The gauge gives the headline verdict; the radar shows which specific parameter is dragging the score down.</p></li>
+          <li><span class="st">Follow the remediation steps</span><p>Optimal means keep going; anything lower comes with concrete, prioritized actions.</p></li>
+          <li><span class="st">Save the report &amp; re-test later</span><p>Print or save a PDF for your records, then re-run every 3–6 months to track the trend over time.</p></li>
+        </ol>
+
+        <h3 id="g-science">The science behind charger-induced battery degradation</h3>
+        <h4>1. The PMIC — and why it can't compensate forever</h4>
+        <p>Your phone's Power Management IC sits between the charger and the cell, regulating exactly how much current reaches the battery. When a charger delivers clean power, the PMIC barely has to work. When power is noisy or sags under load, the PMIC compensates — drawing harder, switching faster, and dissipating the difference as heat. It's resilient, but every degree of extra heat it produces is heat sitting millimetres from the battery.</p>
+        <h4>2. Voltage ripple and what it does to the cell</h4>
+        <p>Ripple is high-frequency AC noise riding on top of the DC charging rail. A healthy adapter keeps ripple low; a degraded one — with dried-out filter capacitors — lets it climb. That ripple current circulates through the cell as waste heat, creating localized hotspots that attack the battery's protective chemistry.</p>
+        <h4>3. SEI-layer breakdown — the point of no return</h4>
+        <p>The Solid-Electrolyte Interphase (SEI) is a microscopic protective film on the battery's anode. Heat and electrical stress thicken and crack it; the cell consumes lithium to repair it, and that lithium is gone forever. This is <strong>irreversible capacity fade</strong> — the reason an old phone "doesn't hold a charge like it used to."</p>
+        <div class="callout">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h1v4h1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">Engineering data — Journal of Power Sources</span>Sustained operation just 10 °C above optimal can roughly double the rate of lithium-ion capacity fade. Temperature is not a minor variable — it is the dominant one.</p>
+        </div>
+        <h4>4. The compounding failure cycle</h4>
+        <p>These effects feed each other. A degraded charger runs hotter → heat dries its capacitors faster → ripple rises → the PMIC works harder and adds more heat → the battery degrades faster. Catching the loop early, with a quick diagnostic, is the cheapest possible intervention.</p>
+
+        <h3 id="g-extend">How to extend your charger's life</h3>
+        <div class="dd-grid">
+          <div class="dd-col do">
+            <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Do this</h4>
+            <ul>
+              <li>Unplug from the wall when not charging</li>
+              <li>Charge on hard, ventilated surfaces — not beds or sofas</li>
+              <li>Hold the plug body (not the cable) when unplugging</li>
+              <li>Keep connectors clean and dry</li>
+              <li>Use certified cables rated for your charger's wattage</li>
+              <li>Replace cables at the first sign of stiffness or fraying</li>
+            </ul>
+          </div>
+          <div class="dd-col dont">
+            <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg> Avoid this</h4>
+            <ul>
+              <li>Charging under pillows or stacked items (traps heat)</li>
+              <li>Wrapping cables tightly around the brick</li>
+              <li>Yanking the cable out by the wire</li>
+              <li>Using cheap uncertified bricks for fast charging</li>
+              <li>Leaving the charger in a hot car or windowsill</li>
+              <li>Ignoring a brick that has started running hot</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 id="g-choose">Choosing a safe replacement charger</h3>
+        <p>If the tool returns Degrading or Critical, replacement is the fix — not a repair. Use this quick reference to buy once and buy right.</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Buying factor</th><th>What to look for</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>Certification</td><td><span class="tag g">USB-IF</span> <span class="tag b">UL / CE / FCC</span></td><td>Guarantees correct PD implementation and electrical safety testing</td></tr>
+              <tr><td>Technology</td><td><span class="tag b">GaN</span> (Gallium Nitride)</td><td>Runs cooler, regulates tighter, &gt;93% efficiency, smaller size</td></tr>
+              <tr><td>Wattage</td><td>Match or slightly exceed your phone's max</td><td>Lets the phone, not the brick, decide the safe charge rate</td></tr>
+              <tr><td>Protocol</td><td>USB-PD 3.0 / PPS (or your brand's fast-charge)</td><td>Ensures full-speed, negotiated charging without spikes</td></tr>
+              <tr><td>Cable rating</td><td>E-marked cable for high-watt charging</td><td>Carries rated current safely without overheating</td></tr>
+              <tr><td>Brand reputation</td><td>Established OEM or known accessory maker</td><td>Real protection circuitry, not cost-cut imitations</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout good">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="currentColor"/></svg>
+          <p><span class="ct">Best all-round pick</span>A USB-IF certified GaN charger from a reputable brand, matched to your phone's wattage and paired with an e-marked cable, is the safest long-term choice for almost everyone.</p>
+        </div>
+
+        <h3 id="g-safety">Emergency safety protocol</h3>
+        <p>If your charger ever burns to the touch, smokes, sparks, or smells of melting plastic, treat it as a hazard immediately:</p>
+        <ol class="steps-list">
+          <li><span class="st">Disconnect at the wall first</span><p>Switch off the outlet before touching the brick to remove the live current path.</p></li>
+          <li><span class="st">Move it to a non-flammable surface</span><p>Tile, stone, or metal — away from bedding, paper, and curtains.</p></li>
+          <li><span class="st">Let it cool for at least 30 minutes</span><p>Do not attempt to charge again or "test if it still works."</p></li>
+          <li><span class="st">Inspect, then retire it permanently</span><p>Any deformation, discoloration, or burnt odor means the unit is done. Recycle it at an e-waste point — never reuse it.</p></li>
+        </ol>
+        <div class="callout danger">
+          <svg class="ci" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><span class="ct">Never ignore a thermal event</span>A charger that has overheated once has likely sustained internal damage and is far more likely to do it again — with worse consequences. Replace it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="pad" style="background:var(--surface);border-top:1px solid var(--outline-2)">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin:0 auto 38px">
+      <span class="eyebrow" style="margin-left:auto;margin-right:auto"><span class="dot"></span> FAQ</span>
+      <h2>Technical questions, direct answers</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How does charger internal resistance affect battery health?<span class="faq-icon"></span></button><div class="faq-a"><p>Rising internal resistance (ESR) forces the smartphone PMIC to draw more current to compensate, generating excess heat that accelerates SEI-layer breakdown in lithium-ion cells. Per IEEE 1725 guidance, thermal stress is the primary driver of irreversible capacity fade.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">What should I do when my charger overheats?<span class="faq-icon"></span></button><div class="faq-a"><p>Disconnect from the wall first, move it to a non-flammable surface, and allow 30 minutes of cooling. Inspect for casing deformation, discoloration, or burnt odor. Do not resume use until the cause is identified, and only use adapters with UL, CE, FCC, or CCC marks.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Can this tool physically repair a damaged charger?<span class="faq-icon"></span></button><div class="faq-a"><p>No. It's an analytical assessment tool that identifies risk and scores degradation, but cannot replace physical hardware repair. A Critical or Degrading score is a hard replacement trigger.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How often should I run a charger health diagnostic?<span class="faq-icon"></span></button><div class="faq-a"><p>Every 3–6 months for daily-use chargers — and immediately if you notice slower charging, unusual warmth, intermittent connections, or battery anomalies. Heavy fast-charging users should test monthly.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Is a third-party fast charger safe if the wattage matches?<span class="faq-icon"></span></button><div class="faq-a"><p>Wattage matching is necessary but not sufficient. USB-IF certification ensures the charger correctly implements the USB Power Delivery protocol, preventing voltage spikes and handshake failures. Uncertified units may advertise the right wattage while delivering unstable power.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">What is voltage ripple and why does it damage batteries?<span class="faq-icon"></span></button><div class="faq-a"><p>Ripple is high-frequency AC noise superimposed on the DC charging rail from a degraded charger. It circulates through the cell as waste heat, creating localized hotspots that break down the SEI layer and accelerate capacity fade.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">What is a GaN charger and why is it recommended?<span class="faq-icon"></span></button><div class="faq-a"><p>Gallium-nitride chargers use wide-bandgap semiconductors that switch at higher frequencies with far less heat than silicon designs. They deliver tighter voltage regulation, higher efficiency (typically above 93%), and a smaller footprint — making them the ideal replacement.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <h2>Don't wait for your charger to fail</h2>
+      <p>Run the free 5-parameter diagnostic now and protect your battery before the damage becomes irreversible.</p>
+      <button class="btn btn-filled" onclick="goTool()">Run free diagnostic
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+</main>
+
+<p class="disclaimer"><strong>Disclaimer:</strong> This Smart Charger Health Analyzer is an educational, self-assessment tool based on user-reported observations and published engineering principles. It does not perform live electrical measurement and is not a substitute for professional inspection. If you observe smoke, sparks, burning odor, or melting, discontinue use immediately and consult a qualified technician.</p>
+
+<section class="related-tools">
+  <div class="rt-wrap">
+    <div class="rt-head">
+      <span class="eyebrow"><span class="dot"></span> More free tools</span>
+      <h2>Keep your devices in top shape</h2>
+      <p>Solved this one? These companion tools from the TechFineHub toolkit fix the next problem on your list — all free, all private.</p>
+    </div>
+    <div class="rt-grid"><a class="rt-card" href="wifi-health-score-checker.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>WiFi Router Health Score</h3>
+        <p>Answer 6 quick questions to get a 0–100 WiFi router health score with practical fixes for slow speed, weak signal and disconnections.</p>
+        <span class="rt-go">Check score <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="rt-card" href="phone-camera-health-test.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Phone Camera Health Test</h3>
+        <p>A 5-parameter camera health test that scores sharpness, focus, low-light and stabilisation (0–100) and tells you what to fix.</p>
+        <span class="rt-go">Test camera <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="rt-card" href="screen-time-health-score.html">
+        <span class="rt-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Screen Time Health Checker</h3>
+        <p>Check how screen time, eye strain and sleep habits affect you — a 0–100 wellness score with simple fixes for students, adults & parents.</p>
+        <span class="rt-go">Check score <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></div>
+    <div class="rt-all"><a href="toolkit.html">Browse all 6 tools <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+<footer class="site-foot">
+  <div class="sf-inner">
+    <div class="sf-grid">
+      <div class="sf-about">
+        <a class="sh-brand" href="index.html"><span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span><span class="sh-name">TechFineHub</span></a>
+        <p>Free, private, easy-to-use tools that help everyday people understand and fix their phones, chargers, WiFi and digital habits — no sign-up, no jargon.</p>
+        <div class="sf-social" aria-label="Social links">
+          <a href="contact.html" aria-label="Contact"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4zM4 6l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="sf-col"><h5>Toolkit</h5><a href="charger-health-analyzer.html">Charger Health</a><a href="wifi-health-score-checker.html">WiFi Health</a><a href="phone-camera-health-test.html">Camera Health</a><a href="screen-time-health-score.html">Screen Time</a><a href="mobile-data-usage-calculator.html">Data Calculator</a><a href="phone-resale-value-calculator.html">Resale Value</a></div>
+      <div class="sf-col"><h5>Company</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="sf-col"><h5>Resources</h5>
+        <a href="toolkit.html">All tools</a>
+        <a href="blog.html">Guides &amp; tips</a>
+        <a href="contact.html">Help &amp; support</a>
+      </div>
+    </div>
+    <div class="sf-bottom">
+      <span>© 2026 TechFineHub. All rights reserved.</span>
+      <span>Made with care for everyday device owners.</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var burger=document.getElementById('shBurger'),nav=document.getElementById('shNav'),drop=document.getElementById('shDrop');
+  if(burger){burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});}
+  if(drop){var db=drop.querySelector('.sh-drop-btn');
+    db.addEventListener('click',function(e){e.stopPropagation();var o=drop.classList.toggle('open');db.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!drop.contains(e.target))drop.classList.remove('open');});
+    drop.addEventListener('mouseenter',function(){if(window.innerWidth>900)drop.classList.add('open');});
+    drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)drop.classList.remove('open');});
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(drop)drop.classList.remove('open');if(nav){nav.classList.remove('open');if(burger){burger.classList.remove('open');burger.setAttribute('aria-expanded',false);}}}});
+})();
+</script>
+
+
+<!-- ============ FOOTER ============ -->
+
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m6 14 6-6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+/* ============ STATE ============ */
+const scores={}, totalSteps=5;
+let currentStep=1;
+const $=id=>document.getElementById(id);
+
+/* ============ NAV / UTIL ============ */
+function goTool(){ $('tool').scrollIntoView({behavior:'smooth'}); }
+
+/* ripple effect on filled/tonal buttons */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.btn');
+  if(!b)return;
+  const r=document.createElement('span');r.className='ripple';
+  const rect=b.getBoundingClientRect(),s=Math.max(rect.width,rect.height);
+  r.style.width=r.style.height=s+'px';
+  r.style.left=(e.clientX-rect.left-s/2)+'px';
+  r.style.top=(e.clientY-rect.top-s/2)+'px';
+  b.appendChild(r);setTimeout(()=>r.remove(),600);
+});
+
+/* ============ TOOL FLOW ============ */
+function updateUI(){
+  document.querySelectorAll('.q-step').forEach(s=>s.classList.toggle('active',+s.dataset.step===currentStep));
+  $('stepPill').textContent='STEP '+String(currentStep).padStart(2,'0')+' / 05';
+  $('progFill').style.width=(currentStep/totalSteps*100)+'%';
+  document.querySelectorAll('.dot-step').forEach(d=>{
+    const s=+d.dataset.s;d.classList.toggle('active',s===currentStep);d.classList.toggle('done',s<currentStep);
+    d.querySelector('.d').innerHTML = s<currentStep ? '✓' : s;
+  });
+  $('btnBack').disabled=currentStep===1;
+  const has=scores[currentStep]!==undefined;
+  $('btnNext').classList.toggle('ready',has);
+  $('btnNext').firstChild.textContent = currentStep===totalSteps ? 'Run analysis ' : 'Continue ';
+}
+function pick(btn,step){
+  btn.closest('.choices').querySelectorAll('.choice').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  scores[step]=+btn.dataset.score;
+  $('btnNext').classList.add('ready');
+}
+function nextStep(){
+  if(!$('btnNext').classList.contains('ready'))return;
+  if(currentStep<totalSteps){currentStep++;updateUI();}
+  else runAnalysis();
+}
+function prevStep(){ if(currentStep>1){currentStep--;updateUI();} }
+
+/* ============ CALIBRATION ANIMATION ============ */
+let calibRAF;
+function runAnalysis(){
+  $('questions').style.display='none';
+  $('qNav').style.display='none';
+  $('progWrap').style.display='none';
+  $('calib').classList.add('active');
+  $('stepPill').textContent='ANALYZING…';
+  animateCalib();
+  const logs=['› reading parameter weights…','› modeling thermal envelope…','› estimating ripple content…','› cross-checking USB-IF profile…','› computing composite score…','› done.'];
+  let i=0;const lg=$('scanLog');
+  const t=setInterval(()=>{lg.textContent=logs[i++];if(i>=logs.length)clearInterval(t);},380);
+  setTimeout(()=>{cancelAnimationFrame(calibRAF);$('calib').classList.remove('active');showResults();},2500);
+}
+function animateCalib(){
+  const c=$('calibCanvas'),x=c.getContext('2d');const cx=160,cy=160;let t=0;
+  function frame(){
+    x.clearRect(0,0,320,320);
+    // rotating rings
+    for(let k=0;k<3;k++){
+      x.beginPath();
+      const rad=50+k*32, off=t*(0.02+k*0.01);
+      x.strokeStyle=['rgba(26,115,232,.9)','rgba(132,48,206,.7)','rgba(30,142,62,.6)'][k];
+      x.lineWidth=4;
+      x.arc(cx,cy,rad,off,off+Math.PI*1.4);x.stroke();
+    }
+    // pulsing core
+    const p=(Math.sin(t*0.06)+1)/2;
+    x.beginPath();x.fillStyle='rgba(11,87,208,'+(0.15+p*0.2)+')';x.arc(cx,cy,24+p*6,0,Math.PI*2);x.fill();
+    x.beginPath();x.fillStyle='#0B57D0';x.arc(cx,cy,14,0,Math.PI*2);x.fill();
+    // bolt
+    x.fillStyle='#fff';x.font='bold 16px Roboto';x.textAlign='center';x.textBaseline='middle';x.fillText('⚡',cx,cy+1);
+    t++;calibRAF=requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+/* ============ RESULTS ============ */
+function showResults(){
+  let total=0;for(let i=1;i<=totalSteps;i++)total+=scores[i]||0;
+  const finalScore=Math.round(total/5);
+  $('stepPill').textContent='ANALYSIS COMPLETE';
+  document.querySelectorAll('.dot-step').forEach(d=>{d.classList.remove('active');d.classList.add('done');});
+  $('results').classList.add('active');
+
+  let color,statusClass,statusText,headline,summary;
+  if(finalScore>=85){color='#1E8E3E';statusClass='var(--green-c)';statusText='Optimal';headline='Operating within tolerances';summary='All five parameters fall within engineering-acceptable ranges. Your charging infrastructure presents no immediate risk to battery chemistry or PMIC health.';}
+  else if(finalScore>=65){color='#1A73E8';statusClass='var(--blue-c)';statusText='Stable';headline='Minor degradation detected';summary='Early wear indicators are present. Your unit remains functional but is approaching thresholds where battery-damage risk begins to compound. Monitor and plan a proactive replacement.';}
+  else if(finalScore>=40){color='#E37400';statusClass='var(--amber-c)';statusText='Degrading';headline='Significant degradation — action required';summary='Multiple anomalies detected. Your charger is likely generating elevated ripple current and excess heat, placing measurable stress on your device PMIC and battery SEI layer.';}
+  else {color='#D93025';statusClass='var(--red-c)';statusText='Critical';headline='Critical failure — discontinue now';summary='Severe multi-parameter violations detected. Continued use risks thermal runaway, PMIC damage, and battery swelling. Replace this charger before charging again.';}
+
+  // badge
+  const badge=$('statusBadge');
+  badge.textContent=statusText;
+  badge.style.background=statusClass;badge.style.color=color;
+  $('scoreHeadline').textContent=headline;
+  $('scoreSummary').textContent=summary;
+
+  // gauge + counter
+  drawGauge(finalScore,color);
+  animateNum($('scoreNum'),0,finalScore,1400);
+
+  // breakdown
+  const map=[scores[1]||0,scores[2]||0,scores[3]||0,scores[4]||0,scores[5]||0];
+  const cols=['#1A73E8','#D93025','#1E8E3E','#8430CE','#E37400'];
+  setTimeout(()=>{
+    map.forEach((sc,i)=>{
+      const bar=$('b'+(i+1)),val=$('v'+(i+1));
+      bar.style.background=cols[i];bar.style.width=sc+'%';
+      val.textContent=sc+'%';val.style.color=cols[i];
+    });
+    drawRadar(map);
+  },300);
+
+  $('analysisText').textContent=getAnalysis(finalScore);
+  $('remContent').innerHTML=getRemediation(finalScore);
+  setTimeout(()=>$('results').scrollIntoView({behavior:'smooth',block:'start'}),200);
+}
+
+function drawGauge(score,color){
+  const c=$('gaugeCanvas'),x=c.getContext('2d');const cx=220,cy=220,r=170;
+  const start=Math.PI*0.75, end=Math.PI*2.25, range=end-start;
+  let cur=0;
+  (function frame(){
+    x.clearRect(0,0,440,440);
+    // track
+    x.beginPath();x.lineWidth=26;x.lineCap='round';x.strokeStyle='#E9EEF6';
+    x.arc(cx,cy,r,start,end);x.stroke();
+    // ticks
+    for(let i=0;i<=10;i++){
+      const a=start+range*(i/10);
+      const x1=cx+Math.cos(a)*(r+18),y1=cy+Math.sin(a)*(r+18);
+      const x2=cx+Math.cos(a)*(r+24),y2=cy+Math.sin(a)*(r+24);
+      x.beginPath();x.strokeStyle='#C4C7C5';x.lineWidth=2;x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke();
+    }
+    // value arc
+    cur+=(score-cur)*0.08;
+    const a=start+range*(Math.min(cur,score)/100);
+    const grad=x.createLinearGradient(0,0,440,440);grad.addColorStop(0,color);grad.addColorStop(1,shade(color,30));
+    x.beginPath();x.lineWidth=26;x.lineCap='round';x.strokeStyle=grad;
+    x.arc(cx,cy,r,start,a);x.stroke();
+    // needle dot
+    x.beginPath();x.fillStyle=color;x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,11,0,Math.PI*2);x.fill();
+    x.beginPath();x.fillStyle='#fff';x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,4,0,Math.PI*2);x.fill();
+    if(Math.abs(cur-score)>0.3)requestAnimationFrame(frame);
+  })();
+}
+function shade(hex,p){
+  const n=parseInt(hex.slice(1),16);let r=(n>>16)+p,g=(n>>8&255)+p,b=(n&255)+p;
+  r=Math.min(255,r);g=Math.min(255,g);b=Math.min(255,b);
+  return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');
+}
+
+function drawRadar(vals){
+  const c=$('radarCanvas'),x=c.getContext('2d');const cx=290,cy=290,R=210,N=5;
+  const labels=['History','Thermal','Protocol','Cable','Output'];
+  const ang=i=>-Math.PI/2+i*2*Math.PI/N;
+  x.clearRect(0,0,580,580);
+  // grid rings
+  for(let g=1;g<=4;g++){
+    x.beginPath();x.strokeStyle='#DADCE0';x.lineWidth=1;
+    for(let i=0;i<=N;i++){const a=ang(i%N),rr=R*g/4;const px=cx+Math.cos(a)*rr,py=cy+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py);}
+    x.stroke();
+  }
+  // spokes + labels
+  x.fillStyle='#5E6368';x.font='600 18px Roboto';x.textAlign='center';x.textBaseline='middle';
+  for(let i=0;i<N;i++){
+    const a=ang(i);
+    x.beginPath();x.strokeStyle='#E6E9EE';x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);x.stroke();
+    const lx=cx+Math.cos(a)*(R+34),ly=cy+Math.sin(a)*(R+30);
+    x.fillText(labels[i],lx,ly);
+  }
+  // animated polygon
+  let t=0;
+  (function frame(){
+    x.clearRect(0,0,580,580);
+    for(let g=1;g<=4;g++){x.beginPath();x.strokeStyle='#DADCE0';x.lineWidth=1;for(let i=0;i<=N;i++){const a=ang(i%N),rr=R*g/4;const px=cx+Math.cos(a)*rr,py=cy+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py);}x.stroke();}
+    x.fillStyle='#5E6368';x.font='600 18px Roboto';x.textAlign='center';x.textBaseline='middle';
+    for(let i=0;i<N;i++){const a=ang(i);x.beginPath();x.strokeStyle='#E6E9EE';x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);x.stroke();x.fillText(labels[i],cx+Math.cos(a)*(R+34),cy+Math.sin(a)*(R+30));}
+    t=Math.min(1,t+0.04);
+    x.beginPath();
+    for(let i=0;i<=N;i++){const a=ang(i%N),rr=R*(vals[i%N]/100)*t;const px=cx+Math.cos(a)*rr,py=cy+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py);}
+    x.closePath();
+    x.fillStyle='rgba(26,115,232,.18)';x.fill();
+    x.strokeStyle='#1A73E8';x.lineWidth=3;x.stroke();
+    for(let i=0;i<N;i++){const a=ang(i),rr=R*(vals[i]/100)*t;x.beginPath();x.fillStyle='#1A73E8';x.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr,5,0,Math.PI*2);x.fill();}
+    if(t<1)requestAnimationFrame(frame);
+  })();
+}
+
+function animateNum(el,start,end,dur){
+  const t0=performance.now();
+  (function u(now){const p=Math.min((now-t0)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.round(start+(end-start)*e);if(p<1)requestAnimationFrame(u);})(t0);
+}
+
+function getAnalysis(s){
+  if(s>=85)return 'Excellent calibration across all five parameters. Your PMIC, buck converter, and thermal-management systems are operating in harmony. Sustained use at this level preserves battery SEI integrity and helps maintain capacity above 95% across the expected device lifecycle. Continue good charging hygiene and re-test in 6 months.';
+  if(s>=65)return 'Stable performance with early degradation indicators — likely in thermal paste, cable continuity, or voltage regulation. Over the next 6–12 months, reduced efficiency may contribute an additional 5–10% battery-capacity loss. Monitor charge speed and device temperature monthly, and plan a certified GaN replacement.';
+  if(s>=40)return 'Degrading health with multiple anomalies. Elevated voltage ripple and heat generation are likely accelerating SEI-layer breakdown — projected 15–25% additional capacity loss over six months of continued use. Replace the charger soon and consider a battery-health check at an authorized service center.';
+  return 'Critical failure detected. Severe multi-parameter violations indicate voltage regulation has drifted outside safe limits, delivering potentially damaging inrush current to your device. Cease charging with this unit immediately, replace it with an OEM-certified or USB-IF GaN charger, and have your battery and PMIC professionally inspected before resuming normal use.';
+}
+function getRemediation(s){
+  if(s>=85)return '<strong style="color:#1E8E3E">Optimal status</strong> — Your charger is within all engineering tolerances. Keep using it with confidence: avoid extreme temperatures, prevent sharp cable bends, and unplug from the wall when idle. Schedule your next diagnostic in 6 months. No replacement required.';
+  if(s>=65)return '<strong style="color:#1A73E8">Stable with early warning</strong> — Minor degradation detected. The unit is functional but approaching a threshold where battery-damage risk compounds. Monitor charge speed and temperature weekly, avoid charging on soft surfaces that trap heat, and consider upgrading to a certified GaN adapter within 3 months.';
+  if(s>=40)return '<strong style="color:#E37400">Significant degradation — replace soon</strong> — Multiple anomalies detected. The charger is generating elevated ripple and excess heat, stressing your device PMIC. <strong>Recommendation:</strong> replace within 2 weeks with a USB-IF certified GaN adapter rated for your device. Check your phone\'s battery health in Settings; if capacity is below 85%, book an authorized service diagnostic.';
+  return '<strong style="color:#D93025">Critical failure — discontinue immediately</strong> — Severe multi-parameter failure. Continued use risks thermal runaway, PMIC damage, and battery swelling. <strong>Required actions:</strong> (1) stop charging with this unit now; (2) replace with an OEM-certified or USB-IF GaN charger matching your PD profile; (3) inspect your USB-C port for debris or bent pins; (4) book a battery and PMIC diagnostic at an authorized service center before resuming.';
+}
+
+function resetTool(){
+  Object.keys(scores).forEach(k=>delete scores[k]);
+  $('results').classList.remove('active');
+  $('questions').style.display='';
+  $('qNav').style.display='';
+  $('progWrap').style.display='';
+  document.querySelectorAll('.choice').forEach(b=>b.classList.remove('sel'));
+  currentStep=1;updateUI();
+  $('tool').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+  if(!open){item.classList.add('open');const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}
+}
+
+/* keyboard */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&$('btnNext').classList.contains('ready')&&!$('results').classList.contains('active'))nextStep();
+});
+
+/* ============ HERO PARTICLE CANVAS ============ */
+(function(){
+  const c=$('heroCanvas'),x=c.getContext('2d');let w,h,pts=[];
+  function size(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;init();}
+  function init(){
+    pts=[];const n=Math.min(70,Math.floor(w*h/16000));
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.8+.6});
+  }
+  function frame(){
+    x.clearRect(0,0,w,h);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+      x.beginPath();x.fillStyle='rgba(26,115,232,.5)';x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();
+    }
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+      if(d<120){x.beginPath();x.strokeStyle='rgba(26,115,232,'+(0.14*(1-d/120))+')';x.lineWidth=1;x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}
+    }
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',size);size();frame();
+})();
+
+/* ============ REVEAL ON SCROLL ============ */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ============ APPBAR + SCROLL PROGRESS + TOC + TOTOP ============ */
+const tocLinks=[...document.querySelectorAll('#tocNav a')];
+const sections=tocLinks.map(a=>$(a.getAttribute('href').slice(1)));
+function onScroll(){
+  const y=window.scrollY;
+  $('appbar').classList.toggle('scrolled',y>10);
+  const max=document.body.scrollHeight-innerHeight;
+  $('scrollProg').style.width=(y/max*100)+'%';
+  $('toTop').classList.toggle('show',y>600);
+  // toc active
+  let act=0;sections.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<140)act=i;});
+  tocLinks.forEach((a,i)=>a.classList.toggle('active',i===act));
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+
+updateUI();
+</script>
+</body>
+</html>

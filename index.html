@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TechFineHub | Free Smart Tools to Score & Fix Your Everyday Tech</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 rx=%276%27 fill=%27%234F46E5%27/%3E%3Cpath d=%27M13 2 4 14h6l-1 8 9-12h-6l1-8Z%27 fill=%27white%27/%3E%3C/svg%3E">
+<meta name="description" content="TechFineHub gives you 6 free, private tools that turn confusing phone, charger, WiFi and screen-time problems into a simple 0–100 score with clear fixes. No sign-up, no scans, built for everyday users.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.techfinehub.online/">
+<meta property="og:title" content="TechFineHub | Free Smart Tools to Score & Fix Your Everyday Tech">
+<meta property="og:description" content="TechFineHub gives you 6 free, private tools that turn confusing phone, charger, WiFi and screen-time problems into a simple 0–100 score with clear fixes. No sign-up, no scans, built for everyday users.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.techfinehub.online/">
+<meta name="theme-color" content="#4F46E5">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","name":"TechFineHub","url":"https://www.techfinehub.online/","description":"Free, private tools that score and fix everyday device problems."},
+{"@type":"Organization","name":"TechFineHub","url":"https://www.techfinehub.online/","slogan":"Your everyday tech, finally figured out."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Are these tools really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, every tool on TechFineHub is 100% free with no sign-up and no hidden upsell."}},
+{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tools work on your device using the answers you provide and do not need access to your accounts or files."}},
+{"@type":"Question","name":"Who are these tools for?","acceptedAnswer":{"@type":"Answer","text":"Everyday people who like to understand and fix their own devices, including students, parents and professionals. No technical knowledge required."}}
+]}
+]}</script>
+<style>
+
+:root{
+  --primary:#4F46E5;--primary-hover:#4338CA;--primary-light:#818CF8;--primary-container:#E0E7FF;--on-primary-container:#1E1B4B;
+  --primary-08:rgba(79,70,229,.08);--primary-12:rgba(79,70,229,.14);--accent:#0EA5E9;--accent-c:#E0F2FE;
+  --bg:#F5F6FB;--surface:#FFFFFF;--surface-2:#FAFBFE;--surface-3:#EEF0F9;
+  --on-surface:#171a2b;--on-surface-2:#3d4258;--on-surface-3:#5e6480;--outline:#dde0ee;--outline-2:#e8eaf4;
+  --green:#1E8E3E;--green-c:#E6F4EA;--amber:#E37400;--amber-c:#FEEFC3;--red:#D93025;--red-c:#FCE8E6;
+  --e1:0 1px 2px rgba(30,30,60,.08),0 1px 3px 1px rgba(30,30,60,.05);
+  --e2:0 1px 3px rgba(30,30,60,.10),0 4px 10px 2px rgba(30,30,60,.07);
+  --e3:0 6px 14px rgba(30,30,60,.10),0 12px 30px 6px rgba(30,30,60,.09);
+  --e4:0 12px 24px rgba(30,30,60,.13),0 22px 50px 12px rgba(30,30,60,.12);
+  --radius-s:12px;--radius:18px;--radius-l:26px;--radius-xl:34px;
+  --font:"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Roboto Mono",ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--on-surface);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img,svg{display:block;max-width:100%}::selection{background:var(--primary-container)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw)}
+h1,h2,h3,h4{letter-spacing:-.4px;line-height:1.16;color:var(--on-surface)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--accent);background:var(--primary-08);padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.5}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:inherit;font-size:15px;font-weight:700;border:none;cursor:pointer;border-radius:999px;padding:14px 26px;transition:all .22s cubic-bezier(.2,.7,.2,1)}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:var(--e2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--e3);filter:brightness(1.04)}
+.btn-primary svg{transition:transform .2s}.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{background:#fff;color:var(--on-surface);border:1.5px solid var(--outline)}
+.btn-ghost:hover{border-color:var(--primary-light);background:var(--surface-2);transform:translateY(-2px)}
+.pad{padding:clamp(54px,9vw,104px) 0}
+.section-head{max-width:680px;margin:0 auto 48px;text-align:center}
+.section-head h2{font-size:clamp(27px,4.4vw,44px);font-weight:800;margin-bottom:14px}
+.section-head p{font-size:clamp(15px,2vw,18px);color:var(--on-surface-3);line-height:1.7}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+
+/* ===== Unified header ===== */
+.site-head{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--outline-2,#e6e9ee)}
+.site-head .sh-inner{max-width:1180px;margin:0 auto;padding:0 max(16px,4vw);height:64px;display:flex;align-items:center;gap:18px}
+.sh-brand{display:inline-flex;align-items:center;gap:11px;font-weight:800;color:var(--on-surface,#16201e);letter-spacing:-.3px}
+.sh-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));flex:none}
+.sh-mark svg{width:21px;height:21px}
+.sh-name{display:flex;flex-direction:column;line-height:1.05;font-size:18px}
+.sh-name small{font-size:11px;font-weight:500;color:var(--on-surface-3,#5e6368);letter-spacing:.1px}
+.sh-nav{display:flex;align-items:center;gap:6px;margin-left:auto}
+.sh-nav>a,.sh-drop-btn{font-size:14.5px;font-weight:600;color:var(--on-surface-2,#3c4744);padding:9px 13px;border-radius:10px;transition:all .18s;background:none;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:5px}
+.sh-nav>a:hover,.sh-drop-btn:hover{color:var(--primary);background:var(--primary-08)}
+.sh-nav>a[aria-current="page"],.sh-drop-btn[aria-current="page"]{color:var(--primary);background:var(--primary-08)}
+.sh-cta{background:linear-gradient(135deg,var(--primary),var(--accent))!important;color:#fff!important;box-shadow:var(--e1,0 1px 3px rgba(0,0,0,.12));padding:9px 18px!important}
+.sh-cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.sh-drop{position:relative}
+.sh-caret{transition:transform .22s}
+.sh-drop.open .sh-caret{transform:rotate(180deg)}
+.sh-mega{position:absolute;top:calc(100% + 12px);right:0;width:min(560px,92vw);background:#fff;border:1px solid var(--outline-2,#e6e9ee);border-radius:20px;box-shadow:var(--e4,0 16px 40px rgba(0,0,0,.16));padding:16px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .22s cubic-bezier(.2,.7,.2,1)}
+.sh-drop.open .sh-mega{opacity:1;visibility:visible;transform:translateY(0)}
+.thd-head{display:flex;align-items:center;justify-content:space-between;padding:4px 8px 12px;margin-bottom:8px;border-bottom:1px solid var(--outline-2,#eee)}
+.thd-head b{font-size:13px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-head a{font-size:12.5px;font-weight:600;color:var(--primary)}
+.thd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.thd-tool{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:13px;transition:background .16s}
+.thd-tool:hover{background:var(--primary-08)}
+.thd-ti{width:38px;height:38px;border-radius:10px;background:var(--primary-container);color:var(--primary);display:grid;place-items:center;flex:none}
+.thd-ti svg{width:20px;height:20px}
+.thd-tx{display:flex;flex-direction:column;line-height:1.2}
+.thd-tx b{font-size:14px;font-weight:700;color:var(--on-surface,#16201e)}
+.thd-tx i{font-size:11.5px;font-style:normal;color:var(--on-surface-3,#5e6368);font-weight:500}
+.sh-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.sh-burger span{width:24px;height:2.4px;border-radius:3px;background:var(--on-surface,#222);transition:.25s}
+.sh-burger.open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
+.sh-burger.open span:nth-child(2){opacity:0}
+.sh-burger.open span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
+@media(max-width:900px){
+  .sh-burger{display:flex}
+  .sh-nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;background:#fff;padding:14px max(16px,4vw) 22px;border-bottom:1px solid var(--outline-2,#e6e9ee);box-shadow:var(--e3,0 8px 24px rgba(0,0,0,.12));transform:translateY(-130%);transition:transform .3s cubic-bezier(.2,.7,.2,1);max-height:calc(100vh - 64px);overflow:auto}
+  .sh-nav.open{transform:translateY(0)}
+  .sh-nav>a,.sh-drop-btn{padding:13px 12px;font-size:16px;border-radius:12px;width:100%;justify-content:space-between}
+  .sh-drop{width:100%}
+  .sh-mega{position:static;width:100%;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:6px 0 4px;max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .sh-drop.open .sh-mega{max-height:760px}
+  .thd-grid{grid-template-columns:1fr}
+  .sh-cta{margin-top:8px;text-align:center;justify-content:center}
+}
+/* ===== Unified footer ===== */
+.site-foot{background:#0f1226;color:#c7cbe0;margin-top:0}
+.site-foot .sf-inner{max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,76px) max(16px,4vw) 30px}
+.sf-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.sf-about .sh-brand{color:#fff;margin-bottom:14px}
+.sf-about .sh-name{color:#fff}
+.sf-about p{font-size:14px;line-height:1.7;color:#9aa0c4;max-width:330px}
+.sf-social{margin-top:16px;display:flex;gap:10px}
+.sf-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);display:grid;place-items:center;color:#c7cbe0;transition:.18s}
+.sf-social a:hover{background:var(--primary);color:#fff}
+.sf-social svg{width:18px;height:18px}
+.sf-col h5{font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.7px;margin-bottom:15px}
+.sf-col a{display:block;font-size:14px;color:#9aa0c4;padding:6px 0;transition:.16s}
+.sf-col a:hover{color:#fff;padding-left:4px}
+.sf-bottom{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09);font-size:13px;color:#7e84ab}
+@media(max-width:820px){.sf-grid{grid-template-columns:1fr 1fr}.sf-about{grid-column:1/-1}}
+@media(max-width:460px){.sf-grid{grid-template-columns:1fr}}
+
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,92px) 0 clamp(40px,7vw,80px)}
+.hero::before{content:"";position:absolute;inset:-30%;z-index:0;pointer-events:none;background:radial-gradient(42% 50% at 16% 18%,rgba(79,70,229,.16),transparent 60%),radial-gradient(46% 55% at 88% 24%,rgba(14,165,233,.14),transparent 62%)}
+.hero-grid{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;background-image:linear-gradient(var(--outline-2) 1px,transparent 1px),linear-gradient(90deg,var(--outline-2) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(circle at 50% 30%,#000,transparent 72%);mask-image:radial-gradient(circle at 50% 30%,#000,transparent 72%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.hero-copy{animation:rise .8s .05s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.badge-live{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:7px 15px 7px 12px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:var(--e1);margin-bottom:22px}
+.badge-live .live{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(34px,6vw,62px);font-weight:900;letter-spacing:-1.6px;line-height:1.06}
+.hero h1 .grad{background:linear-gradient(120deg,var(--primary-light),var(--accent) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:clamp(16px,2.1vw,19px);color:var(--on-surface-3);margin:20px 0 28px;max-width:560px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-stats{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.hstat{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-s);padding:13px 16px;box-shadow:var(--e1);flex:1;min-width:104px}
+.hstat b{display:block;font-size:23px;font-weight:800;color:var(--primary);letter-spacing:-.5px}
+.hstat span{font-size:12px;color:var(--on-surface-3);font-weight:500}
+.hero-art{position:relative;animation:rise .9s .2s cubic-bezier(.2,.7,.2,1) both}
+.hero-art img{width:100%;border-radius:var(--radius-l);filter:drop-shadow(0 24px 50px rgba(79,70,229,.22))}
+.hero-art .chip{position:absolute;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid var(--outline-2);box-shadow:var(--e3);border-radius:13px;padding:9px 13px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:8px}
+.hero-art .chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.hero-art .c1{top:6%;left:-4%;animation:floaty 5s ease-in-out infinite}
+.hero-art .c2{bottom:9%;right:-3%;animation:floaty 6s ease-in-out infinite .7s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:34px}.hero-art{order:-1;max-width:440px;margin:0 auto}}
+/* trust row */
+.trust-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px;position:relative;z-index:2}
+.trust-chip{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--outline-2);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;color:var(--on-surface-2);box-shadow:var(--e1)}
+.trust-chip svg{width:16px;height:16px;color:var(--green);flex:none}
+/* problem cards */
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prob{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:28px;box-shadow:var(--e1);transition:.22s}
+.prob:hover{transform:translateY(-4px);box-shadow:var(--e3)}
+.prob .pi{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:24px;margin-bottom:16px;background:var(--primary-08)}
+.prob h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.prob p{font-size:14.5px;color:var(--on-surface-3);line-height:1.7}
+.prob a{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:14px;font-weight:700;color:var(--primary)}
+.prob a svg{transition:transform .2s}.prob:hover a svg{transform:translateX(3px)}
+@media(max-width:840px){.prob-grid{grid-template-columns:1fr}}
+/* tools grid */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tcard{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);padding:26px;box-shadow:var(--e1);transition:all .24s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden}
+.tcard::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .24s}
+.tcard:hover{transform:translateY(-6px);box-shadow:var(--e3)}
+.tcard:hover::after{opacity:1}
+.tcard .tic{width:54px;height:54px;border-radius:15px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:grid;place-items:center;box-shadow:var(--e1)}
+.tcard .tic svg{width:27px;height:27px}
+.tcard .ttag{position:absolute;top:22px;right:22px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);background:var(--accent-c);padding:4px 10px;border-radius:999px}
+.tcard h3{font-size:19px;font-weight:800;letter-spacing:-.4px}
+.tcard p{font-size:14px;color:var(--on-surface-3);line-height:1.65;flex:1}
+.tcard .tgo{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:700;color:var(--primary);margin-top:2px}
+.tcard:hover .tgo svg{transform:translateX(4px)}.tcard .tgo svg{transition:transform .2s}
+@media(max-width:920px){.tg{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tg{grid-template-columns:1fr}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.step{text-align:center;position:relative;z-index:1}
+.step .sn{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:var(--surface);border:2px solid var(--primary-light);color:var(--primary);display:grid;place-items:center;font-size:24px;font-weight:800;box-shadow:var(--e2)}
+.step h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--on-surface-3);line-height:1.7;max-width:300px;margin:0 auto}
+.flow-line{position:absolute;top:32px;left:18%;right:18%;height:2px;background:repeating-linear-gradient(90deg,var(--primary-light) 0 8px,transparent 8px 16px);z-index:0}
+@media(max-width:840px){.steps{grid-template-columns:1fr;gap:34px}.flow-line{display:none}}
+/* why band */
+.why{background:var(--surface);border-top:1px solid var(--outline-2);border-bottom:1px solid var(--outline-2)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why-card{text-align:left}
+.why-card .wi{width:48px;height:48px;border-radius:13px;background:var(--primary-08);color:var(--primary);display:grid;place-items:center;margin-bottom:14px}
+.why-card .wi svg{width:24px;height:24px}
+.why-card h3{font-size:16.5px;font-weight:700;margin-bottom:7px}
+.why-card p{font-size:14px;color:var(--on-surface-3);line-height:1.65}
+@media(max-width:840px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+/* blog teaser */
+.bt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bt-card{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--e1);transition:.22s;display:flex;flex-direction:column}
+.bt-card:hover{transform:translateY(-4px);box-shadow:var(--e3)}
+.bt-top{height:8px;background:linear-gradient(90deg,var(--primary),var(--accent))}
+.bt-body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.bt-body .cat{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent)}
+.bt-body h3{font-size:17.5px;font-weight:700;line-height:1.3}
+.bt-body p{font-size:14px;color:var(--on-surface-3);line-height:1.6;flex:1}
+.bt-body .rd{font-size:13.5px;font-weight:700;color:var(--primary);display:inline-flex;gap:6px;align-items:center}
+@media(max-width:840px){.bt-grid{grid-template-columns:1fr}}
+/* final cta */
+.cta-band{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:var(--radius-xl);padding:clamp(40px,7vw,72px);text-align:center;color:#fff;box-shadow:var(--e3)}
+.cta-band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 40%),radial-gradient(circle at 85% 75%,rgba(255,255,255,.12),transparent 45%)}
+.cta-band>*{position:relative;z-index:1}
+.cta-band h2{font-size:clamp(26px,4.4vw,42px);font-weight:800;color:#fff;letter-spacing:-.6px}
+.cta-band p{color:rgba(255,255,255,.9);font-size:17px;margin:14px auto 28px;max-width:560px}
+.cta-band .btn-primary{background:#fff;color:var(--primary)}
+.cta-band .btn-primary:hover{background:#f1f1ff}
+/* faq */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--surface);border:1px solid var(--outline-2);border-radius:var(--radius);overflow:hidden;transition:.2s}
+.faq-item summary{cursor:pointer;list-style:none;padding:20px 22px;font-size:16px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .pl{flex:none;width:26px;height:26px;border-radius:50%;background:var(--primary-08);color:var(--primary);display:grid;place-items:center;font-size:18px;transition:transform .25s}
+.faq-item[open] summary .pl{transform:rotate(45deg)}
+.faq-item .fa{padding:0 22px 20px;font-size:14.5px;color:var(--on-surface-3);line-height:1.75}
+
+</style>
+</head>
+<body>
+<header class="site-head" id="siteHead">
+  <div class="sh-inner">
+    <a class="sh-brand" href="index.html" aria-label="TechFineHub home">
+      <span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span>
+      <span class="sh-name">TechFineHub<small>Smart device tools</small></span>
+    </a>
+    <button class="sh-burger" id="shBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="sh-nav" id="shNav">
+      <a href="index.html" aria-current="page">Home</a>
+      <div class="sh-drop" id="shDrop">
+        <button class="sh-drop-btn" aria-expanded="false">
+          Toolkit
+          <svg class="sh-caret" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="sh-mega" role="menu">
+          <div class="thd-head"><b>All 6 free tools</b><a href="toolkit.html">View toolkit →</a></div>
+          <div class="thd-grid"><a class="thd-tool" href="charger-health-analyzer.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Charger Health</b><i>Diagnostic</i></span></a><a class="thd-tool" href="wifi-health-score-checker.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>WiFi Health</b><i>Score</i></span></a><a class="thd-tool" href="phone-camera-health-test.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Camera Health</b><i>Test</i></span></a><a class="thd-tool" href="screen-time-health-score.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Screen Time</b><i>Score</i></span></a><a class="thd-tool" href="mobile-data-usage-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Data Calculator</b><i>Calculator</i></span></a><a class="thd-tool" href="phone-resale-value-calculator.html"><span class="thd-ti"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="thd-tx"><b>Resale Value</b><i>Calculator</i></span></a></div>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="sh-cta" href="toolkit.html">Explore tools</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap"><div class="hero-inner">
+    <div class="hero-copy">
+      <span class="badge-live"><span class="live"></span> 6 free tools · No sign-up · 100% private</span>
+      <h1>Your everyday tech, <span class="grad">finally figured out.</span></h1>
+      <p class="hero-sub">Got a problem with your phone, charger, WiFi or screen habits? Chances are the answer is already here. TechFineHub turns confusing device problems into a simple 0–100 score with clear, practical fixes — no heavy scans, no jargon, no expert needed.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="toolkit.html">Explore the toolkit <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>6</b><span>Free smart tools</span></div>
+        <div class="hstat"><b>0–100</b><span>Easy health scores</span></div>
+        <div class="hstat"><b>90s</b><span>Average time per tool</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/hero-devices.png" alt="Illustration of a phone, charger, WiFi router and camera with a health score gauge" width="520" height="520" loading="eager">
+      <span class="chip c1"><i style="background:var(--green)"></i> Battery healthy</span>
+      <span class="chip c2"><i style="background:var(--accent)"></i> WiFi score 92</span>
+    </div>
+  </div></div>
+  <div class="wrap"><div class="trust-row">
+    <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> No sign-up needed</span>
+    <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Private by design</span>
+    <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Works on any device</span>
+    <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Built for non-techies</span>
+  </div></div>
+</section>
+
+<!-- PROBLEM -> SOLUTION -->
+<section class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Sound familiar?</span>
+      <h2>The problem you're searching for — we've already built the fix</h2>
+      <p>You don't need expensive gadgets or a repair shop to understand what's wrong. Just answer a few simple questions and get a clear answer in seconds.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob reveal"><div class="pi">🔋</div><h3>"Is my charger hurting my battery?"</h3><p>Slow charging, a hot plug or a frayed cable can quietly damage your phone. Find out in 90 seconds.</p><a href="charger-health-analyzer.html">Check my charger <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="prob reveal"><div class="pi">📶</div><h3>"Why is my WiFi so slow?"</h3><p>Constant buffering, dropouts and reboots have causes you can actually fix. Get your router's health score.</p><a href="wifi-health-score-checker.html">Score my WiFi <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="prob reveal"><div class="pi">🧠</div><h3>"Am I on my phone too much?"</h3><p>Screen time, eye strain and poor sleep add up. See your digital-wellness score — great for parents too.</p><a href="screen-time-health-score.html">Check my habits <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="pad" id="tools" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> The toolkit</span>
+      <h2>6 free tools for the problems people actually have</h2>
+      <p>Each tool gives you an instant 0–100 score and a short list of fixes you can act on today. Pick the one that matches your problem.</p>
+    </div>
+    <div class="tg"><a class="tcard reveal" href="charger-health-analyzer.html">
+        <span class="ttag">Diagnostic</span>
+        <span class="tic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Charger Health Analyzer</h3>
+        <p>Run a 5-parameter diagnostic on your phone charger — thermal, voltage, cable, PMIC & efficiency — and get an instant health score with fixes.</p>
+        <span class="tgo">Run diagnostic <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="tcard reveal" href="wifi-health-score-checker.html">
+        <span class="ttag">Score</span>
+        <span class="tic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.1a6 6 0 0 1 7 0M12 19.5h.01M2 8.82a15 15 0 0 1 20 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>WiFi Router Health Score</h3>
+        <p>Answer 6 quick questions to get a 0–100 WiFi router health score with practical fixes for slow speed, weak signal and disconnections.</p>
+        <span class="tgo">Check score <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="tcard reveal" href="phone-camera-health-test.html">
+        <span class="ttag">Test</span>
+        <span class="tic"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Phone Camera Health Test</h3>
+        <p>A 5-parameter camera health test that scores sharpness, focus, low-light and stabilisation (0–100) and tells you what to fix.</p>
+        <span class="tgo">Test camera <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="tcard reveal" href="screen-time-health-score.html">
+        <span class="ttag">Score</span>
+        <span class="tic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Screen Time Health Checker</h3>
+        <p>Check how screen time, eye strain and sleep habits affect you — a 0–100 wellness score with simple fixes for students, adults & parents.</p>
+        <span class="tgo">Check score <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="tcard reveal" href="mobile-data-usage-calculator.html">
+        <span class="ttag">Calculator</span>
+        <span class="tic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Mobile Data Usage Calculator</h3>
+        <p>Set your daily YouTube, WhatsApp, TikTok & gaming habits to see your monthly GB — and the best plan across 40+ carriers worldwide.</p>
+        <span class="tgo">Calculate data <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a><a class="tcard reveal" href="phone-resale-value-calculator.html">
+        <span class="ttag">Calculator</span>
+        <span class="tic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Phone Resale Value Calculator</h3>
+        <p>Enter brand, age, condition & scratch level to get an instant estimated resale price range — know a fair price before you buy or sell.</p>
+        <span class="tgo">Estimate value <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></div>
+    <div style="text-align:center;margin-top:36px" class="reveal"><a class="btn btn-primary" href="toolkit.html">See the full toolkit <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="pad why" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> How it works</span>
+      <h2>Three simple steps to your answer</h2>
+      <p>No installs, no scans, no confusion. If you can answer a few questions, you can use every tool here.</p>
+    </div>
+    <div class="steps">
+      <div class="flow-line"></div>
+      <div class="step reveal"><div class="sn">1</div><h3>Pick your tool</h3><p>Choose the tool that matches your problem — charger, WiFi, camera, screen time, data or resale value.</p></div>
+      <div class="step reveal"><div class="sn">2</div><h3>Answer a few questions</h3><p>Tap through a short, guided set of simple questions. It takes about 90 seconds and works on any device.</p></div>
+      <div class="step reveal"><div class="sn">3</div><h3>Get your score &amp; fixes</h3><p>See your instant 0–100 score with a clear explanation and practical steps you can act on right away.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Why TechFineHub</span>
+      <h2>Made for people who like to fix things themselves</h2>
+      <p>We designed every tool for curious, everyday users — not engineers. Clear language, honest results, zero pressure.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="wi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Private by design</h3><p>No accounts, no logins, no heavy scanning. Your answers stay with you.</p></div>
+      <div class="why-card reveal"><div class="wi"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><h3>Instant results</h3><p>Get a clear score and recommendations in under two minutes — no waiting.</p></div>
+      <div class="why-card reveal"><div class="wi"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16l3-4 3 2 4-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Honest &amp; useful</h3><p>Results grounded in real engineering and wellness principles, explained simply.</p></div>
+      <div class="why-card reveal"><div class="wi"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M2 21a7 7 0 0 1 14 0M17 11a3 3 0 1 0-2-5.2M22 21a5.5 5.5 0 0 0-4-5.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>For everyone</h3><p>Friendly enough for students and parents, useful enough for power users.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG TEASER -->
+<section class="pad" style="background:var(--surface-2);padding-top:clamp(40px,7vw,80px)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> From the blog</span>
+      <h2>Guides that go deeper</h2>
+      <p>Want to understand the "why" behind your score? Our guides break down each topic in plain English.</p>
+    </div>
+    <div class="bt-grid">
+      <a class="bt-card reveal" href="blog-charger-battery-health.html"><div class="bt-top"></div><div class="bt-body"><span class="cat">Charging</span><h3>7 charging habits that secretly kill your battery</h3><p>Small daily habits add up. Here's what to stop doing — and what to do instead.</p><span class="rd">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+      <a class="bt-card reveal" href="blog-fix-slow-wifi.html"><div class="bt-top"></div><div class="bt-body"><span class="cat">WiFi</span><h3>Why your WiFi is slow (and 9 fixes that actually work)</h3><p>From router placement to channels — a simple checklist to get your speed back.</p><span class="rd">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+      <a class="bt-card reveal" href="blog-reduce-screen-time.html"><div class="bt-top"></div><div class="bt-body"><span class="cat">Wellness</span><h3>A realistic guide to healthier screen time</h3><p>No guilt, no extremes — practical habits for you and your kids that actually stick.</p><span class="rd">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a>
+    </div>
+    <div style="text-align:center;margin-top:34px" class="reveal"><a class="btn btn-ghost" href="blog.html">Visit the blog <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pad" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> FAQ</span>
+      <h2>Questions, answered</h2>
+      <p>Everything you might wonder before using TechFineHub.</p>
+    </div>
+    <details class="faq-item reveal"><summary>Are these tools really free?<span class="pl">+</span></summary><div class="fa">Yes — every tool on TechFineHub is 100% free with no sign-up, no credit card and no hidden upsell. You get your full result and fixes instantly.</div></details><details class="faq-item reveal"><summary>Do you need to install anything?<span class="pl">+</span></summary><div class="fa">No. Everything runs right in your browser on any phone, tablet or computer. There's nothing to download and nothing to update.</div></details><details class="faq-item reveal"><summary>Is my data private?<span class="pl">+</span></summary><div class="fa">Completely. The tools work on your device using the answers you provide — we don't run heavy scans, and we don't need access to your accounts, files or personal data.</div></details><details class="faq-item reveal"><summary>Who are these tools for?<span class="pl">+</span></summary><div class="fa">Everyday people who like to understand and fix their own devices — students, parents, professionals and anyone curious about their phone, charger, WiFi or screen habits. No technical knowledge required.</div></details><details class="faq-item reveal"><summary>How accurate are the scores?<span class="pl">+</span></summary><div class="fa">Each score reflects the information you provide, mapped against widely-accepted engineering and wellness principles. The more honestly you answer, the more useful and accurate your result and recommendations.</div></details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap"><div class="cta-band reveal">
+    <h2>Ready to figure out your tech?</h2>
+    <p>Pick a tool, answer a few questions, and get your score with clear fixes — free, private and in under two minutes.</p>
+    <a class="btn btn-primary" href="toolkit.html">Explore all 6 tools <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div></div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="sf-inner">
+    <div class="sf-grid">
+      <div class="sf-about">
+        <a class="sh-brand" href="index.html"><span class="sh-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></span><span class="sh-name">TechFineHub</span></a>
+        <p>Free, private, easy-to-use tools that help everyday people understand and fix their phones, chargers, WiFi and digital habits — no sign-up, no jargon.</p>
+        <div class="sf-social" aria-label="Social links">
+          <a href="contact.html" aria-label="Contact"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4zM4 6l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="sf-col"><h5>Toolkit</h5><a href="charger-health-analyzer.html">Charger Health</a><a href="wifi-health-score-checker.html">WiFi Health</a><a href="phone-camera-health-test.html">Camera Health</a><a href="screen-time-health-score.html">Screen Time</a><a href="mobile-data-usage-calculator.html">Data Calculator</a><a href="phone-resale-value-calculator.html">Resale Value</a></div>
+      <div class="sf-col"><h5>Company</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="sf-col"><h5>Resources</h5>
+        <a href="toolkit.html">All tools</a>
+        <a href="blog.html">Guides &amp; tips</a>
+        <a href="contact.html">Help &amp; support</a>
+      </div>
+    </div>
+    <div class="sf-bottom">
+      <span>© 2026 TechFineHub. All rights reserved.</span>
+      <span>Made with care for everyday device owners.</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var burger=document.getElementById('shBurger'),nav=document.getElementById('shNav'),drop=document.getElementById('shDrop');
+  if(burger){burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});}
+  if(drop){var db=drop.querySelector('.sh-drop-btn');
+    db.addEventListener('click',function(e){e.stopPropagation();var o=drop.classList.toggle('open');db.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!drop.contains(e.target))drop.classList.remove('open');});
+    drop.addEventListener('mouseenter',function(){if(window.innerWidth>900)drop.classList.add('open');});
+    drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)drop.classList.remove('open');});
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(drop)drop.classList.remove('open');if(nav){nav.classList.remove('open');if(burger){burger.classList.remove('open');burger.setAttribute('aria-expanded',false);}}}});
+})();
+</script>
+<script>
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));return;}
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});})();
+</script>
+
+</body>
+</html>
