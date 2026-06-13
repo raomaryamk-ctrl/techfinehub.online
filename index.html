@@ -478,6 +478,9 @@ h1,h2,h3,h4{letter-spacing:-.4px;line-height:1.16;color:var(--on-surface)}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 els.forEach(function(e){io.observe(e);});})();
 </script>
-
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
